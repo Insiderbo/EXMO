@@ -1,0 +1,16 @@
+C:\Users\insiderbo\Desktop\EXMO\.net\bin\Debug\netcoreapp3.1\WebSocketClient.exe
+C:\Users\insiderbo\Desktop\EXMO\.net\bin\Debug\netcoreapp3.1\WebSocketClient.deps.json
+C:\Users\insiderbo\Desktop\EXMO\.net\bin\Debug\netcoreapp3.1\WebSocketClient.runtimeconfig.json
+C:\Users\insiderbo\Desktop\EXMO\.net\bin\Debug\netcoreapp3.1\WebSocketClient.runtimeconfig.dev.json
+C:\Users\insiderbo\Desktop\EXMO\.net\bin\Debug\netcoreapp3.1\WebSocketClient.dll
+C:\Users\insiderbo\Desktop\EXMO\.net\bin\Debug\netcoreapp3.1\WebSocketClient.pdb
+C:\Users\insiderbo\Desktop\EXMO\.net\obj\Debug\netcoreapp3.1\WebSocketClient.csproj.AssemblyReference.cache
+C:\Users\insiderbo\Desktop\EXMO\.net\obj\Debug\netcoreapp3.1\WebSocketClient.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\insiderbo\Desktop\EXMO\.net\obj\Debug\netcoreapp3.1\WebSocketClient.AssemblyInfoInputs.cache
+C:\Users\insiderbo\Desktop\EXMO\.net\obj\Debug\netcoreapp3.1\WebSocketClient.AssemblyInfo.cs
+C:\Users\insiderbo\Desktop\EXMO\.net\obj\Debug\netcoreapp3.1\WebSocketClient.csproj.CoreCompileInputs.cache
+C:\Users\insiderbo\Desktop\EXMO\.net\obj\Debug\netcoreapp3.1\WebSocketClient.dll
+C:\Users\insiderbo\Desktop\EXMO\.net\obj\Debug\netcoreapp3.1\WebSocketClient.pdb
+C:\Users\insiderbo\Desktop\EXMO\.net\obj\Debug\netcoreapp3.1\WebSocketClient.genruntimeconfig.cache
+C:\Users\insiderbo\Desktop\EXMO\.net\obj\Debug\netcoreapp3.1\WebSocketClient.csproj.CopyComplete
+C:\Users\insiderbo\Desktop\EXMO\.net\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll

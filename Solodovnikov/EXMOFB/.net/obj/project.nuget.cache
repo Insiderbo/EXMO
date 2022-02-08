@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "by3+DcAL0l3dn8+rkzwJ8yDIhkfODQsCoet+cQQCGhXcODVUPCQoEcO+lNAf9ErfLoGZmoPJgBy3twRzu9nSDw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\insiderbo\\Desktop\\EXMO\\.net\\WebSocketClient.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\insiderbo\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\insiderbo\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.22\\microsoft.netcore.app.host.win-x64.3.1.22.nupkg.sha512"
+  ],
+  "logs": []
+}

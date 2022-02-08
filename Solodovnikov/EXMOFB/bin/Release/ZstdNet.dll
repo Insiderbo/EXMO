@@ -1,0 +1,295 @@
+Ôªø<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="EXMOPR.exe" version="1.0.0.30" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="EXMOPR" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <commandLine file="EXMOPR.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          –ü–∞—Ä–∞–º–µ—Ç—Ä—ã –º–∞–Ω–∏—Ñ–µ—Å—Ç–∞ UAC
+          –ï—Å–ª–∏ –Ω—É–∂–Ω–æ –∏–∑–º–µ–Ω–∏—Ç—å —É—Ä–æ–≤–µ–Ω—å –∫–æ–Ω—Ç—Ä–æ–ª—è —É—á–µ—Ç–Ω—ã—Ö –∑–∞–ø–∏—Å–µ–π Windows, –∑–∞–º–µ–Ω–∏—Ç–µ 
+          —É–∑–µ–ª requestedExecutionLevel –æ–¥–Ω–∏–º –∏–∑ —Å–ª–µ–¥—É—é—â–∏—Ö –∑–Ω–∞—á–µ–Ω–∏–π.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+        –ï—Å–ª–∏ –Ω—É–∂–Ω–æ –∏—Å–ø–æ–ª—å–∑–æ–≤–∞—Ç—å –≤–∏—Ä—Ç—É–∞–ª–∏–∑–∞—Ü–∏—é —Ñ–∞–π–ª–æ–≤ –∏ —Ä–µ–µ—Å—Ç—Ä–∞ –¥–ª—è –æ–±—Ä–∞—Ç–Ω–æ–π
+             —Å–æ–≤–º–µ—Å—Ç–∏–º–æ—Å—Ç–∏, —É–¥–∞–ª–∏—Ç–µ —É–∑–µ–ª requestedExecutionLevel.
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="BouncyCastle.Crypto.dll" size="2531328">
+      <assemblyIdentity name="BouncyCastle.Crypto" version="1.8.5.0" publicKeyToken="0E99375E54769942" language="neutral" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>pkUxy9puRCzT8+NR1z1AhrzgCfuXnvkLKPb6RRIvXI8=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="EXMOPR.exe" size="72112">
+      <assemblyIdentity name="EXMOPR" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>Tp/VL6vgzRszEBV8Uxg5Vw1/UcnZiaW/amoHERctInU=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Google.Protobuf.dll" size="389616">
+      <assemblyIdentity name="Google.Protobuf" version="3.14.0.0" publicKeyToken="A7D26565BAC4D604" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>LAYio0GLM6iB7Yzp/UB7P8TyssxLkj7eqnZ4W1zSjw8=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="K4os.Compression.LZ4.dll" size="60416">
+      <assemblyIdentity name="K4os.Compression.LZ4" version="1.2.6.0" publicKeyToken="2186FA9121EF231D" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>7HurV05mun2+z1+wExxfgokBxNE/LBF44nXWEaP6sS4=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="K4os.Compression.LZ4.Streams.dll" size="33280">
+      <assemblyIdentity name="K4os.Compression.LZ4.Streams" version="1.2.6.0" publicKeyToken="2186FA9121EF231D" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>TDtzhPHVMrpOEQAbdbZ/WuAaKo5CnL94FhwPUENVvmw=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="K4os.Hash.xxHash.dll" size="12288">
+      <assemblyIdentity name="K4os.Hash.xxHash" version="1.0.6.0" publicKeyToken="32CD54395057CEC3" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>EQ80i1BW05RFWHofw8nY4upHJV2z3owIUJDXc8sbY4o=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MySql.Data.dll" size="1425920">
+      <assemblyIdentity name="MySql.Data" version="8.0.27.0" publicKeyToken="C5687FC88969C44D" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>1S77XaaVwVwKQ/df0OIC678uf/PAZxc8R3cFknvQOQ4=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Newtonsoft.Json.dll" size="701992">
+      <assemblyIdentity name="Newtonsoft.Json" version="13.0.0.0" publicKeyToken="30AD4FE6B2A6AEED" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>tiSUnfiw46YVP9+3MKfG9JkLZZLuDZIuF4hDPSdmEPM=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="RestSharp.dll" size="190464">
+      <assemblyIdentity name="RestSharp" version="106.15.0.0" publicKeyToken="598062E77F915F75" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>N78qiBXhgzFT/5LQvsOhQF9cXxRohNBWOpa6zRsAdPk=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="System.Buffers.dll" size="20856">
+      <assemblyIdentity name="System.Buffers" version="4.0.3.0" publicKeyToken="CC7B13FFCD2DDD51" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>rMzPvkXZ8I/+7ZkW43sz6YxlvgEs//bn+ntnIQzh/vs=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="System.Memory.dll" size="141184">
+      <assemblyIdentity name="System.Memory" version="4.0.1.1" publicKeyToken="CC7B13FFCD2DDD51" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>jnYxjosGaSq/fasRadJ9FVV/fwo002r2Rj7/D+ISE8c=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="System.Numerics.Vectors.dll" size="115856">
+      <assemblyIdentity name="System.Numerics.Vectors" version="4.1.4.0" publicKeyToken="B03F5F7F11D50A3A" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>HT74aYKB589zcdFVSv71hys5+Wwm2nciEKM9oEG6EYM=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="System.Runtime.CompilerServices.Unsafe.dll" size="16768">
+      <assemblyIdentity name="System.Runtime.CompilerServices.Unsafe" version="5.0.0.0" publicKeyToken="B03F5F7F11D50A3A" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>PK3La4pzNRQcfDV6HXevH/SbWbhy30lPUCVYAZHRwNU=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Ubiety.Dns.Core.dll" size="55808">
+      <assemblyIdentity name="Ubiety.Dns.Core" version="2.2.1.0" publicKeyToken="C5687FC88969C44D" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>AZnuMl92VNQ74m4O+fXzc+nN9LZP1xsfoplS4lGNs4k=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="websocket-sharp.dll" size="249856">
+      <assemblyIdentity name="websocket-sharp" version="1.0.2.32519" publicKeyToken="5660B08A1845A91E" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>yFw9j653RehfzJeECtgAAo67P5y+WaU6n4pW+qWgHO8=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ZstdNet.dll" size="28672">
+      <assemblyIdentity name="ZstdNet" version="1.4.5.0" publicKeyToken="C5687FC88969C44D" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>5rrHKgOqMPqN1beBJzpCDZqXH9jaD2Uf7MolVellyt4=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="EXMOPR.exe.config" size="550">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>XEVvre3IarDTMWHmhbTIM3cjRERtE+jKfblLfAsXbPI=</dsig:DigestValue>
+    </hash>
+  </file>
+</asmv1:assembly>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        aramref name="T" />.</exception>
+      <exception cref="T:System.TypeLoadException">
+        <typeparamref name="T" /> cannot be found.</exception>
+      <returns>A <see langword="mutable ref" /> to the boxed value <paramref name="box" />.</returns>
+    </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.Write``1(System.Void*,``0)">
+      <summary>Writes a value of type <typeparamref name="T" /> to the given location.</summary>
+      <param name="destination">The location to write to.</param>
+      <param name="value">The value to write.</param>
+      <typeparam name="T">The type of value to write.</typeparam>
+    </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.WriteUnaligned``1(System.Byte@,``0)">
+      <summary>Writes a value of type <typeparamref name="T" /> to the given location without assuming architecture dependent alignment of the addresses.</summary>
+      <param name="destination">The location to write to.</param>
+      <param name="value">The value to write.</param>
+      <typeparam name="T">The type of value to write.</typeparam>
+    </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.WriteUnaligned``1(System.Void*,``0)">
+      <summary>Writes a value of type <typeparamref name="T" /> to the given location without assuming architecture dependent alignment of the addresses.</summary>
+      <param name="destination">The location to write to.</param>
+      <param name="value">The value to write.</param>
+      <typeparam name="T">The type of value to write.</typeparam>
+    </member>
+  </members>
+</doc>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  ËúŸ_![P^WnO!¬˝∏÷é¬äÎÂµˇª˜˚p.<¬•£ΩΩT1‰gñxˇ∏V~Øﬁ°˝+ât'él°˝ñ˙JZøH†Eó“Ò{tﬁw∏8ÍEú≤ƒrïpxæ.Uæûü{Ω√‹ÿB9„D3VxΩ‹+[ë†woŒˇTfïÒRûám°Ì}Ÿ—yLø™ª/jÁŸ¡vºıkÚMÑáıâ◊ø⁄€y∞hqTgcA≤o˜K‰¡Æïi#v≠<Ã'<, «ÅZ+OµV˜£q˘˝–˝Ãd#Ï'ìUº¬}y¬∫i˚ΩÄ÷Õ ã÷Õ „åx⁄öªö”Ì±{ƒå⁄<˘≥4”•Q 6•Ò44◊ıåø/x_ä†¯M’'âÄß¡eZ¯2¯68ôîÿˇ’ØDÉB∞ø¥˚å˜)ºÕﬁÇÚö:|’ﬂo;,Y˛IﬂÒœØ©;ádH´˘Ωˇﬁæßﬂõ1IÊe˘l˚Æ⁄˚WÜHºÏ
+üãËK∂0àÿ:Ï™-ˆÇ˝¿p=©µê÷P£‚kıI›gÈyı˜LíÎ–&˛	Tè˛l_k—vázB˝w:“◊Û˝Øs˜tNE”IG„f“–ùà"ûeW—£Ñ©ájÍÈüy®≈˝∏Ùg[Ÿë˛ë‹”π•@üÙ~z„˜íæ U¶°GœGÉ~ú√sXÊH‹G õÉøHÁÍÀB’?„b†~†˝∂ §qCc•¬Ôpxß√{@ç'*ÎQÁØæ$yïΩˇßAçøK¿ù.\mIr≤ìpçCŸQÓK~úMº:7—-ÖÌ¥ê6K™	§±hÄ4;
+œë&QwΩ◊.®¥DÔ¬j€®≤§Á?SﬂFç+E¥˚W_Å	ıF◊œËD„∑A	˜ø.˙˝_}Ç„K´}@CW¯[å≤À	_¬@õ«Å‹˘&≠IÕãùp€wˆtg˝vPy¥^P˘ñÇæÔÎ>hX^úê±˜™ €«|ﬂ◊0è>∆è›ix.¨>»πé=;ª	úèˇÕßë§¬U>˘ü. 5÷1&(Ø¬UÓE∏À¿≈`5x28[úÍÓëŒﬁ™¡2p#HÇ+@•{#®t~‚Aáè:|<9ΩüîŸ≥é_≤œ=8’◊ù\≠¨†,FIç˛ﬁg8>d|ò
+wk+Ìπ{rûz¥çì¯≥ª±b vŒOhsâÒRœ˚◊∫≥7®€∏∑W“o£ùı ˘g^‰YX@Ω’fÖœ“fÑﬂáÖo;º›˘?‰ŒˇØ.ùóù˚zÁÊ¨’∆—•{éãWÓ¸õú\gáß{9á:'Ê—‹Ó‹«;7˝—˙G\æ:ˇÀù‹◊]¯óÆÊo•3‹Ö´ =ÿaç√{˛’…ÈÆ•‰4N	=∏Á◊ùˇ@óèá\<Â+æQ‡±5)Uªê¢y ı¬V¬Ì≈˜Q¨˛–Aí¨l[ë —ŸAóÄÑ¯mâŸ¥P81Àm ÓﬁìºµëÇä€"èâ2,ÊZôc˜*⁄	ù¡ÿÿNê…iOë†Y≥>Ì¸t« <Œá57ŒÖœÕJ∏ﬁoÖoÑÔÄÔÖÅüÇu>˘º˛÷‹›ŒÅµ~’˚œRx1¨9m5‹ïu∞Œ0ÔÜué˘¸¨sÃ}v,êeÜg™¥ÈpF¬¯dôë	˛˘Û°Ç…Z4ÀwnGæ≥qÚ¥ßoñOouÅ4QG∫è√ Íu\`ÛÂ.ÚÏÂCßÉü>	:"&<§Ù≤*Wƒ•ùO⁄>?⁄GEL¬ºÑÙ√∞0˝|ñ?>é˙Iƒ]¥ÒóÈºû0Ã≈!Oæz_1Õó‚º|ËÔ‰ãöu‹eÂ[^`Ûq¬0€z:äòÊÀd^>ÙwÚl„º¸N+^¢ÿüòÊ ∏):®-êC{kØ˝⁄P”yW‰Ê!H¯,Q∏í9ÑK¨W+~º«7^∞9ˆ„ÖÓMFLÛeJ/˙;yÊ?Nﬁ¬aõ'˝ÖD'sq¶4Î–ùúàiæXËÂC'_Æw·|≤… ∑}!–«e\‹äñÛDß6ÊâN~û®j÷£uX';oÌ˙B Î	eúûh≥¥˛
+„6ø|Òq¬0ß∫9éÊëN¶Â'„∞hLú˜“Lx8Ôe’ß”|y*õÌ,ˇÆÌÃ€]˝L|›KæK;Ú]º<∂bz⁄ıBw{ƒS≤h¡Ë≥ÍcV,ÆØ	oiíPä8hå_ﬂ≠ ¢q}ê…˛Úë¶oc6=QgCµå˘c◊ŸΩß,¥gÊ‰Ë¸|¸q¯§¥Ù‰›°o?ÛíÃ†…ºG"…§Uà˝–å˚ºå˝„À3q÷¨I≥
+fïZYü^€È˚√…pœ§r$“.Èª/©ò‚¬	Öìä’ç,Ì^Gñ—zM§}TGt∏/á‰˘Q£¡‰è/ /üœ:L¥{}}Õ+nD˜FüˇRâ_0qr¡Ïbñ¢ñvØØO¸o/Ø¶ú{‘góÕy”‚"0Ωj≈ä)¶∞®¥pÚ‰Ò≈–ói˜ÆP÷Q}ÒU¥ÙM43gM(-ôËJ∏˚Ú¥˜x§O{‡éÍãØ®•o≤ôê_8•h¸L6–Óı∞wè%ßqæ£˙Z¨˙•sí?ifQA~	h˜:˚«◊q:Wh›œ¶ïñ◊≠RO+≠Ø\∑ÜãÛ£
+«è/_Q5∂|ÚÑ)cã
+ «èùí_ô?vJUuyA~AuA˘î	”Õ§Ÿ3KãKu
+<ˆ¡º∑}Yrï°V§0˘∑÷-1ÖÉv!Öçu‹:PaÀ`ﬁôÌB
+ªfÈ±)ÏY∏Ωx∫Æ≥ï÷§x∑£≥˝÷§0›go¥UòÓ'˛ÌÇóPòﬁëÎ°HnOz÷ù
+oóD€)Lw%X&Yj¶ªá∑¶;	~Ò⁄:û˛“«K⁄mæÙ7é˝]ö≠√∂Êø†uÅ'ÂSﬂ÷ﬂa˘'ÖÈ}äoú,€‚d√xπ≤]êõ&Ïs≠Hg—≤ñ˜œ˜!Úı~¬n∂4i¨õ“yøúA:]±g1ˇ≠p?qœ‰Ò=“^¨ÑZë⁄≈’píæ6éîï…JèŸk∑ﬂ§Jj∂ø›ï§Ñ˜È+TI CÇ[*˘‚Ûã/°%Oèˇ*úˇéüÎ2Õ≠Z$§n∂”ÑœÒ´Û¬µü‚yAè# ∆q9Ál} Àå+[PR^π:j∆’ÒÌ∞3Æ!V9n5”à∆*jÎ+œ=™kj£„™í¸›?´k?$ù¯ùµ‰Î‡C`æzˆK‚~$àµ˘º˝™≤Õ/’%_„>}0.˘Ÿ°BΩÕ[ŸMÛi?ÿˆ#˝Òt)ÏÁYÕâ®u”®Ω°ıÄ$˚¬ö˚∆0/È.¡O¡ﬁ‡0˚i£oôÙ G√ä+zÂ‰ÒRµœ4òr`›K”:ÍøYà$Æß~G∆/C”¬VÔÜıÌñﬁ»j}]ÀI@≤˜íÊy∏Wv%‹èE√p5®µÖÙhm£5Åˆ)ZÂr¨moq¸dm";Ë`°,;…^Z+…≤≠Ï#€»Æ≤ùÍ@ÎÌSµÏ kø*[ÎK£2sÁK˜eÛy4òÖµF´‹#·Q∞ÏØ˝∞÷™˘88÷é º%¡√AFS≤¸¶≤õ\$Î˚œ©Ôˇ'∑^>≠‘íUˇ©ÔˇZ5ñ\=…™ˇ‘˜ˇì[/üVj…™ˇ‘˜ˇ?≠€?zt∂&Ú∫Røá∫Rﬂˇ˜ß⁄Á…üµÔÎ¨/uˇ;uˇ€ès◊¥I:w•ÓsÄ’Õ∞ûÌôoó:∑“ŸîŒõtñ4ûó¡+·Zxºæææ~~
+~	~ﬁ	wEs?8N›ˇ∆ )Íê4˛ßÓˇÏÈn≈°~ˇßCMe°‘˝Ô]Lr–y‰0ù•∑ìkø6‘‹ü∫ˇ›éë	Ô‘˝ø]Ô†ÊMK›ˇK›ˇKÏﬁZ‹ßÓˇÖIú3dóÉÂ˛ﬂbÚz'¸\©å∑¢_·∑ê91I7¥í}ˇ/Lo?\Ã„Rúø´î§¢'\≥€ﬂó‡¸•˘}‹µ;¿o.ÓÀ˝ø5ámæU]··€ü\sÔì)Ω˙ÃágΩ⁄Ø«€©˚Õˇo‚ÊßéˇoãS˜ˇˆı¸ú∫ˇßs¬˝}ˇo>ùˇ”æˇß{gÛ·∞ÓˇÕÇu˛9>>	÷ù»ﬁ∞øˇWÃÛXwµ˛‡∫°=7=‰õkˆo=ˆÁ˝øôË(ÅK·9l¯`øˇ∑ê2§(eÅîRHY eÅî>[¯?ª%P                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           Õ-›QÄ† $  Ä  î      $  RSA1     ŸsΩ©qu,x)A&óJA†ÜCÇqˆ_¿˚<‘_eç†ºßZ«@g—éz˚ÒF}zQú‡$ãqó(¥›‘Ï◊X˛	ﬂ√i$«·ó[˜ÓŸJ±NPÌ˜cø¯¨ Oï\ú¬œNøecÿ2n®—Í8b1AÙ∏„
+làk>·   «ˇˇ     ∏ l i b z s t d ˇˇˇˇˇˇˇˇ˛ˇˇˇˇˇˇˇd   e   f   g   h   i   j   k   †   °   ¢   £   §   »   …       ê  ë  í         
+                         "   (   *   ,   .   0   <   >   @   B   F   H   J      ˇˇˇÄû.ÄÑSystem.Security.Permissions.SecurityPermissionAttribute, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089TSkipVerificationY,eY0,04Äô}m\ÄëXÄπÄ≠ÄµÄ¡T  Y,        e e e q i}m q\\X	 i\m  
+ 
+ im X iXm 
+
+ÄÅ  
+ Ä°	 q    Ä° q qÄ•  Y0 e	 Ä• Ä©Ä≠m Ä•\\ Ä•\   Ä°
+ q 	 Ä° q	  Ä° q qÄ• ÄΩ 	    	   Ä•q 
+  Ä•q 	   Ä•q   	 q  T P, , P0 0 
+ \\ \   \\X    4  4    ( ( 
+( 4        TWrapNonExceptionThrows      I .NETFramework,Version=v4.5 TFrameworkDisplayName.NET Framework 4.5 
+SKB Kontur   Release  ) $Copyright ¬© SKB Kontur 2016-present  . )Zstd compression library wrapper for .NET   1.4.5.0  
+ 1.4.5   ZstdNet  8 3ZstdNet.CompressionStream+<WriteInternalAsync>d__11  > 9ZstdNet.CompressionStream+<FlushCompressStreamAsync>d__30  9 4ZstdNet.DecompressionStream+<ReadInternalAsync>d__12     •A°U	ú˙Ò>o'v"}*v¬çÃÿ¯ b*+õ˝&#~8¥éô∏<@S0I∂RÉhQêÌ™ÍuV’Â~°ß-i¬˝ö7ﬂí¡w}wøL.¶$,¿◊∂`Úg√¢˛óñ»˘+é9Å
+±µ,ñ•«Œ¬
+ëÀzU@>K„‘e¥3Ï∞ƒ    ˙1=ç MP   |   ÑÜ  Ñh                '    á   i                             RSDSç„xS◊ﬂƒMÆ´t!¿®¥-   D:\Oracle Content\Third Party Libraries\Repos\ZstdNet-1.4.5.0\ZstdNet\obj\Release\net45\ZstdNet.pdb SHA256 ç„xS◊ﬂƒ}n´t!¿®¥-˙1=È|w˜ΩÖ$>A€Oá          iá                          [á            _CorDllMain mscoree.dll      ˇ%                                                                                                                                                       Ä                  0  Ä                   H   X†  d          d4   V S _ V E R S I O N _ I N F O     ΩÔ˛             ?                         D    V a r F i l e I n f o     $    T r a n s l a t i o n       ∞ƒ   S t r i n g F i l e I n f o   †   0 0 0 0 0 4 b 0   l *  C o m m e n t s   Z s t d   c o m p r e s s i o n   l i b r a r y   w r a p p e r   f o r   . N E T   6   C o m p a n y N a m e     S K B   K o n t u r     8   F i l e D e s c r i p t i o n     Z s t d N e t   0   F i l e V e r s i o n     1 . 4 . 5 . 0   8   I n t e r n a l N a m e   Z s t d N e t . d l l   l $  L e g a l C o p y r i g h t   C o p y r i g h t   ©   S K B   K o n t u r   2 0 1 6 - p r e s e n t   @   O r i g i n a l F i l e n a m e   Z s t d N e t . d l l   0   P r o d u c t N a m e     Z s t d N e t   0   P r o d u c t V e r s i o n   1 . 4 . 5   8   A s s e m b l y   V e r s i o n   1 . 4 . 5 . 0                                                                        Ä     |7                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      

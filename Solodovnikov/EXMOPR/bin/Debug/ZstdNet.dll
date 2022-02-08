@@ -1,0 +1,336 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>K4os.Compression.LZ4.Streams</name>
+    </assembly>
+    <members>
+        <member name="T:K4os.Compression.LZ4.Streams.ILZ4Descriptor">
+            <summary>
+            LZ4 Frame descriptor.
+            </summary>
+        </member>
+        <member name="P:K4os.Compression.LZ4.Streams.ILZ4Descriptor.ContentLength">
+            <summary>Content length. Not always known.</summary>
+        </member>
+        <member name="P:K4os.Compression.LZ4.Streams.ILZ4Descriptor.ContentChecksum">
+            <summary>Indicates if content checksum is provided.</summary>
+        </member>
+        <member name="P:K4os.Compression.LZ4.Streams.ILZ4Descriptor.Chaining">
+            <summary>Indicates if blocks are chained (dependent) or not (independent).</summary>
+        </member>
+        <member name="P:K4os.Compression.LZ4.Streams.ILZ4Descriptor.BlockChecksum">
+            <summary>Indicates if block checksums are provided.</summary>
+        </member>
+        <member name="P:K4os.Compression.LZ4.Streams.ILZ4Descriptor.Dictionary">
+            <summary>Dictionary id. May be null.</summary>
+        </member>
+        <member name="P:K4os.Compression.LZ4.Streams.ILZ4Descriptor.BlockSize">
+            <summary>Block size.</summary>
+        </member>
+        <member name="T:K4os.Compression.LZ4.Streams.Internal.EmptyToken">
+            <summary>
+            Completely empty class to do nothing.
+            It is used internally instead of CancellationToken to make sure
+            blocking operations are easily distinguishable from async ones
+            (you cannot call blocking operation by accident as they *require* EmptyToken).
+            </summary>
+        </member>
+        <member name="T:K4os.Compression.LZ4.Streams.Internal.LZ4StreamBase">
+            <summary>
+            Base class for LZ4 encoder and decoder streams.
+            Cannot be used on its own it just provides some shared functionality.
+            </summary>
+        </member>
+        <member name="P:K4os.Compression.LZ4.Streams.Internal.LZ4StreamBase.CanRead">
+            <inheritdoc />
+        </member>
+        <member name="P:K4os.Compression.LZ4.Streams.Internal.LZ4StreamBase.CanWrite">
+            <inheritdoc />
+        </member>
+        <member name="P:K4os.Compression.LZ4.Streams.Internal.LZ4StreamBase.CanTimeout">
+            <inheritdoc />
+        </member>
+        <member name="P:K4os.Compression.LZ4.Streams.Internal.LZ4StreamBase.ReadTimeout">
+            <inheritdoc />
+        </member>
+        <member name="P:K4os.Compression.LZ4.Streams.Internal.LZ4StreamBase.WriteTimeout">
+            <inheritdoc />
+        </member>
+        <member name="P:K4os.Compression.LZ4.Streams.Internal.LZ4StreamBase.CanSeek">
+            <inheritdoc />
+        </member>
+        <member name="P:K4os.Compression.LZ4.Streams.Internal.LZ4StreamBase.Position">
+            <summary>Read-only position in the stream. Trying to set it will throw
+            <see cref="T:System.InvalidOperationException"/>.</summary>
+        </member>
+        <member name="M:K4os.Compression.LZ4.Streams.Internal.LZ4StreamBase.Seek(System.Int64,System.IO.SeekOrigin)">
+            <inheritdoc />
+        </member>
+        <member name="M:K4os.Compression.LZ4.Streams.Internal.LZ4StreamBase.SetLength(System.Int64)">
+            <inheritdoc />
+        </member>
+        <member name="M:K4os.Compression.LZ4.Streams.Internal.LZ4StreamBase.ReadByte">
+            <inheritdoc />
+        </member>
+        <member name="M:K4os.Compression.LZ4.Streams.Internal.LZ4StreamBase.Read(System.Byte[],System.Int32,System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:K4os.Compression.LZ4.Streams.Internal.LZ4StreamBase.ReadAsync(System.Byte[],System.Int32,System.Int32,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:K4os.Compression.LZ4.Streams.Internal.LZ4StreamBase.WriteByte(System.Byte)">
+            <inheritdoc />
+        </member>
+        <member name="M:K4os.Compression.LZ4.Streams.Internal.LZ4StreamBase.Write(System.Byte[],System.Int32,System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:K4os.Compression.LZ4.Streams.Internal.LZ4StreamBase.WriteAsync(System.Byte[],System.Int32,System.Int32,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="T:K4os.Compression.LZ4.Streams.LZ4DecoderSettings">
+            <summary>
+            Decoder settings.
+            </summary>
+        </member>
+        <member name="P:K4os.Compression.LZ4.Streams.LZ4DecoderSettings.ExtraMemory">
+            <summary>Extra memory for decompression.</summary>
+        </member>
+        <member name="T:K4os.Compression.LZ4.Streams.LZ4DecoderStream">
+            <summary>
+            LZ4 Decompression stream handling.
+            </summary>
+        </member>
+        <member name="M:K4os.Compression.LZ4.Streams.LZ4DecoderStream.#ctor(System.IO.Stream,System.Func{K4os.Compression.LZ4.Streams.ILZ4Descriptor,K4os.Compression.LZ4.Encoders.ILZ4Decoder},System.Boolean,System.Boolean)">
+            <summary>Creates new instance <see cref="T:K4os.Compression.LZ4.Streams.LZ4DecoderStream"/>.</summary>
+            <param name="inner">Inner stream.</param>
+            <param name="decoderFactory">A function which will create appropriate decoder depending
+            on frame descriptor.</param>
+            <param name="leaveOpen">If <c>true</c> inner stream will not be closed after disposing.</param>
+            <param name="interactive">If <c>true</c> reading from stream will be "interactive" allowing
+            to read bytes as soon as possible, even if more data is expected.</param>
+        </member>
+        <member name="M:K4os.Compression.LZ4.Streams.LZ4DecoderStream.Flush">
+            <inheritdoc />
+        </member>
+        <member name="M:K4os.Compression.LZ4.Streams.LZ4DecoderStream.FlushAsync(System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:K4os.Compression.LZ4.Streams.LZ4DecoderStream.ReadByte">
+            <inheritdoc />
+        </member>
+        <member name="M:K4os.Compression.LZ4.Streams.LZ4DecoderStream.Read(System.Byte[],System.Int32,System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:K4os.Compression.LZ4.Streams.LZ4DecoderStream.ReadAsync(System.Byte[],System.Int32,System.Int32,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:K4os.Compression.LZ4.Streams.LZ4DecoderStream.Dispose(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="P:K4os.Compression.LZ4.Streams.LZ4DecoderStream.CanWrite">
+            <inheritdoc />
+        </member>
+        <member name="P:K4os.Compression.LZ4.Streams.LZ4DecoderStream.Length">
+            <summary>
+            Length of stream. Please note, this will only work if original LZ4 stream has
+            <c>ContentLength</c> field set in descriptor. Otherwise returned value will be <c>-1</c>.
+            It will also require synchronous stream access,
+            so it wont work if AllowSynchronousIO is false.
+            </summary>
+        </member>
+        <member name="P:K4os.Compression.LZ4.Streams.LZ4DecoderStream.Position">
+            <summary>
+            Position within the stream. Position can be read, but cannot be set as LZ4 stream does
+            not have <c>Seek</c> capability.
+            </summary>
+        </member>
+        <member name="T:K4os.Compression.LZ4.Streams.LZ4EncoderSettings">
+            <summary>
+            LZ4 encoder settings.
+            </summary>
+        </member>
+        <member name="P:K4os.Compression.LZ4.Streams.LZ4EncoderSettings.ContentLength">
+            <summary>
+            Content length. It is not enforced, it can be set to any value, but it will be
+            written to the stream so it can be used while decoding. If you don't know the length
+            just leave default value.
+            </summary>
+        </member>
+        <member name="P:K4os.Compression.LZ4.Streams.LZ4EncoderSettings.ChainBlocks">
+            <summary>
+            Indicates if blocks should be chained (dependent) or not (independent). Dependent blocks
+            (with chaining) provide better compression ratio but are a little but slower and take
+            more memory. 
+            </summary>
+        </member>
+        <member name="P:K4os.Compression.LZ4.Streams.LZ4EncoderSettings.BlockSize">
+            <summary>
+            Block size. You can use any block size, but default values for LZ4 are 64k, 256k, 1m,
+            and 4m. 64k is good enough for dependent blocks, but for independent blocks bigger is
+            better. 
+            </summary>
+        </member>
+        <member name="P:K4os.Compression.LZ4.Streams.LZ4EncoderSettings.ContentChecksum">
+            <summary>Indicates is content checksum is provided. Not implemented yet.</summary>
+        </member>
+        <member name="P:K4os.Compression.LZ4.Streams.LZ4EncoderSettings.BlockChecksum">
+            <summary>Indicates if block checksum is provided. Not implemented yet.</summary>
+        </member>
+        <member name="P:K4os.Compression.LZ4.Streams.LZ4EncoderSettings.Dictionary">
+            <summary>Dictionary id. Not implemented yet.</summary>
+        </member>
+        <member name="P:K4os.Compression.LZ4.Streams.LZ4EncoderSettings.CompressionLevel">
+            <summary>Compression level.</summary>
+        </member>
+        <member name="P:K4os.Compression.LZ4.Streams.LZ4EncoderSettings.ExtraMemory">
+            <summary>Extra memory (for the process, more is usually better).</summary>
+        </member>
+        <member name="T:K4os.Compression.LZ4.Streams.LZ4EncoderStream">
+            <summary>
+            LZ4 compression stream. 
+            </summary>
+            <summary>
+            LZ4 compression stream. 
+            </summary>
+        </member>
+        <member name="M:K4os.Compression.LZ4.Streams.LZ4EncoderStream.#ctor(System.IO.Stream,K4os.Compression.LZ4.Streams.ILZ4Descriptor,System.Func{K4os.Compression.LZ4.Streams.ILZ4Descriptor,K4os.Compression.LZ4.Encoders.ILZ4Encoder},System.Boolean)">
+            <summary>Creates new instance of <see cref="T:K4os.Compression.LZ4.Streams.LZ4EncoderStream"/>.</summary>
+            <param name="inner">Inner stream.</param>
+            <param name="descriptor">LZ4 Descriptor.</param>
+            <param name="encoderFactory">Function which will take descriptor and return
+            appropriate encoder.</param>
+            <param name="leaveOpen">Indicates if <paramref name="inner"/> stream should be left
+            open after disposing.</param>
+        </member>
+        <member name="M:K4os.Compression.LZ4.Streams.LZ4EncoderStream.Flush">
+            <inheritdoc />
+        </member>
+        <member name="M:K4os.Compression.LZ4.Streams.LZ4EncoderStream.FlushAsync(System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:K4os.Compression.LZ4.Streams.LZ4EncoderStream.WriteByte(System.Byte)">
+            <inheritdoc />
+        </member>
+        <member name="M:K4os.Compression.LZ4.Streams.LZ4EncoderStream.Write(System.Byte[],System.Int32,System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:K4os.Compression.LZ4.Streams.LZ4EncoderStream.WriteAsync(System.Byte[],System.Int32,System.Int32,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:K4os.Compression.LZ4.Streams.LZ4EncoderStream.Dispose(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="P:K4os.Compression.LZ4.Streams.LZ4EncoderStream.CanRead">
+            <inheritdoc />
+        </member>
+        <member name="P:K4os.Compression.LZ4.Streams.LZ4EncoderStream.Length">
+            <summary>Length of the stream and number of bytes written so far.</summary>
+        </member>
+        <member name="P:K4os.Compression.LZ4.Streams.LZ4EncoderStream.Position">
+            <summary>Read-only position in the stream. Trying to set it will throw
+            <see cref="T:System.InvalidOperationException"/>.</summary>
+        </member>
+        <member name="T:K4os.Compression.LZ4.Streams.LZ4Descriptor">
+            <summary>
+            LZ4 frame descriptor.
+            </summary>
+        </member>
+        <member name="P:K4os.Compression.LZ4.Streams.LZ4Descriptor.ContentLength">
+            <summary>Content length (if available).</summary>
+        </member>
+        <member name="P:K4os.Compression.LZ4.Streams.LZ4Descriptor.ContentChecksum">
+            <summary>Indicates if content checksum if present.</summary>
+        </member>
+        <member name="P:K4os.Compression.LZ4.Streams.LZ4Descriptor.Chaining">
+            <summary>Indicates if blocks are chained.</summary>
+        </member>
+        <member name="P:K4os.Compression.LZ4.Streams.LZ4Descriptor.BlockChecksum">
+            <summary>Indicates if block checksums are present.</summary>
+        </member>
+        <member name="P:K4os.Compression.LZ4.Streams.LZ4Descriptor.Dictionary">
+            <summary>Dictionary id (or null).</summary>
+        </member>
+        <member name="P:K4os.Compression.LZ4.Streams.LZ4Descriptor.BlockSize">
+            <summary>Block size.</summary>
+        </member>
+        <member name="M:K4os.Compression.LZ4.Streams.LZ4Descriptor.#ctor(System.Nullable{System.Int64},System.Boolean,System.Boolean,System.Boolean,System.Nullable{System.UInt32},System.Int32)">
+            <summary>Creates new instance of <see cref="T:K4os.Compression.LZ4.Streams.LZ4Descriptor"/>.</summary>
+            <param name="contentLength">Content length.</param>
+            <param name="contentChecksum">Content checksum flag.</param>
+            <param name="chaining">Chaining flag.</param>
+            <param name="blockChecksum">Block checksum flag.</param>
+            <param name="dictionary">Dictionary id.</param>
+            <param name="blockSize">Block size.</param>
+        </member>
+        <member name="T:K4os.Compression.LZ4.Streams.LZ4Stream">
+            <summary>
+            Utility class with factory methods to create LZ4 compression and decompression streams.
+            </summary>
+        </member>
+        <member name="M:K4os.Compression.LZ4.Streams.LZ4Stream.Encode(System.IO.Stream,K4os.Compression.LZ4.Streams.LZ4EncoderSettings,System.Boolean)">
+            <summary>Created compression stream on top of inner stream.</summary>
+            <param name="stream">Inner stream.</param>
+            <param name="settings">Compression settings.</param>
+            <param name="leaveOpen">Leave inner stream open after disposing.</param>
+            <returns>Compression stream.</returns>
+        </member>
+        <member name="M:K4os.Compression.LZ4.Streams.LZ4Stream.Encode(System.IO.Stream,K4os.Compression.LZ4.LZ4Level,System.Int32,System.Boolean)">
+            <summary>Created compression stream on top of inner stream.</summary>
+            <param name="stream">Inner stream.</param>
+            <param name="level">Compression level.</param>
+            <param name="extraMemory">Extra memory used for compression.</param>
+            <param name="leaveOpen">Leave inner stream open after disposing.</param>
+            <returns>Compression stream.</returns>
+        </member>
+        <member name="M:K4os.Compression.LZ4.Streams.LZ4Stream.Decode(System.IO.Stream,K4os.Compression.LZ4.Streams.LZ4DecoderSettings,System.Boolean,System.Boolean)">
+            <summary>Creates decompression stream on top of inner stream.</summary>
+            <param name="stream">Inner stream.</param>
+            <param name="settings">Decompression settings.</param>
+            <param name="leaveOpen">Leave inner stream open after disposing.</param>
+            <param name="interactive">If <c>true</c> reading from stream will be "interactive" allowing
+            to read bytes as soon as possible, even if more data is expected.</param>
+            <returns>Decompression stream.</returns>
+        </member>
+        <member name="M:K4os.Compression.LZ4.Streams.LZ4Stream.Decode(System.IO.Stream,System.Int32,System.Boolean,System.Boolean)">
+            <summary>Creates decompression stream on top of inner stream.</summary>
+            <param name="stream">Inner stream.</param>
+            <param name="extraMemory">Extra memory used for decompression.</param>
+            <param name="leaveOpen">Leave inner stream open after disposing.</param>
+            <param name="interactive">If <c>true</c> reading from stream will be "interactive" allowing
+            to read bytes as soon as possible, even if more data is expected.</param>
+            <returns>Decompression stream.</returns>
+        </member>
+    </members>
+</doc>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 mples samples samplesSizes <>4__this System.Threading.Tasks AdvancedParams advancedParams ApplyCompressionParams ApplyDecompressionParams ReturnValueExtensions System.Security.Permissions System.Collections CompressionOptions DecompressionOptions options pos System.Buffers ZSTD_c_nbWorkers ZSTD_reset_session_and_parameters ZSTD_reset_parameters EnsureZstdSuccess EnsureZdictSuccess get_Is64BitProcess Compress Decompress Exists Consts Concat Format Object Select ZSTD_freeCDict ZSTD_createCDict ZSTD_CCtx_refCDict ZSTD_initCStream_usingCDict ZSTD_compress_usingCDict ZSTD_freeDDict ZSTD_createDDict ZSTD_DCtx_refDDict ZSTD_initDStream_usingDDict ZSTD_decompress_usingDDict Cdict Ddict cdict ddict ZstdNet ZSTD_CCtx_reset ZSTD_DCtx_reset offset ConfigureAwait op_Implicit op_Explicit get_Default GetResult SetResult Rent Environment get_Current count Start dst input output MoveNext ZSTD_d_windowLogMax ZSTD_freeCCtx ZSTD_createCCtx ZSTD_compressCCtx ZSTD_freeDCtx ZSTD_createDCtx ZSTD_decompressDCtx cctx dctx ToArray get_Key ContainsKey ZSTD_c_strategy GetExecutingAssembly ZSTD_reset_session_only Copy Dictionary System.Memory SetWinDllDirectory SetDllDirectory dictBufferCapacity DefaultDictCapacity dictCapacity dstCapacity op_Equality op_Inequality System.Security get_Empty IsNullOrEmpty  !c o m p r e s s i o n L e v e l  a d v a n c e d P a r a m s  gA d v a n c e d   p a r a m e t e r   ' { 0 } '   i s   o u t   o f   r a n g e   [ { 1 } ,   { 2 } ] s t r e a m  -S t r e a m   i s   n o t   w r i t a b l e  b u f f e r S i z e  b u f f e r  o f f s e t  c o u n t  {T h e   s u m   o f   o f f s e t   a n d   c o u n t   i s   g r e a t e r   t h a n   t h e   b u f f e r   l e n g t h  #C o m p r e s s i o n S t r e a m  -S t r e a m   i s   n o t   r e a d a b l e  'D e c o m p r e s s i o n S t r e a m  kD e c o m p r e s s e d   c o n t e n t   s i z e   { 0 }   i s   g r e a t e r   t h a n   { 1 }   { 2 }  'm a x D e c o m p r e s s e d S i z e  ÄùD e c o m p r e s s e d   c o n t e n t   s i z e   { 0 }   i s   g r e a t e r   t h a n   m a x   p o s s i b l e   b y t e   a r r a y   s i z e   { 1 }  ÄâD e c o m p r e s s e d   c o n t e n t   s i z e   s p e c i f i e d   i n   t h e   s r c   d a t a   f r a m e   i s   i n v a l i d  UD e c o m p r e s s e d   c o n t e n t   s i z e   i s   n o t   s p e c i f i e d  ÄªD e c o m p r e s s e d   c o n t e n t   s i z e   c a n n o t   b e   d e t e r m i n e d   ( e . g .   i n v a l i d   m a g i c   n u m b e r ,   s r c S i z e   t o o   s m a l l )  ÄëD e s t i n a t i o n   b u f f e r   s i z e   i s   l e s s   t h a n   s p e c i f i e d   d e c o m p r e s s e d   c o n t e n t   s i z e  eZ s t d N e t :   F a i l e d   t o   g e t   e x e c u t i n g   a s s e m b l y   l o c a t i o n  n e t  l i b  ). . / . . / z s t d n e t . n u s p e c  . . / . . / b u i l d  x 8 6  x 6 4  SZ s t d N e t :   F a i l e d   t o   s e t   D L L   d i r e c t o r y   t o   ' ' 9F a i l e d   t o   c r e a t e   a   s t r u c t u r e   B¯IP’RD©G:§Ôxˇ"       = u Äâ  ]a,a,PÄΩa,  ] ]a,   a,      ]a,a,Y,    	ÄÈ	  ÄÈ   Ä•   q Ä• }\\qq  
+ q @  Äô0 
+@  iEE q 
+  
+ im q\\q  q  D
+D     q Ä° 
+ 
+ ÅÅ ]a0a0PÄΩa0]a0a0]a0a0Ä≠\\Ä•HÄπ	  Äπ 
+H	  Ä©  Ä•  Ä° 	LÅ	 ÄΩÄΩ Å	 
+ ÄΩ 
+  	   Å  Å  Å      Å)      ÄëÄçÄï Äç  Äë
+0 
+Äë@  q  Äï
+ÄëDÄµÄ±Äï Ä©mÄ©
+ Ä± Ä±	  Äµ Äµ
+
+ÄµH	  Ä•   ∑z\V4‡âÃ{ˇÕ-›QÄ† $  Ä  î      $  RSA1     ŸsΩ©qu,x)A&óJA†ÜCÇqˆ_¿˚<‘_eç†ºßZ«@g—éz˚ÒF}zQú‡$ãqó(¥›‘Ï◊X˛	ﬂ√i$«·ó[˜ÓŸJ±NPÌ˜cø¯¨ Oï\ú¬œNøecÿ2n®—Í8b1AÙ∏„
+làk>·   «ˇˇ     ∏ l i b z s t d ˇˇˇˇˇˇˇˇ˛ˇˇˇˇˇˇˇd   e   f   g   h   i   j   k   †   °   ¢   £   §   »   …       ê  ë  í         
+                         "   (   *   ,   .   0   <   >   @   B   F   H   J      ˇˇˇÄû.ÄÑSystem.Security.Permissions.SecurityPermissionAttribute, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089TSkipVerificationY,eY0,04Äô}m\ÄëXÄπÄ≠ÄµÄ¡T  Y,        e e e q i}m q\\X	 i\m  
+ 
+ im X iXm 
+
+ÄÅ  
+ Ä°	 q    Ä° q qÄ•  Y0 e	 Ä• Ä©Ä≠m Ä•\\ Ä•\   Ä°
+ q 	 Ä° q	  Ä° q qÄ• ÄΩ 	    	   Ä•q 
+  Ä•q 	   Ä•q   	 q  T P, , P0 0 
+ \\ \   \\X    4  4    ( ( 
+( 4        TWrapNonExceptionThrows      I .NETFramework,Version=v4.5 TFrameworkDisplayName.NET Framework 4.5 
+SKB Kontur   Release  ) $Copyright ¬© SKB Kontur 2016-present  . )Zstd compression library wrapper for .NET   1.4.5.0  
+ 1.4.5   ZstdNet  8 3ZstdNet.CompressionStream+<WriteInternalAsync>d__11  > 9ZstdNet.CompressionStream+<FlushCompressStreamAsync>d__30  9 4ZstdNet.DecompressionStream+<ReadInternalAsync>d__12     •A°U	ú˙Ò>o'v"}*v¬çÃÿ¯ b*+õ˝&#~8¥éô∏<@S0I∂RÉhQêÌ™ÍuV’Â~°ß-i¬˝ö7ﬂí¡w}wøL.¶$,¿◊∂`Úg√¢˛óñ»˘+é9Å
+±µ,ñ•«Œ¬
+ëÀzU@>K„‘e¥3Ï∞ƒ    ˙1=ç MP   |   ÑÜ  Ñh                '    á   i                             RSDSç„xS◊ﬂƒMÆ´t!¿®¥-   D:\Oracle Content\Third Party Libraries\Repos\ZstdNet-1.4.5.0\ZstdNet\obj\Release\net45\ZstdNet.pdb SHA256 ç„xS◊ﬂƒ}n´t!¿®¥-˙1=È|w˜ΩÖ$>A€Oá          iá                          [á            _CorDllMain mscoree.dll      ˇ%                                                                                                                                                       Ä                  0  Ä                   H   X†  d          d4   V S _ V E R S I O N _ I N F O     ΩÔ˛             ?                         D    V a r F i l e I n f o     $    T r a n s l a t i o n       ∞ƒ   S t r i n g F i l e I n f o   †   0 0 0 0 0 4 b 0   l *  C o m m e n t s   Z s t d   c o m p r e s s i o n   l i b r a r y   w r a p p e r   f o r   . N E T   6   C o m p a n y N a m e     S K B   K o n t u r     8   F i l e D e s c r i p t i o n     Z s t d N e t   0   F i l e V e r s i o n     1 . 4 . 5 . 0   8   I n t e r n a l N a m e   Z s t d N e t . d l l   l $  L e g a l C o p y r i g h t   C o p y r i g h t   ©   S K B   K o n t u r   2 0 1 6 - p r e s e n t   @   O r i g i n a l F i l e n a m e   Z s t d N e t . d l l   0   P r o d u c t N a m e     Z s t d N e t   0   P r o d u c t V e r s i o n   1 . 4 . 5   8   A s s e m b l y   V e r s i o n   1 . 4 . 5 . 0                                                                        Ä     |7                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      

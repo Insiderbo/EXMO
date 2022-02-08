@@ -1,0 +1,399 @@
+ï»¿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>System.Runtime.CompilerServices.Unsafe</name>
+  </assembly>
+  <members>
+    <member name="T:System.Runtime.CompilerServices.Unsafe">
+      <summary>Contains generic, low-level functionality for manipulating pointers.</summary>
+    </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.Add``1(``0@,System.Int32)">
+      <summary>Adds an element offset to the given reference.</summary>
+      <param name="source">The reference to add the offset to.</param>
+      <param name="elementOffset">The offset to add.</param>
+      <typeparam name="T">The type of reference.</typeparam>
+      <returns>A new reference that reflects the addition of offset to pointer.</returns>
+    </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.Add``1(``0@,System.IntPtr)">
+      <summary>Adds an element offset to the given reference.</summary>
+      <param name="source">The reference to add the offset to.</param>
+      <param name="elementOffset">The offset to add.</param>
+      <typeparam name="T">The type of reference.</typeparam>
+      <returns>A new reference that reflects the addition of offset to pointer.</returns>
+    </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.Add``1(System.Void*,System.Int32)">
+      <summary>Adds an element offset to the given void pointer.</summary>
+      <param name="source">The void pointer to add the offset to.</param>
+      <param name="elementOffset">The offset to add.</param>
+      <typeparam name="T">The type of void pointer.</typeparam>
+      <returns>A new void pointer that reflects the addition of offset to the specified pointer.</returns>
+    </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.AddByteOffset``1(``0@,System.IntPtr)">
+      <summary>Adds a byte offset to the given reference.</summary>
+      <param name="source">The reference to add the offset to.</param>
+      <param name="byteOffset">The offset to add.</param>
+      <typeparam name="T">The type of reference.</typeparam>
+      <returns>A new reference that reflects the addition of byte offset to pointer.</returns>
+    </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.AreSame``1(``0@,``0@)">
+      <summary>Determines whether the specified references point to the same location.</summary>
+      <param name="left">The first reference to compare.</param>
+      <param name="right">The second reference to compare.</param>
+      <typeparam name="T">The type of reference.</typeparam>
+      <returns>
+        <see langword="true" /> if <paramref name="left" /> and <paramref name="right" /> point to the same location; otherwise, <see langword="false" />.</returns>
+    </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.As``1(System.Object)">
+      <summary>Casts the given object to the specified type.</summary>
+      <param name="o">The object to cast.</param>
+      <typeparam name="T">The type which the object will be cast to.</typeparam>
+      <returns>The original object, casted to the given type.</returns>
+    </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.As``2(``0@)">
+      <summary>Reinterprets the given reference as a reference to a value of type <typeparamref name="TTo" />.</summary>
+      <param name="source">The reference to reinterpret.</param>
+      <typeparam name="TFrom">The type of reference to reinterpret.</typeparam>
+      <typeparam name="TTo">The desired type of the reference.</typeparam>
+      <returns>A reference to a value of type <typeparamref name="TTo" />.</returns>
+    </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.AsPointer``1(``0@)">
+      <summary>Returns a pointer to the given by-ref parameter.</summary>
+      <param name="value">The object whose pointer is obtained.</param>
+      <typeparam name="T">The type of object.</typeparam>
+      <returns>A pointer to the given value.</returns>
+    </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.AsRef``1(``0@)">
+      <summary>Reinterprets the given read-only reference as a reference.</summary>
+      <param name="source">The read-only reference to reinterpret.</param>
+      <typeparam name="T">The type of reference.</typeparam>
+      <returns>A reference to a value of type <typeparamref name="T" />.</returns>
+    </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.AsRef``1(System.Void*)">
+      <summary>Reinterprets the given location as a reference to a value of type <typeparamref name="T" />.</summary>
+      <param name="source">The location of the value to reference.</param>
+      <typeparam name="T">The type of the interpreted location.</typeparam>
+      <returns>A reference to a value of type <typeparamref name="T" />.</returns>
+    </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.ByteOffset``1(``0@,``0@)">
+      <summary>Determines the byte offset from origin to target from the given references.</summary>
+      <param name="origin">The reference to origin.</param>
+      <param name="target">The reference to target.</param>
+      <typeparam name="T">The type of reference.</typeparam>
+      <returns>Byte offset from origin to target i.e. <paramref name="target" /> - <paramref name="origin" />.</returns>
+    </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.Copy``1(``0@,System.Void*)">
+      <summary>Copies a value of type <typeparamref name="T" /> to the given location.</summary>
+      <param name="destination">The location to copy to.</param>
+      <param name="source">A pointer to the value to copy.</param>
+      <typeparam name="T">The type of value to copy.</typeparam>
+    </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.Copy``1(System.Void*,``0@)">
+      <summary>Copies a value of type <typeparamref name="T" /> to the given location.</summary>
+      <param name="destination">The location to copy to.</param>
+      <param name="source">A reference to the value to copy.</param>
+      <typeparam name="T">The type of value to copy.</typeparam>
+    </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.CopyBlock(System.Byte@,System.Byte@,System.UInt32)">
+      <summary>Copies bytes from the source address to the destination address.</summary>
+      <param name="destination">The destination address to copy to.</param>
+      <param name="source">The source address to copy from.</param>
+      <param name="byteCount">The number of bytes to copy.</param>
+    </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.CopyBlock(System.Void*,System.Void*,System.UInt32)">
+      <summary>Copies bytes from the source address to the destination address.</summary>
+      <param name="destination">The destination address to copy to.</param>
+      <param name="source">The source address to copy from.</param>
+      <param name="byteCount">The number of bytes to copy.</param>
+    </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.CopyBlockUnaligned(System.Byte@,System.Byte@,System.UInt32)">
+      <summary>Copies bytes from the source address to the destination address without assuming architecture dependent alignment of the addresses.</summary>
+      <param name="destination">The destination address to copy to.</param>
+      <param name="source">The source address to copy from.</param>
+      <param name="byteCount">The number of bytes to copy.</param>
+    </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.CopyBlockUnaligned(System.Void*,System.Void*,System.UInt32)">
+      <summary>Copies bytes from the source address to the destination address without assuming architecture dependent alignment of the addresses.</summary>
+      <param name="destination">The destination address to copy to.</param>
+      <param name="source">The source address to copy from.</param>
+      <param name="byteCount">The number of bytes to copy.</param>
+    </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.InitBlock(System.Byte@,System.Byte,System.UInt32)">
+      <summary>Initializes a block of memory at the given location with a given initial value.</summary>
+      <param name="startAddress">The address of the start of the memory block to initialize.</param>
+      <param name="value">The value to initialize the block to.</param>
+      <param name="byteCount">The number of bytes to initialize.</param>
+    </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.InitBlock(System.Void*,System.Byte,System.UInt32)">
+      <summary>Initializes a block of memory at the given location with a given initial value.</summary>
+      <param name="startAddress">The address of the start of the memory block to initialize.</param>
+      <param name="value">The value to initialize the block to.</param>
+      <param name="byteCount">The number of bytes to initialize.</param>
+    </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.InitBlockUnaligned(System.Byte@,System.Byte,System.UInt32)">
+      <summary>Initializes a block of memory at the given location with a given initial value without assuming architecture dependent alignment of the address.</summary>
+      <param name="startAddress">The address of the start of the memory block to initialize.</param>
+      <param name="value">The value to initialize the block to.</param>
+      <param name="byteCount">The number of bytes to initialize.</param>
+    </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.InitBlockUnaligned(System.Void*,System.Byte,System.UInt32)">
+      <summary>Initializes a block of memory at the given location with a given initial value without assuming architecture dependent alignment of the address.</summary>
+      <param name="startAddress">The address of the start of the memory block to initialize.</param>
+      <param name="value">The value to initialize the block to.</param>
+      <param name="byteCount">The number of bytes to initialize.</param>
+    </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.IsAddressGreaterThan``1(``0@,``0@)">
+      <summary>Returns a value that indicates whether a specified reference is greater than another specified reference.</summary>
+      <param name="left">The first value to compare.</param>
+      <param name="right">The second value to compare.</param>
+      <typeparam name="T">The type of the reference.</typeparam>
+      <returns>
+        <see langword="true" /> if <paramref name="left" /> is greater than <paramref name="right" />; otherwise, <see langword="false" />.</returns>
+    </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.IsAddressLessThan``1(``0@,``0@)">
+      <summary>Returns a value that indicates whether a specified reference is less than another specified reference.</summary>
+      <param name="left">The first value to compare.</param>
+      <param name="right">The second value to compare.</param>
+      <typeparam name="T">The type of the reference.</typeparam>
+      <returns>
+        <see langword="true" /> if <paramref name="left" /> is less than <paramref name="right" />; otherwise, <see langword="false" />.</returns>
+    </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.IsNullRef``1(``0@)">
+      <param name="source" />
+      <typeparam name="T" />
+    </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.NullRef``1">
+      <typeparam name="T" />
+    </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.Read``1(System.Void*)">
+      <summary>Reads a value of type <typeparamref name="T" /> from the given location.</summary>
+      <param name="source">The location to read from.</param>
+      <typeparam name="T">The type to read.</typeparam>
+      <returns>An object of type <typeparamref name="T" /> read from the given location.</returns>
+    </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.ReadUnaligned``1(System.Byte@)">
+      <summary>Reads a value of type <typeparamref name="T" /> from the given location without assuming architecture dependent alignment of the addresses.</summary>
+      <param name="source">The location to read from.</param>
+      <typeparam name="T">The type to read.</typeparam>
+      <returns>An object of type <typeparamref name="T" /> read from the given location.</returns>
+    </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.ReadUnaligned``1(System.Void*)">
+      <summary>Reads a value of type <typeparamref name="T" /> from the given location without assuming architecture dependent alignment of the addresses.</summary>
+      <param name="source">The location to read from.</param>
+      <typeparam name="T">The type to read.</typeparam>
+      <returns>An object of type <typeparamref name="T" /> read from the given location.</returns>
+    </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.SizeOf``1">
+      <summary>Returns the size of an object of the given type parameter.</summary>
+      <typeparam name="T">The type of object whose size is retrieved.</typeparam>
+      <returns>The size of an object of type <typeparamref name="T" />.</returns>
+    </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.SkipInit``1(``0@)">
+      <summary>Bypasses definite assignment rules for a given value.</summary>
+      <param name="value">The uninitialized object.</param>
+      <typeparam name="T">The type of the uninitialized object.</typeparam>
+    </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.Subtract``1(``0@,System.Int32)">
+      <summary>Subtracts an element offset from the given reference.</summary>
+      <param name="source">The reference to subtract the offset from.</param>
+      <param name="elementOffset">The offset to subtract.</param>
+      <typeparam name="T">The type of reference.</typeparam>
+      <returns>A new reference that reflects the subtraction of offset from pointer.</returns>
+    </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.Subtract``1(``0@,System.IntPtr)">
+      <summary>Subtracts an element offset from the given reference.</summary>
+      <param name="source">The reference to subtract the offset from.</param>
+      <param name="elementOffset">The offset to subtract.</param>
+      <typeparam name="T">The type of reference.</typeparam>
+      <returns>A new reference that reflects the subtraction of offset from pointer.</returns>
+    </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.Subtract``1(System.Void*,System.Int32)">
+      <summary>Subtracts an element offset from the given void pointer.</summary>
+      <param name="source">The void pointer to subtract the offset from.</param>
+      <param name="elementOffset">The offset to subtract.</param>
+      <typeparam name="T">The type of the void pointer.</typeparam>
+      <returns>A new void pointer that reflects the subtraction of offset from the specified pointer.</returns>
+    </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.SubtractByteOffset``1(``0@,System.IntPtr)">
+      <summary>Subtracts a byte offset from the given reference.</summary>
+      <param name="source">The reference to subtract the offset from.</param>
+      <param name="byteOffset">The offset to subtract.</param>
+      <typeparam name="T">The type of reference.</typeparam>
+      <returns>A new reference that reflects the subtraction of byte offset from pointer.</returns>
+    </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.Unbox``1(System.Object)">
+      <summary>Returns a <see langword="mutable ref" /> to a boxed value.</summary>
+      <param name="box">The value to unbox.</param>
+      <typeparam name="T">The type to be unboxed.</typeparam>
+      <exception cref="T:System.NullReferenceException">
+        <paramref name="box" /> is <see langword="null" />, and <typeparamref name="T" /> is a non-nullable value type.</exception>
+      <exception cref="T:System.InvalidCastException">
+        <paramref name="box" /> is not a boxed value type.
+         
+-or-
+
+<paramref name="box" /> is not a boxed <typeparamref name="T" />.</exception>
+      <exception cref="T:System.TypeLoadException">
+        <typeparamref name="T" /> cannot be found.</exception>
+      <returns>A <see langword="mutable ref" /> to the boxed value <paramref name="box" />.</returns>
+    </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.Write``1(System.Void*,``0)">
+      <summary>Writes a value of type <typeparamref name="T" /> to the given location.</summary>
+      <param name="destination">The location to write to.</param>
+      <param name="value">The value to write.</param>
+      <typeparam name="T">The type of value to write.</typeparam>
+    </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.WriteUnaligned``1(System.Byte@,``0)">
+      <summary>Writes a value of type <typeparamref name="T" /> to the given location without assuming architecture dependent alignment of the addresses.</summary>
+      <param name="destination">The location to write to.</param>
+      <param name="value">The value to write.</param>
+      <typeparam name="T">The type of value to write.</typeparam>
+    </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.WriteUnaligned``1(System.Void*,``0)">
+      <summary>Writes a value of type <typeparamref name="T" /> to the given location without assuming architecture dependent alignment of the addresses.</summary>
+      <param name="destination">The location to write to.</param>
+      <param name="value">The value to write.</param>
+      <typeparam name="T">The type of value to write.</typeparam>
+    </member>
+  </members>
+</doc>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  u m e r i c s . V e c t o r s   :   F i l e V e r s i o n     4 . 6 . 2 6 5 1 5 . 0 6     X   I n t e r n a l N a m e   S y s t e m . N u m e r i c s . V e c t o r s . d l l   ‚ /  L e g a l C o p y r i g h t   ©   M i c r o s o f t   C o r p o r a t i o n .     A l l   r i g h t s   r e s e r v e d .     `   O r i g i n a l F i l e n a m e   S y s t e m . N u m e r i c s . V e c t o r s . d l l   T   P r o d u c t N a m e     M i c r o s o f t ®   . N E T   F r a m e w o r k   V™  P r o d u c t V e r s i o n   4 . 6 . 2 6 5 1 5 . 0 6   @ B u i l t B y :   d l a b - D D V S O W I N A G E 0 5 9   @ B r a n c h :   r e l e a s e / 2 . 1   @ S r c C o d e :   h t t p s : / / g i t h u b . c o m / d o t n e t / c o r e f x / t r e e / 3 0 a b 6 5 1 f c b 4 3 5 4 5 5 2 b d 4 8 9 1 6 1 9 a 0 b d d 8 1 e 0 e b d b f     8   A s s e m b l y   V e r s i o n   4 . 1 . 4 . 0                                                                                                                                        `     h:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      >    0‚>}	*†H†÷ ‚>n0‚>j10	+ 0L
++‚7 >0<0
++‚70	  ¢€ 0!0	+ 0o2T[E²}n',s´”8S6½Fû ‚‚0‚Â0‚ª 3   Á	øA»MªÜ     Á0	*†H†÷ 0w10	UUS10U
+Washington10URedmond10U
+Microsoft Corporation1!0UMicrosoft Time-Stamp PCA0160907175850Z180907175850Z0²10	UUS10U
+Washington10URedmond10U
+Microsoft Corporation10
+UAOC1'0%UnCipher DSE ESN:12E7-3064-61121%0#UMicrosoft Time-Stamp Service0‚"0	*†H†÷ ‚ 0‚
+‚ §Cù—)|ÉB¬8'»‚†I¶Dbê¨+€¨jñÑü8Í6+æ×’9ÍèÆBòü7T¥ö±ËÑ@×Y³ã‘ZÆTä4c«êf€~òc—ĞèO}úJ‹
+4éÍã
+1Î°µ“4™I€ÈQ­°Oåæ”{LW¢¯¬ÓEÛ½aŞ÷iv!.HĞ4HHÖ^ú@½çYkàK 1iè''an‰©9 ~ÏÎ!Ø`©ÒdÕ´`ı ÷-{ÇËç÷ÍïñVĞ-*8wf;È3 Q§Œ‚ƒXT$üò"‹e˜-õ#8ÔY§ÔYzÑèÜËŸ £‚	0‚0Uåg6U_°ùRÅ¬KÖn5¿ˆ:­E¯0U#0€#4øÙRFp
+í@ûvû³+°Ã5³0TUM0K0I G E†Chttp://crl.microsoft.com/pki/crl/products/MicrosoftTimeStampPCA.crl0X+L0J0H+0†<http://www.microsoft.com/pki/certs/MicrosoftTimeStampPCA.crt0U%0
++0	*†H†÷ ‚ 48)thÁïÍÎî1Ş÷tì¶±r¥Şæ Á¯7btyWô(w¸„I#5Yõëøô¨àv^@KB™„Yİ=Aì_â8 ”×›é>m±äaó™Ş©9øÁz½©XÈi	‡;58yõ¬SA5…N×`á¸ö¯ÿû(ƒyÚ7z#Î¨ÈÏºí]VòK¼JÆç?= :!áäÍ¤™
+…öú-/‘İßuê*9ñ‡œDqÓóåg·uH»Ä£YÜ²şéSÌ¾Kq<Ÿ	µöi^­g0}]»Õe›…:`Ä.ƒ/hèó8G Lú½È‡×ÓÑq¡~iÔÆÎË
+È0‚í0‚Õ 3  y|.WNRáÊÖ   y0	*†H†÷ 0y10	UUS10U
+Washington10URedmond10U
+Microsoft Corporation1#0!UMicrosoft Code Signing PCA0170811201115Z180811201115Z0ƒ10	UUS10U
+Washington10URedmond10U
+Microsoft Corporation10UMOPR10UMicrosoft Corporation0‚"0	*†H†÷ ‚ 0‚
+‚ ¨)şÔÈÿU
+™ RÜ°¿ù«øQş\ŒTÂ'ÎL+–ëÛË†+yÊu~¸gƒ&†½Ö/>ÇXªo•ûZü§ÆÁÃèLN"=·[V\×Zõ-º»¦	¿|î˜ş@ù0¸kş@ot³¸Ö8IÉĞ‡/1ß¶¼N£Ğ·b{VpuOg¿Ì£®¾ ’ÂP¡a; ±†Ğ)ó@õÙ£W«c	¨Ü©jçGC§¾Ä='¤èVRˆÏY™¡ „6›Ğ9Ò*/æâ¿–ˆƒ©Q7A‰âù…e=dÌÅŞPp]ò…©±Eèwÿƒ	»ràæV•¹+ƒ‰1üçXr½ùƒ# £‚a0‚]0U%0
++0Uøä~c| ªÌs JÓòm8ªÍ0RUK0I¤G0E10UMOPR1402U+229803+1abf9e5f-ced0-42e6-a65d-d9350959fe0e0U#0€ËèÊÒ´XÉ7.3¹Lš
+0VUO0M0K I G†Ehttp://crl.microsoft.com/pki/crl/products/MicCodSigPCA_08-31-2010.crl0Z+N0L0J+0†>http://www.microsoft.com/pki/certs/MicCodSigPCA_08-31-2010.crt0	*†H†÷ ‚ oKk~†Ø&Pk:ˆÈZ©ö²ê*™§å4Dïsû­/ıíøÕ€j54Çµ^d<skŒòoÓi¾Î;›ùr<Fáèœ>6±o5©¦PTáÔW=;z\?w?^s'Wú§0çÔr¯‹ßq"ıŠàúà-ß_òŞwdßÚ° 	«F£õş†,“+uÆ(×åŠâ'«—ŒšÄâÓòd±+İózxP…29P£Í‹pŞÕ{oL?šèumäËW)Y8_¾E«¦šÊù)Í8Ï¹Èº,ûÄ%¿hß{B•Ç½ZkQú×·ç²³3(s\£F‚œ­¶6wv‡0‚¼0‚¤ 
+a3&     10	*†H†÷ 0_10
+	’&‰“ò,dcom10
+	’&‰“ò,d	microsoft1-0+U$Microsoft Root Certificate Authority0100831221932Z200831222932Z0y10	UUS10U
+Washington10URedmond10U
+Microsoft Corporation1#0!UMicrosoft Code Signing PCA0‚"0	*†H†÷ ‚ 0‚
+‚ ²rY\0d¿š`  B™vSl>ÖoÌËñêkş—àß:tƒ·/ 2ìÿŞÂBN#Õr Û5W
+‰Ê® Iôğh¬MK¥½yKq›GÚı%ßuˆÏªsD×Ûó½ò6¤É\EÜ¯­=à(h—§¥rsVñ”äı5”r Öv_wEƒ…8Ğs[ºgR¥²i/Úş’t)âv/Tİ0YøÒbıËÉ_F1P¹'ä@0Ïr)("Ç7N= 2=Í¡8…\NV‚(*2·K×OcçÒ-bñE=ç¬ öF¡Ñ[Œ&SèzªJòFÏ7<8´w\¥ËV<Á¬	_Ó £‚^0‚Z0Uÿ0ÿ0UËèÊÒ´XÉ7.3¹Lš
+0U†0	+‚7 0#	+‚7ıÑ1NÓ&Š•á˜`;¨1o¦<¼Ø-0	+‚7
+ S u b C A0U#0€¬‚`@V'—å%ü*á
+S•Yä¤0PUI0G0E C A†?http://crl.microsoft.com/pki/crl/products/microsoftrootcert.crl0T+H0F0D+0†8http://www.microsoft.com/pki/certs/MicrosoftRootCert.crt0	*†H†÷ ‚ Y9>&F¯ëo@±2µjë/n¨I÷ë_uíL;-×C­şËé-1£#Ì|P˜€!]¬=/Lº¢¨Vœãp»¸´øyµIr÷>êAÊáiË¥œ -úPÄVÍ-ãJÒ¼pç¨¢¥Và¸ŠKWò•Bœñóïîã†4<¸VšğS#…*¤‚“â”òâNøŒ¡Êè¥‘NÈÒr•*qm›øğSÖgÌ"ÿ\Í¢Œ½'²ycVD¢QÍùé£XVİ›ED/_ôÚ®Ô‚2nü¤•äëiç©¢,¾È+e™Ûõ¢ú&	e8”ñzJ»ÑáVèĞx–\É5_İ“I-¾­4Dî ]İ5[!Î˜Ç	î…ŒOmN=|)HœrÑólÊÁìp£W’W}” HZ÷Ï£g
+t¥6í-/Èær7ôo±<g‚ùR²3eŠİŞdôoÎFÔÓéyÄ´Óû,ßŠ¬
+û'@­äùá©F»`Ge`@N°BìNí³vyØ
+4	m€1âTİå¡ûåG­d˜ÿP.|¿!zâ•A'iÃ“•ÉØ›!®\œğ¢®†hƒj-»vk –­ò{öƒ$¹ˆÏj¨G1/šÜãq=× ~bGÑÎˆÉ¸úrÁ£=¯@jÿi›–â¨´7PÖÃ=0‚0‚ï 
+ah4     0	*†H†÷ 0_10
+	’&‰“ò,dcom10
+	’&‰“ò,d	microsoft1-0+U$Microsoft Root Certificate Authority0070403125309Z210403130309Z0w10	UUS10U
+Washington10URedmond10U
+Microsoft Corporation1!0UMicrosoft Time-Stamp PCA0‚"0	*†H†÷ ‚ 0‚
+‚ Ÿ¡l±ßÛH’*|k.á½âãÅ™Q#P­ÎİN$îÑ§ÑL­t0 ëÕT•I”B’®˜\0&Ú kè{½ì‰÷˜ğ‰ÌË3$‡òôg,ü{çˆêçN£¡Á#SÊúEÏ	Ğ^¯Ğ°B¢ù¦l“g×(ÜFS°†Ğå(F.'¬†OURä,ûj0n‡óY0ú~Ö—³è!—~øÒó·SmR´EŸH JGf')f¨—äÓJ¢ù„§G	‚Ÿ„íUxşšP… 0Fí·Ş#F»Ä-TŸ¯xA1wÌ›ß;ƒ“¡aµ±ü÷›²Î"KTÿùÃÂ  £‚«0‚§0Uÿ0ÿ0U#4øÙRFp
+í@ûvû³+°Ã5³0U†0	+‚7 0˜U#0€¬‚`@V'—å%ü*á
+S•Yä¤¡c¤a0_10
+	’&‰“ò,dcom10
+	’&‰“ò,d	microsoft1-0+U$Microsoft Root Certificate Authority‚y­¡J ¥­LsXô.e0PUI0G0E C A†?http://crl.microsoft.com/pki/crl/products/microsoftrootcert.crl0T+H0F0D+0†8http://www.microsoft.com/pki/certs/MicrosoftRootCert.crt0U%0
++0	*†H†÷ ‚ —ŠÃ\D6İé´­wÛÎyQM±.tq[m«Î¾{¸.Ô¢Œmb¸WËN P™İz@âW»¯Xšá†¬»xò‹Ğì;îâ¾
+ÈHâğSİO«’äçjÕ€Áæ”ò/…é‘*$"pûöüäx™.÷âp¼Nk
+r•¸¡9œg-ÅQêb\?˜‹ ?â2ùÌ1Jv1=+rÈêp=ÿ…
+ßÂ
+ağ×¸ëN‹Å5+^£¿ë¼}B{ÔSr!î0Ê»xe\[
+ÒÚ˜õ<¹fX³-/çù…†ÌQVèp”l¬9LÔöy¿ªzb)ï¢›)4wbÉ=m‚ğÇ,»ÏC³åùì}µã¤¨t5¸NÅq#&v<RŒqZFC¼³³°MgÈŸBÿ€y!€0fèB^È"!ĞCé+é»ôHÌ,ÔØ2€L&*H$_ZêVï¦Ş™Ê:o½'tîv!¿›‚Á'T¶±j=‰¡va´n¡¦¿ªGğoıŠ2l²şßQÈŒ#Éf½‡d=-¯Y¸ä!åµ°Êc´xTÔA.P¬”°¥x«³ –uÙ’‡u"/2¨n [Œ%¿ ï„Ê!ÖëOÉšîIà÷eo‰}ÈiÈænê§—Î1)ÿÅ[\ØM¡Øú/?.UkÉ£ı1‚(‚0‚(~00y10	UUS10U
+Washington10URedmond10U
+Microsoft Corporation1#0!UMicrosoft Code Signing PCA3  y|.WNRáÊÖ   y0	+  ¢0	*†H†÷	1
++‚70
++‚710
++‚70#	*†H†÷	1.m{/¹5¸r–ûzÔ¬ç|õÀ	0B
++‚71402 € M i c r o s o f t¡€http://www.microsoft.com0	*†H†÷ ‚ ´ó~GÉÓ~2ëB`H|OŒœ¯3â.fN?%…?®4-ŒÑ<Av¿1b2=ƒ¥ug|¢©œŞJn!šØÕº.
+chi¬rá†ôÖ·ŸZºW¶ZñäPÌFëû4¦"ÜOÕ ²‹YEÇiïš—ÄI(ç3°UÔ¶¾ä¿Çê5–Aï$7ºRlk¯èEÍŒºÁ¶ÉZBÅ½æL#ÁÃ¿]Ó©»ÒÓ
+	%†-[B®mé–¹¯Ğd}Eti—w•×ê:Œšeİ2ğf–­>»zRE^ ævd>îrVÜøé„wï˜otRxxøPñeeîÈÛK¼íÒ¡‚&!0‚$	*†H†÷	1‚0‚00w10	UUS10U
+Washington10URedmond10U
+Microsoft Corporation1!0UMicrosoft Time-Stamp PCA3   Á	øA»MªÜ     Á0	+  ]0	*†H†÷	1	*†H†÷0	*†H†÷	1180515202638Z0#	*†H†÷	1„³¾ô×óÆtÕYşcæ.NM"³¸0	*†H†÷ ‚ G<^4¥Êòá?J`F«ÄXg–Õ½ı—Êì	ì•úÜk‚] XbOPË:d£ñHk £æÇàfNÒ7±Ä<O(p`7G7Æ1ßb¦#İï“˜#h­Q¶œX÷5¹½A+Ô|sfòš)tBŞÖÁ×yù \Ú7ŸŠ·vA%©ã[m™ŠÆ{Xv¶*ÆÆİÕ–Ó¬Z7Ã'ƒfp%²Õ[ÂÚ¶ZDw¬€8öL-ÂõŒP—A½Wû
+ßm½›,€A£ŞUŒÿª¤4±óGo™Õ$•?ƒ¥vjÏ‰m7µíâÀÔe³³;ºÇ2Òñı±jyÍØy}ŞA0‚#õ
++‚71‚#å0‚#á	*†H†÷ ‚#Ò0‚#Î10	`†He 0\
++‚7 N0L0
++‚70	  ¢€ 010	`†He  Õ¯KğÒ²€z$…ôÕÕmë®´Àåâ?OG©ì ‚ƒ0‚0‚é 3   Äé‰øzPéÿ     Ä0	*†H†÷ 0~10	UUS10U
+Washington10URedmond10U
+Microsoft Corporation1(0&UMicrosoft Code Signing PCA 20110170811202024Z180811202024Z0t10	UUS10U
+Washington10URedmond10U
+Microsoft Corporation10UMicrosoft Corporation0‚"0	*†H†÷ ‚ 0‚
+‚ ˆŠ¸$Ãš€yü&`ürˆ,úô£—ˆ–F·£Ë_‰/:3.‘xú|©‚µzË¼ÊFëÅ™÷ûò…
+ÿ"n¡òg=Å'å(õ”AcìãºŒíš5Ş8pTo;ì­E	0IÁ¾0™ËvÉ÷s•wÑ‹»”Ç… í¨5ñqÂàt KŠÒÜ‘ëÖxşú­`ˆ=½¹®b—¿Å„±®Ö¯+ÓTû5ÚÍq’æÿìqkËvtàQHÔñ ÈHL£5åYı|œÈæZã…õÖš¦ä„ÁÖÊŸÇıH§’3—!H2øÂ$¢ ²¾SÊƒn)[ï8n€ó»ìë £‚€0‚|0U%0
++‚7L+0UËÖb„Ï`9êÿgÂ\ÒÈ»«·Ã˜0RUK0I¤G0E10UMOPR1402U+230012+c804b5ea-49b4-4238-8362-d851fa2254fc0U#0€HndåPÓ‚ª77"µm¨Êu•0TUM0K0I G E†Chttp://www.microsoft.com/pkiops/crl/MicCodSigPCA2011_2011-07-08.crl0a+U0S0Q+0†Ehttp://www.microsoft.com/pkiops/certs/MicCodSigPCA2011_2011-07-08.crt0Uÿ0 0	*†H†÷ ‚ ÛWÂPÈ#O¢Qx×íøıÍ½ÕÀñùVíSÈiGÕÄËìâü™[•_8(ÀEàšyˆ¼f«Û»ëU#·=#xAm®øñ Z”™ŠÌ	•ĞšD0©¥ÇºG[õ+4‹ŸX7ÃN¯"ÊÍØ‚©5ğ®"È$¦‹ß'äf‰>.ÿWMÁnƒ 2ë´³/PV]±ŒÈc·sãÖz&*–E§2ƒ>–>WIw#‰ş±ÇŠåQÅ+Z1[9j–¨¤ˆk–(oñÄ®ê½EÌbNµTG˜¥mÀn'Æø'Èí ©±ñÎš”âjiƒ¡6×m ş…ÕÿÃ¸—6	ş=Á˜©À†Ìï‚Á«U$CµH…x†ĞùÒ?Ù‰çŸh$ˆh;©Ç€N&ç!Lcıœ“M3µV`O×J¹8ÿ.İ±_¤CkÉxÏ±»kƒl‡rªê¥ûŸİÖ9üdÉm>å|ƒ±­¼£º{Ï–V¤zXËGbÒ!ïü<Ä1÷/>d¥7o`P?·DO ‹¾~XöÇg‡aÛ˜ÄÈŒËoGáÀ.”í±ö°0mìjI¨é–vÈ½Äş;õ®s7²VÏÔ»õ”Ê‡ò€jO¶s³Ó["?:XßˆîgÄI§/Ü%‹=^Ğì4D‘¼‘v‚>ïÄØ-¡HùïİÏ¢0‚z0‚b 
+aÒ     0	*†H†÷ 0ˆ10	UUS10U
+Washington10URedmond10U
+Microsoft Corporation1200U)Microsoft Root Certificate Authority 20110110708205909Z260708210909Z0~10	UUS10U
+Washington10URedmond10U
+Microsoft Corporation1(0&UMicrosoft Code Signing PCA 20110‚"0	*†H†÷ ‚ 0‚
+‚ «ğúr.­Ønª‚M4ºò¶X!ŸB*kéZPª¸8IºÃİ7kÆØğ8Â™°È9Õ1BÓ‰yd‡~”`$l¯Iœéh^Òß›S²
+,Ã¯Ù©+®z	¯×–YÊ`éfvè2R&/ç«PÏ³D·]ØÄ.u«hóËmó:\¡ôFºà8d¬nd5x¦ c-Ó@“øãŞÕ\y¥I)ç¾ w¾”=ïûã+ZMV(¢zrà:·I^ØííC‘ƒÙ{²{†Ù>±Œ]è‰O„ò¡/Yä;-®3XÅ·>ş2Ó³=±²¯’8~Ò€,õNV‘!5%Ã9ndSºœ­#„Ëôº†÷_ğĞR¿Œ”‡¼À!t%_(¶Ì'(8%˜9J6Ï|±’®#§©fìajá(I_ˆâ%]Ó!K>RÄµW?$ğÑz[/Õ#ãp]QFw³ø á¼¬‚_ÛÀ³½ÔUKç9¡é#I¼¸D|EäÁÃrzàrç$ß¿F™ÅïÂWÛƒìMI0§«ßì[Ÿ¯üİ°fâÁ—{íÖíKçI)§(¦§}g€æŠbx_²/„×Wœ\¿w((ñímÃ(,@7OÁá…D‰Ä	LÅÔ¥C/t•÷nøx X,]`•š>O3„Ú°ˆŞNô–°¼F l˜ÒàÖˆŒ £‚í0‚é0	+‚7 0UHndåPÓ‚ª77"µm¨Êu•0	+‚7
+ S u b C A0U†0Uÿ0ÿ0U#0€r-:1C¹Náê§Ç1Ñ#‰40ZUS0Q0O M K†Ihttp://crl.microsoft.com/pki/crl/products/MicRooCerAut2011_2011_03_22.crl0^+R0P0N+0†Bhttp://www.microsoft.com/pki/certs/MicRooCerAut2011_2011_03_22.crt0ŸU —0”0‘	+‚7.0ƒ0?+3http://www.microsoft.com/pkiops/docs/primarycps.htm0@+042  L e g a l _ p o l i c y _ s t a t e m e n t . 0	*†H†÷ ‚ gò†¥˜àTy.ÓØtg"›–ác’™B–}ÒyÁe_.,>øÃrÑmƒş¾?è
+Ê;¿G©£óiÛc¿"5¥—]e„}‹FPUØ’|ÒKó<B‹RĞ°ıkã>.)›æ=¥Ôµw”9âédÉD=xz#ó}¦tƒôË&F*ÂŠ»¤©›íhúh.• *?*kXIc	inZ˜–äƒôÀóF+Şü;Ğ½5ïn%®å¯'íĞİó¯™(—˜M=ò‰ÖÃ2âğÅ-Î[´I9
+Æ
+ÂÆ­®å²ÙÛˆQEX82q'±ô'øŞ,: i˜²Y‰hno§·tÃ@¦*(>‚?MfÀ³Mõáo}E§vå@*e£Ã]Rb†Ãc6—†ßÚóøò¡š'áÍ¥—Ğî]cAã[œ‡>wÑ±u¾aaµğÜÆ¾ßAÇ(îŞe/ì—ö¡\–Ø Ö¡F½Yó—¥	KH™€Ğ )Å±›¥?Ew5ÆÒ¢¢Ÿzz"úH•«ûG#€õø¿k·K—âëuxìê7™yKÿÖ³#huæ¯úü‹ë€êi;¯ü0íLßßumc‘=ÑVNO¿€W"¡x2!zïA
+±?û¨Ì¤]Á¡ˆ›WqVNHEÀBÉ›v[
+€HkıyŸÁ½mmjÉRszPÍ1‚Ñ0‚Í0•0~10	UUS10U
+Washington10URedmond10U
+Microsoft Corporation1(0&UMicrosoft Code Signing PCA 20113   Äé‰øzPéÿ     Ä0	`†He  Á0
+*†H†÷	10	*†H†÷	1
++‚70
++‚710
++‚70/	*†H†÷	1" Ùï?}Ù’{Ip}¨€”\Dê¸Åõ>ş“ò?0B
++‚71402 € M i c r o s o f t¡€http://www.microsoft.com0	*†H†÷ ‚ l%œ5ÜSés?³€'*÷C91h}ƒÃ¬ş\ìOò›®´ŸYúİñƒëm§¢K*V:Í›eGÇÌÁı´Z{çÀ)‘Ø/Îº$AÉ ÖK‡¦;ª‚ø¼Ë²-b4k·” ş³ŸæTá²î×+?Éåíñ›òxL‘<$;<}ğ–QÌÁÁ¸M’i¾3Û¹AD'½âMOÀoVÍ¹ÑUŠ;Îè
+şÄ8q|Æ€¸x7óué”PY`«X¡(mOÍ‹n¾Ä‹D­¡¶RŞº´fü]ıÇ·91yèŸlîb¯ş±’cö6?ZÔ'òı¶ÜÏÓ{E:ëåû¥ÇêÁåA¡‚H0‚D
++‚71‚40‚0	*†H†÷ ‚!0‚10	`†He 0‚;*†H†÷	 ‚*‚&0‚"
++„Y
+010	`†He  ;<{y†
+J-¶ğ4‡•6EŸÑ]ã[X) Ïv‚º°şZŞGïß20180515202651.29Z0€ô ¸¤µ0²10	UUS10U
+Washington10URedmond10U
+Microsoft Corporation10
+UAOC1'0%UnCipher DSE ESN:7AB5-2DF2-DA3F1%0#UMicrosoft Time-Stamp Service ‚Í0‚q0‚Y 
+a	*     0	*†H†÷ 0ˆ10	UUS10U
+Washington10URedmond10U
+Microsoft Corporation1200U)Microsoft Root Certificate Authority 20100100701213655Z250701214655Z0|10	UUS10U
+Washington10URedmond10U
+Microsoft Corporation1&0$UMicrosoft Time-Stamp PCA 20100‚"0	*†H†÷ ‚ 0‚
+‚ ©¼wŠ: ìü—õúi”ktTÕ¥
+ ‚…ûí|hK,_ÅÃåaÂv·>f+[ğS'1A•Î	|a0Y±0Dñ`ˆ„TC×M¸8³Bİ“¬Ös0W&‚£EĞêõGÍ¿$`2X`FòXG†2„tag‘_T±Ï“L’ÁÄ¦]Ñan(Æù†€»ßaüFÁ'$gr!Š¯Kd‰Pb±]ıw=ğWu¬½ŠBM@QÑœ>gõfÀ–D~ïĞKınåšÊ±¨òz*
+1ğÚN‘¶ˆ5èx°é™Í<ç/Dº§ôÜd½¤Á 	“xÍü¼ÀÉD]^œO"M £‚æ0‚â0	+‚7 0UÕc:\Š1óC{|FÅ3hZ…mU0	+‚7
+ S u b C A0U†0Uÿ0ÿ0U#0€ÕöVËè¢\bhÑ=”[×ÎšÄ0VUO0M0K I G†Ehttp://crl.microsoft.com/pki/crl/products/MicRooCerAut_2010-06-23.crl0Z+N0L0J+0†>http://www.microsoft.com/pki/certs/MicRooCerAut_2010-06-23.crt0 U ÿ•0’0	+‚7.00=+1http://www.microsoft.com/PKI/docs/CPS/default.htm0@+042  L e g a l _ P o l i c y _ S t a t e m e n t . 0	*†H†÷ ‚ æˆQâÆà˜?q=£¡!o³ë¦Ìõ1¾Ïâ©şúWm0³ÂÅfÉjßõçğx½Ç¨%ãù¼íkTW+Q‚Dû¹SŒÌô`ŠvÌ@@A›Ü\ÿ\ù^5˜$VKtïBÈ¯¿Æò7}Z?ò™yJ‘R ¯8õ/yeÙ©µkäÇÎöÊz oK0D$"<Ïí¥–Y)¼¶ıápŸ2J'ıU¯/ş¶å3»b_šÛW@éñÎ™fŒÿjbİÅJ‘&â9ìJqc{!mÃœ£¢<ú}–jx¦mÒáœùü8Ø”ôÆ¥
+–†¤½®Bƒ¸µ€›"8 µ%ådì÷ô¿~cY%z.9Wv¢qªŠ‰ºa§ËšØGš€ÅĞÍ§Ğï}ƒğá;q	ß]t˜"aÚ°Po½ñá ßç1¤“:÷eGxèø¨H«÷Şr~akow©Ë§	¬9»ìÆËØ‚´rÍô¸…€û‰*T9²[ÚÈU™z‡s;æ˜-êà3.)õÀ/T'!÷È¬NÚ(¸±©Û–²§B¢ÉÏAMà†ù*š£f0Ó»t2Kßc{õ™Š/Ç!¯Yµ®ÜD<—Pq×¡ÒÅUãiŞWÁÑŞ0ÀıÌæMû¿]Oé8/¼ÏX.ï P5Úï	'Õ³~5ºÚ6ÛÓ_ŞtˆI0‚Ù0‚Á 3   «^@îFß,l     «0	*†H†÷ 0|10	UUS10U
+Washington10URedmond10U
+Microsoft Corporation1&0$UMicrosoft Time-Stamp PCA 20100160907175654Z180907175654Z0²10	UUS10U
+Washington10URedmond10U
+Microsoft Corporation10
+UAOC1'0%UnCipher DSE ESN:7AB5-2DF2-DA3F1%0#UMicrosoft Time-Stamp Service0‚"0	*†H†÷ ‚ 0‚
+‚ ³æ~P˜ F	°f&Š4Ó)É}˜5š,İ3ÊÏ×ï»áÈ.I¤ÓĞÙÜsÓ»E…œ]åõü+¦b›á€§ó7(EK5Ş¸ºnû†íá«ò8ğwÂ[Ï@î9JÒ*zü‹ø©¼šyÃãpÑ¬ ó¦ÀË!İtÔÔ‡„(­YRbŞìıÌÅ‰LM³ Ô{Â:Íci	ˆ“Ã-”¡,)¸7ÕJµ1Šä¾n‘3Û|îÌ2|\Á-á¸°Ö"‰!*$yâä£Ï.ÖUÉH$¤¨ÉõHÈRÂ1’úf6 ù¡0h­idKZñëiŸs†z¶`”‘^ ½Ôß*ÈK £‚0‚0UÇGĞ`ËéÀk”Ì_b¸Øj§0U#0€Õc:\Š1óC{|FÅ3hZ…mU0VUO0M0K I G†Ehttp://crl.microsoft.com/pki/crl/products/MicTimStaPCA_2010-07-01.crl0Z+N0L0J+0†>http://www.microsoft.com/pki/certs/MicTimStaPCA_2010-07-01.crt0Uÿ0 0U%0
++0	*†H†÷ ‚ ?Ÿşº.añr*­ªf• K}³ÂFİĞë[@<ôŒu­¡o${.Ò£‰ºğ6+ùÈÅwz¸|ŞTâı&_<v-úÑ¢¨ˆ^K*Y•È_wşD$¸™„‘”¯Ç¦*†„±‹ø‘$ÇĞn£6¿ûø¸šo>ií¶ñ›agT­6èÛòÚåb¦;ÈmÌCš&"óDŒë-G&uÓÂæ›ÖŠO“è€ Î-•Só@àÜi\L!×J(/EÕ‚ı¤Áß!;Éë?8¥?2úÍK¸¼›³‘±“]âÿy¡Ñ¸5öá‘Ê÷qìışŠÃàe5XË¤^–æ§"¯hó>ÏŞ¤ªØî¤â¡‚w0‚_0â¡¸¤µ0²10	UUS10U
+Washington10URedmond10U
+Microsoft Corporation10
+UAOC1'0%UnCipher DSE ESN:7AB5-2DF2-DA3F1%0#UMicrosoft Time-Stamp Service¢%
+0	+  Éì»H-5Ù”¾¶÷&©1nŠ‡2 Á0¾¤»0¸10	UUS10U
+Washington10URedmond10U
+Microsoft Corporation10
+UAOC1'0%UnCipher NTS ESN:2665-4C3F-C5DE1+0)U"Microsoft Time Source Master Clock0	*†H†÷  Ş¥*”0"20180515094452Z20180516094452Z0w0=
++„Y
+1/0-0
+ Ş¥*” 0
+ 9ÿ0 ­0
+ Ş¦| 06
++„Y
+1(0&0
++„Y
+ 
+0 ã`¡
+0 ¡ 0	*†H†÷ ‚  ?°të“—C.ºQ»ç:´t6¤;ß}÷¶§™eÒ2?íÂ‰	«…Z^üâƒÃF•uŠèvN“‰tò¯’5¬ÚÛ'§=“-Qœ;Œ8Î¸fIÛ'KËÃE	Àk—^¸æˆôû×Â…¤¥QF?IÕíÇš®O†º—ŸS©MêZbYæWU‹üW	¹Gìÿ’‘[i¨éüÙr©üBe	VÉUÎ»°ßÄÆ[Å\æ*yÆm–!‡ßeN¥¯@ĞmÁ+,Uq‡ÚdØ†F„Ôø&b£¿‡GÿoŒ‘Š¹çÅ§<Fı~»º+˜¶SÊ)ï:+ |Ê‘ş©ƒ"›¿—ª1‚õ0‚ñ0“0|10	UUS10U
+Washington10URedmond10U
+Microsoft Corporation1&0$UMicrosoft Time-Stamp PCA 20103   «^@îFß,l     «0	`†He  ‚20	*†H†÷	1*†H†÷	0/	*†H†÷	1" wTãi.ËWYbœcÁØ¼ØD˜ğ¤b™Še¸0â*†H†÷	1Ò0Ï0Ì0±Éì»H-5Ù”¾¶÷&©1nŠ‡20˜0€¤~0|10	UUS10U
+Washington10URedmond10U
+Microsoft Corporation1&0$UMicrosoft Time-Stamp PCA 20103   «^@îFß,l     «0âbàİê!Ó‰Æ…Ç_‡G§±¦0	*†H†÷ ‚ „şÿ/X“¡gà&ò&¸²½gS"dÃ¨mÌ4oS‡Æ‰UF‡¢†ØC{hÕt§…GXwê‚Pt+ÆózÕ'Ì@úrí7b&m sÌqä^¦Úö†Êã4q·JCEÌÑvİ5poTØJ2ÿk|Ú«ó€/@ûÄ…AÅ“–±Ÿ4 !ÔDĞİòû¦OZKğ{L ªŒ¤Ş£
+<f°N&lò‚D(¨N– ÎÙ
+ RËğpP0ÎœfH+Z±ØÇw\Yß`´S.ª®Az×¦Z˜àms½2D ³NGv†p˜šŠ9?hw~ëER       

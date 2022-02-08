@@ -1,0 +1,346 @@
+Ôªø<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>System.Runtime.CompilerServices.Unsafe</name>
+  </assembly>
+  <members>
+    <member name="T:System.Runtime.CompilerServices.Unsafe">
+      <summary>Contains generic, low-level functionality for manipulating pointers.</summary>
+    </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.Add``1(``0@,System.Int32)">
+      <summary>Adds an element offset to the given reference.</summary>
+      <param name="source">The reference to add the offset to.</param>
+      <param name="elementOffset">The offset to add.</param>
+      <typeparam name="T">The type of reference.</typeparam>
+      <returns>A new reference that reflects the addition of offset to pointer.</returns>
+    </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.Add``1(``0@,System.IntPtr)">
+      <summary>Adds an element offset to the given reference.</summary>
+      <param name="source">The reference to add the offset to.</param>
+      <param name="elementOffset">The offset to add.</param>
+      <typeparam name="T">The type of reference.</typeparam>
+      <returns>A new reference that reflects the addition of offset to pointer.</returns>
+    </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.Add``1(System.Void*,System.Int32)">
+      <summary>Adds an element offset to the given void pointer.</summary>
+      <param name="source">The void pointer to add the offset to.</param>
+      <param name="elementOffset">The offset to add.</param>
+      <typeparam name="T">The type of void pointer.</typeparam>
+      <returns>A new void pointer that reflects the addition of offset to the specified pointer.</returns>
+    </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.AddByteOffset``1(``0@,System.IntPtr)">
+      <summary>Adds a byte offset to the given reference.</summary>
+      <param name="source">The reference to add the offset to.</param>
+      <param name="byteOffset">The offset to add.</param>
+      <typeparam name="T">The type of reference.</typeparam>
+      <returns>A new reference that reflects the addition of byte offset to pointer.</returns>
+    </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.AreSame``1(``0@,``0@)">
+      <summary>Determines whether the specified references point to the same location.</summary>
+      <param name="left">The first reference to compare.</param>
+      <param name="right">The second reference to compare.</param>
+      <typeparam name="T">The type of reference.</typeparam>
+      <returns>
+        <see langword="true" /> if <paramref name="left" /> and <paramref name="right" /> point to the same location; otherwise, <see langword="false" />.</returns>
+    </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.As``1(System.Object)">
+      <summary>Casts the given object to the specified type.</summary>
+      <param name="o">The object to cast.</param>
+      <typeparam name="T">The type which the object will be cast to.</typeparam>
+      <returns>The original object, casted to the given type.</returns>
+    </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.As``2(``0@)">
+      <summary>Reinterprets the given reference as a reference to a value of type <typeparamref name="TTo" />.</summary>
+      <param name="source">The reference to reinterpret.</param>
+      <typeparam name="TFrom">The type of reference to reinterpret.</typeparam>
+      <typeparam name="TTo">The desired type of the reference.</typeparam>
+      <returns>A reference to a value of type <typeparamref name="TTo" />.</returns>
+    </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.AsPointer``1(``0@)">
+      <summary>Returns a pointer to the given by-ref parameter.</summary>
+      <param name="value">The object whose pointer is obtained.</param>
+      <typeparam name="T">The type of object.</typeparam>
+      <returns>A pointer to the given value.</returns>
+    </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.AsRef``1(``0@)">
+      <summary>Reinterprets the given read-only reference as a reference.</summary>
+      <param name="source">The read-only reference to reinterpret.</param>
+      <typeparam name="T">The type of reference.</typeparam>
+      <returns>A reference to a value of type <typeparamref name="T" />.</returns>
+    </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.AsRef``1(System.Void*)">
+      <summary>Reinterprets the given location as a reference to a value of type <typeparamref name="T" />.</summary>
+      <param name="source">The location of the value to reference.</param>
+      <typeparam name="T">The type of the interpreted location.</typeparam>
+      <returns>A reference to a value of type <typeparamref name="T" />.</returns>
+    </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.ByteOffset``1(``0@,``0@)">
+      <summary>Determines the byte offset from origin to target from the given references.</summary>
+      <param name="origin">The reference to origin.</param>
+      <param name="target">The reference to target.</param>
+      <typeparam name="T">The type of reference.</typeparam>
+      <returns>Byte offset from origin to target i.e. <paramref name="target" /> - <paramref name="origin" />.</returns>
+    </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.Copy``1(``0@,System.Void*)">
+      <summary>Copies a value of type <typeparamref name="T" /> to the given location.</summary>
+      <param name="destination">The location to copy to.</param>
+      <param name="source">A pointer to the value to copy.</param>
+      <typeparam name="T">The type of value to copy.</typeparam>
+    </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.Copy``1(System.Void*,``0@)">
+      <summary>Copies a value of type <typeparamref name="T" /> to the given location.</summary>
+      <param name="destination">The location to copy to.</param>
+      <param name="source">A reference to the value to copy.</param>
+      <typeparam name="T">The type of value to copy.</typeparam>
+    </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.CopyBlock(System.Byte@,System.Byte@,System.UInt32)">
+      <summary>Copies bytes from the source address to the destination address.</summary>
+      <param name="destination">The destination address to copy to.</param>
+      <param name="source">The source address to copy from.</param>
+      <param name="byteCount">The number of bytes to copy.</param>
+    </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.CopyBlock(System.Void*,System.Void*,System.UInt32)">
+      <summary>Copies bytes from the source address to the destination address.</summary>
+      <param name="destination">The destination address to copy to.</param>
+      <param name="source">The source address to copy from.</param>
+      <param name="byteCount">The number of bytes to copy.</param>
+    </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.CopyBlockUnaligned(System.Byte@,System.Byte@,System.UInt32)">
+      <summary>Copies bytes from the source address to the destination address without assuming architecture dependent alignment of the addresses.</summary>
+      <param name="destination">The destination address to copy to.</param>
+      <param name="source">The source address to copy from.</param>
+      <param name="byteCount">The number of bytes to copy.</param>
+    </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.CopyBlockUnaligned(System.Void*,System.Void*,System.UInt32)">
+      <summary>Copies bytes from the source address to the destination address without assuming architecture dependent alignment of the addresses.</summary>
+      <param name="destination">The destination address to copy to.</param>
+      <param name="source">The source address to copy from.</param>
+      <param name="byteCount">The number of bytes to copy.</param>
+    </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.InitBlock(System.Byte@,System.Byte,System.UInt32)">
+      <summary>Initializes a block of memory at the given location with a given initial value.</summary>
+      <param name="startAddress">The address of the start of the memory block to initialize.</param>
+      <param name="value">The value to initialize the block to.</param>
+      <param name="byteCount">The number of bytes to initialize.</param>
+    </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.InitBlock(System.Void*,System.Byte,System.UInt32)">
+      <summary>Initializes a block of memory at the given location with a given initial value.</summary>
+      <param name="startAddress">The address of the start of the memory block to initialize.</param>
+      <param name="value">The value to initialize the block to.</param>
+      <param name="byteCount">The number of bytes to initialize.</param>
+    </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.InitBlockUnaligned(System.Byte@,System.Byte,System.UInt32)">
+      <summary>Initializes a block of memory at the given location with a given initial value without assuming architecture dependent alignment of the address.</summary>
+      <param name="startAddress">The address of the start of the memory block to initialize.</param>
+      <param name="value">The value to initialize the block to.</param>
+      <param name="byteCount">The number of bytes to initialize.</param>
+    </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.InitBlockUnaligned(System.Void*,System.Byte,System.UInt32)">
+      <summary>Initializes a block of memory at the given location with a given initial value without assuming architecture dependent alignment of the address.</summary>
+      <param name="startAddress">The address of the start of the memory block to initialize.</param>
+      <param name="value">The value to initialize the block to.</param>
+      <param name="byteCount">The number of bytes to initialize.</param>
+    </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.IsAddressGreaterThan``1(``0@,``0@)">
+      <summary>Returns a value that indicates whether a specified reference is greater than another specified reference.</summary>
+      <param name="left">The first value to compare.</param>
+      <param name="right">The second value to compare.</param>
+      <typeparam name="T">The type of the reference.</typeparam>
+      <returns>
+        <see langword="true" /> if <paramref name="left" /> is greater than <paramref name="right" />; otherwise, <see langword="false" />.</returns>
+    </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.IsAddressLessThan``1(``0@,``0@)">
+      <summary>Returns a value that indicates whether a specified reference is less than another specified reference.</summary>
+      <param name="left">The first value to compare.</param>
+      <param name="right">The second value to compare.</param>
+      <typeparam name="T">The type of the reference.</typeparam>
+      <returns>
+        <see langword="true" /> if <paramref name="left" /> is less than <paramref name="right" />; otherwise, <see langword="false" />.</returns>
+    </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.IsNullRef``1(``0@)">
+      <param name="source" />
+      <typeparam name="T" />
+    </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.NullRef``1">
+      <typeparam name="T" />
+    </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.Read``1(System.Void*)">
+      <summary>Reads a value of type <typeparamref name="T" /> from the given location.</summary>
+      <param name="source">The location to read from.</param>
+      <typeparam name="T">The type to read.</typeparam>
+      <returns>An object of type <typeparamref name="T" /> read from the given location.</returns>
+    </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.ReadUnaligned``1(System.Byte@)">
+      <summary>Reads a value of type <typeparamref name="T" /> from the given location without assuming architecture dependent alignment of the addresses.</summary>
+      <param name="source">The location to read from.</param>
+      <typeparam name="T">The type to read.</typeparam>
+      <returns>An object of type <typeparamref name="T" /> read from the given location.</returns>
+    </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.ReadUnaligned``1(System.Void*)">
+      <summary>Reads a value of type <typeparamref name="T" /> from the given location without assuming architecture dependent alignment of the addresses.</summary>
+      <param name="source">The location to read from.</param>
+      <typeparam name="T">The type to read.</typeparam>
+      <returns>An object of type <typeparamref name="T" /> read from the given location.</returns>
+    </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.SizeOf``1">
+      <summary>Returns the size of an object of the given type parameter.</summary>
+      <typeparam name="T">The type of object whose size is retrieved.</typeparam>
+      <returns>The size of an object of type <typeparamref name="T" />.</returns>
+    </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.SkipInit``1(``0@)">
+      <summary>Bypasses definite assignment rules for a given value.</summary>
+      <param name="value">The uninitialized object.</param>
+      <typeparam name="T">The type of the uninitialized object.</typeparam>
+    </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.Subtract``1(``0@,System.Int32)">
+      <summary>Subtracts an element offset from the given reference.</summary>
+      <param name="source">The reference to subtract the offset from.</param>
+      <param name="elementOffset">The offset to subtract.</param>
+      <typeparam name="T">The type of reference.</typeparam>
+      <returns>A new reference that reflects the subtraction of offset from pointer.</returns>
+    </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.Subtract``1(``0@,System.IntPtr)">
+      <summary>Subtracts an element offset from the given reference.</summary>
+      <param name="source">The reference to subtract the offset from.</param>
+      <param name="elementOffset">The offset to subtract.</param>
+      <typeparam name="T">The type of reference.</typeparam>
+      <returns>A new reference that reflects the subtraction of offset from pointer.</returns>
+    </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.Subtract``1(System.Void*,System.Int32)">
+      <summary>Subtracts an element offset from the given void pointer.</summary>
+      <param name="source">The void pointer to subtract the offset from.</param>
+      <param name="elementOffset">The offset to subtract.</param>
+      <typeparam name="T">The type of the void pointer.</typeparam>
+      <returns>A new void pointer that reflects the subtraction of offset from the specified pointer.</returns>
+    </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.SubtractByteOffset``1(``0@,System.IntPtr)">
+      <summary>Subtracts a byte offset from the given reference.</summary>
+      <param name="source">The reference to subtract the offset from.</param>
+      <param name="byteOffset">The offset to subtract.</param>
+      <typeparam name="T">The type of reference.</typeparam>
+      <returns>A new reference that reflects the subtraction of byte offset from pointer.</returns>
+    </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.Unbox``1(System.Object)">
+      <summary>Returns a <see langword="mutable ref" /> to a boxed value.</summary>
+      <param name="box">The value to unbox.</param>
+      <typeparam name="T">The type to be unboxed.</typeparam>
+      <exception cref="T:System.NullReferenceException">
+        <paramref name="box" /> is <see langword="null" />, and <typeparamref name="T" /> is a non-nullable value type.</exception>
+      <exception cref="T:System.InvalidCastException">
+        <paramref name="box" /> is not a boxed value type.
+         
+-or-
+
+<paramref name="box" /> is not a boxed <typeparamref name="T" />.</exception>
+      <exception cref="T:System.TypeLoadException">
+        <typeparamref name="T" /> cannot be found.</exception>
+      <returns>A <see langword="mutable ref" /> to the boxed value <paramref name="box" />.</returns>
+    </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.Write``1(System.Void*,``0)">
+      <summary>Writes a value of type <typeparamref name="T" /> to the given location.</summary>
+      <param name="destination">The location to write to.</param>
+      <param name="value">The value to write.</param>
+      <typeparam name="T">The type of value to write.</typeparam>
+    </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.WriteUnaligned``1(System.Byte@,``0)">
+      <summary>Writes a value of type <typeparamref name="T" /> to the given location without assuming architecture dependent alignment of the addresses.</summary>
+      <param name="destination">The location to write to.</param>
+      <param name="value">The value to write.</param>
+      <typeparam name="T">The type of value to write.</typeparam>
+    </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.WriteUnaligned``1(System.Void*,``0)">
+      <summary>Writes a value of type <typeparamref name="T" /> to the given location without assuming architecture dependent alignment of the addresses.</summary>
+      <param name="destination">The location to write to.</param>
+      <param name="value">The value to write.</param>
+      <typeparam name="T">The type of value to write.</typeparam>
+    </member>
+  </members>
+</doc>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    · 0/ ` 5 ~ ; è A † G ± M ¬ M Ã S › S Á w ∞y ∞ € Íç ∞S ‡ jÂ ëÔ √˜ Âˇ )‡ K]‡ ÃÍ‡ ˘‡ (‡ 3E‡ ∞^;å;ó;«;“IÚI;J   <actualHC>5__10 <>c__DisplayClass1_0 <>c__DisplayClass3_0 <Decode>b__0 <Encode>b__0 <Peek8>d__0 <WriteBlock>d__0 <TryPeek4>d__1 <WriteImpl>d__1 <>u__1 Nullable`1 ConfiguredTaskAwaitable`1 Task`1 ReadOnlySpan`1 AsyncTaskMethodBuilder`1 ReadOnlyMemory`1 Stash1 Peek1 Last1 XXH32 ToUInt32 <blockLength>5__2 <progress>5__2 <headerOffset>5__2 <offset>5__2 <Peek4>d__2 <>u__2 Func`2 Stash2 Peek2 Last2 <uncompressed>5__3 <blockChaining>5__3 <count>5__3 <Peek2>d__3 <>u__3 ToUInt64 K4os.Compression.LZ4 <read>5__4 <blockChecksum>5__4 <Peek1>d__4 <>u__4 TryStash4 TryPeek4 Last4 <contentChecksum>5__5 <EnsureFrame>d__5 <>u__5 ToUInt16 <hasDictionary>5__6 <ReadFrame>d__6 <blockSizeCode>5__7 <ReadBlock>d__7 <contentLength>5__8 <TryReadBlockAsync>d__8 <ReadImpl>d__8 Stash8 Peek8 Last8 <dictionaryId>5__9 <Module> System.IO T _ mscorlib LZ4Codec ReadAsync WriteAsync FlushAsync TryReadBlockAsync get_CanRead _head read Load loaded _decoded get_Compressed uncompressed MagicNumberExpected AwaitUnsafeOnCompleted get_IsCompleted NotImplemented <BlockSize>k__BackingField <Chaining>k__BackingField <ContentLength>k__BackingField <CompressionLevel>k__BackingField <BlockChecksum>k__BackingField <ContentChecksum>k__BackingField <ChainBlocks>k__BackingField <Default>k__BackingField <Dictionary>k__BackingField <ExtraMemory>k__BackingField Slice Advance force MaxBlockSizeCode blockSizeCode BlockLengthCode InjectOrDecode FlushAndEncode TopupAndEncode Invoke IDisposable ConfiguredTaskAwaitable get_Name ReadFrame EnsureFrame CloseFrame TryStashFrame IAsyncStateMachine SetStateMachine stateMachine ValueType GetType LZ4StreamBase InnerDispose Create <>1__state get_CanWrite EmbeddedAttribute CompilerGeneratedAttribute UnverifiableCodeAttribute DebuggableAttribute AssemblyTitleAttribute AsyncStateMachineAttribute TargetFrameworkAttribute DebuggerHiddenAttribute ExtensionAttribute AssemblyFileVersionAttribute AssemblyInformationalVersionAttribute SecurityPermissionAttribute AssemblyConfigurationAttribute AssemblyDescriptionAttribute CompilationRelaxationsAttribute AssemblyProductAttribute IsReadOnlyAttribute AssemblyCompanyAttribute RuntimeCompatibilityAttribute ReadByte WriteByte get_Value InvalidValue OneByteValue get_HasValue value Weave _interactive get_BlockSize set_BlockSize InvalidBlockSize MaxBlockSize blockSize bufferSize MaximumOutputSize _size DigestOf System.Threading get_Chaining chaining System.Runtime.Versioning String disposing K4os.Hash.xxHash get_Stash DigestOfStash _stash InnerFlush Math get_Length blockLength GetLength SetLength get_ContentLength set_ContentLength contentLength _length i InnerReadBlock TryReadBlock InnerWriteBlock block get_CanSeek get_Task get_CompletedTask task optional K4os.Compression.LZ4.Streams.Internal LZ4Level get_CompressionLevel set_CompressionLevel level K4os.Compression.LZ4.Streams.dll ReadImpl DisposeImpl WriteImpl LZ4Stream EndOfStream LZ4DecoderStream LZ4EncoderStream innerStream _stream System get_BlockChecksum blockChecksum InvalidHeaderChecksum get_ContentChecksum contentChecksum get_Span OneByteSpan ToSpan AsSpan span CancellationToken cancellationToken EmptyToken token _leaveOpen Min Drain SeekOrigin origin UnknownFrameVersion version InvalidOperation operation EncoderAction SecurityAction action System.Reflection get_Position set_Position _position InvalidDataException NotImplementedException EndOfStreamException InvalidOperationException SetException ArgumentException description _frameInfo BlockInfo MemberInfo Clear AsyncTaskMethodBuilder <>t__builder ILZ4Decoder _decoder ILZ4Encoder CreateEncoder _encoder get_Buffer _buffer _inner ConfiguredTaskAwaiter GetAwaiter BitConverter .ctor .cctor ILZ4Descriptor _descriptor Abs System.Diagnostics System.Runtime.CompilerServices DebuggingModes LZ4DecoderSettings LZ4EncoderSettings settings <>4__this Microsoft.CodeAnalysis ExtraBlocks get_ChainBlocks set_ChainBlocks System.Threading.Tasks K4os.Compression.LZ4.Streams LZ4EncoderExtensions MemoryExtensions System.Security.Permissions K4os.Compression.LZ4.Encoders Concat Format Object Inject get_Offset offset ConfigureAwait op_Implicit get_Default GetValueOrDefault GetResult SetResult count Start get_ReadTimeout set_ReadTimeout get_WriteTimeout set_WriteTimeout get_CanTimeout MoveNext Max get_Ready get_Dictionary dictionary System.Memory get_ExtraMemory set_ExtraMemory extraMemory AsMemory _decoderFactory _encoderFactory System.Security get_Empty     eP r e d e f i n e d   d i c t i o n a r i e s   f e a t u r e   i s   n o t   i m p l e m e n t e d  CI n v a l i d   L Z 4   f r a m e   h e a d e r   c h e c k s u m  ?L Z 4   f r a m e   m a g i c   n u m b e r   e x p e c t e d  ML Z 4   f r a m e   v e r s i o n   { 0 }   i s   n o t   s u p p o r t e d  MC o n t e n t S i z e   f e a t u r e   i s   n o t   i m p l e m e n t e d  EB l o c k S i z e   i s   g r e a t e r   t h a n   d e c l a r e d  B l o c k C h e c k s u m  C o n t e n t C h e c k s u m  ?I n v a l i d   b l o c k   s i z e   $ { 0 }   f o r   { 1 }  eU n e x p e c t e d   e n d   o f   s t r e a m .   D a t a   m i g h t   b e   c o r r u p t e d .  F e a t u r e    ;  h a s   n o t   b e e n   i m p l e m e n t e d   i n    O p e r a t i o n    )  i s   n o t   a l l o w e d   f o r    	S e e k  S e t L e n g t h  R e a d B y t e  	R e a d  R e a d A s y n c  W r i t e B y t e  W r i t e  W r i t e A s y n c     f
+Q(≠ÆZDÖÂeErNt       9 ]mq ÄÖÄ•Ä©@Äï	  Äï 0 
+@  e D
+ÄïM	
+DHÄï	
+HLÄï
+LPÄï
+PTÄï
+TX
+X\Äï
+\`
+`M	M	  'M	M
+M	M		M
+     M
+UY  M
+M
+  
+ Y	 Y 	 q  Yq q  
+m   M	d  ÄΩ
+d  }h
+h,,M
+M	 	UÄ°Ä≠ Ä© q   Ä≠Ä°Ä©qÄ≠, Ä≠Ä°q  ]    Ä© q  Ä• m l$ p  }e 
+ Äâ  Äµ	  Ä©   q  t
+t	 	Ä©  }i 
+ }i 
+
+ÄÕ  	 ÄçÄâÄë
+Äâ	  Äç Äç
+0 
+
+Äç@ ÄëM	ÄçÄâM	Äë
+
+ÄçD	ÄçÄâÄë
+
+ÄçHÄçÄâÄë
+
+ÄçLÄçÄâÄë
+
+ÄçPÄçÄâÄë
+ÄâÄç
+
+ÄçTcM	ÄçM	ÄâM	M		ÄçÄâM
+ÄçÄâÄç	Äâ	ÄçÄâÄë
+M	
+ÄâM	
+ÄçM	
+ÄçM	X
+ÄâÄç
+
+ÄçX
+ÄâÄç
+
+ÄçX
+	Äâ	Äç	
+
+Äç	XÄâÄç
+
+ÄçX"		Äç	Äâ	ÄçÄâÄë
+
+Äç	\
+
+Äç\$ÄçÄâÄçÄâÄë
+
+Äç`
+
+Äç` ÄπÄµÄë  Äπ
+Äπd ÄπÄµ,Äë
+Äπh Ä°Äù YÄçÄâÄë ei
+
+Äçt∑z\V4‡â!Ü˙ë!Ô#Ã{ˇÕ-›Q2ÕT9PWŒ√Ä† $  Ä  î      $  RSA1     i(uwëÿo“V≤?kÂ¯ûïk5”Ïˇ[f˛H‚¯N≥–ôhw@zﬂO¡O¡·3≤»¢†&Nêƒ¸qÚEh	*3˝ÙNUhŸù^§π’!iÛuD€⁄H4~rl≥¢Ï°ˇlÏê∆ Z1åöaR[oäd⁄Ù@Oñëˇ¯VR™ß     Äû.ÄÑSystem.Security.Permissions.SecurityPermissionAttribute, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089TSkipVerification	UYY
+M
+ÄùÄ°
+UÄ°M	}0u<ÄïiÄçÄïM	Äï	ÄïÄïÄïÄçÄçM	ÄçÄçÄç	ÄçÄïmÄΩ, ÄπÄ•  M
+  M	    	 ei eM	i	 e	i	 ei	 ei	 ei	 ei eim 0	 M	0 	0 0 0 0 
+0 0
+ 0q 0 uUY  q  y y  
+   M
+  Äù Äù }i, }iÄ• 0, 0Ä© uUÄ°  Ä° ,Ä©  , 	,	 M	,  Ä±  M
+M		  u  uÄù
+ u	 u  	 Ä≠Äâ e  Äµ} Ä©Ä© Ä©Ä• qq qm  Ä¡
+ u eui u  < 	 Ä≈ Ä… Ä± 0 }i
+ 0 }i
+ 0 ei 0 
+ u 0 ei  	 M	  q    q q    Ä° Y( M
+( ( M	(  ( 
+ ( Äù( ( <           TWrapNonExceptionThrows      I .NETFramework,Version=v4.6 TFrameworkDisplayName.NET Framework 4.6 Milosz Krajewski   Release  / *Port of LZ4 compression algorithm for .NET  
+ 1.2.6   K4os.Compression.LZ4  ! K4os.Compression.LZ4.Streams  > 9K4os.Compression.LZ4.Streams.LZ4DecoderStream+<Peek8>d__0  A <K4os.Compression.LZ4.Streams.LZ4DecoderStream+<TryPeek4>d__1  > 9K4os.Compression.LZ4.Streams.LZ4DecoderStream+<Peek4>d__2  > 9K4os.Compression.LZ4.Streams.LZ4DecoderStream+<Peek2>d__3  > 9K4os.Compression.LZ4.Streams.LZ4DecoderStream+<Peek1>d__4  D ?K4os.Compression.LZ4.Streams.LZ4DecoderStream+<EnsureFrame>d__5  B =K4os.Compression.LZ4.Streams.LZ4DecoderStream+<ReadFrame>d__6  B =K4os.Compression.LZ4.Streams.LZ4DecoderStream+<ReadBlock>d__7  A <K4os.Compression.LZ4.Streams.LZ4DecoderStream+<ReadImpl>d__8  C >K4os.Compression.LZ4.Streams.LZ4EncoderStream+<WriteBlock>d__0  B =K4os.Compression.LZ4.Streams.LZ4EncoderStream+<WriteImpl>d__1  M HK4os.Compression.LZ4.Streams.Internal.Extensions+<TryReadBlockAsync>d__8     ›9õ`Ç;'ˆhØhñ|˜¨#¢¡ù%¸…ß‹ªÔMï√ëŸSÆ™ È‹YÎ‚Ì^{ô™4ﬂﬂ_Tê>ºÏ≥€@BˆN∑ Ç¥ˆäÕ)ÀQˆµ%µÊü∏∑kæËX^ì>£"KÏó¿¶–u4ÀáK⁄ÇÎÛ8¶ÍØ§    ´3Ò MP   ç   ¯î  ¯v                '   Öï  Öw                             RSDS{”◊6T
+∏Có∆òwÀ   D:\Projects\K4os.Compression.LZ4\src\K4os.Compression.LZ4.Streams\obj\Release\net46\K4os.Compression.LZ4.Streams.pdb SHA256 {”◊6T
+∏s◊∆òwÀ´3ÒF‹3>ÑÒÆÀGÜG‘ï          Óï                          ‡ï            _CorDllMain mscoree.dll     ˇ%                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   Ä                  0  Ä                   H   X†  Ã          Ã4   V S _ V E R S I O N _ I N F O     ΩÔ˛             ?                         D    V a r F i l e I n f o     $    T r a n s l a t i o n       ∞,   S t r i n g F i l e I n f o      0 0 0 0 0 4 b 0   n +  C o m m e n t s   P o r t   o f   L Z 4   c o m p r e s s i o n   a l g o r i t h m   f o r   . N E T     B   C o m p a n y N a m e     M i l o s z   K r a j e w s k i     b   F i l e D e s c r i p t i o n     K 4 o s . C o m p r e s s i o n . L Z 4 . S t r e a m s     ,   F i l e V e r s i o n     1 . 2 . 6   b !  I n t e r n a l N a m e   K 4 o s . C o m p r e s s i o n . L Z 4 . S t r e a m s . d l l     (   L e g a l C o p y r i g h t       j !  O r i g i n a l F i l e n a m e   K 4 o s . C o m p r e s s i o n . L Z 4 . S t r e a m s . d l l     J   P r o d u c t N a m e     K 4 o s . C o m p r e s s i o n . L Z 4     0   P r o d u c t V e r s i o n   1 . 2 . 6   8   A s s e m b l y   V e r s i o n   1 . 2 . 6 . 0                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ê      6                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
