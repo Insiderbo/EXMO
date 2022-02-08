@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace EXMO
+namespace EXMOFB
 {
     partial class Form4
     {
@@ -306,7 +306,7 @@ namespace EXMO
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(18, 10);
+            this.label20.Location = new System.Drawing.Point(16, 10);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(151, 13);
             this.label20.TabIndex = 17;
@@ -332,7 +332,7 @@ namespace EXMO
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(48, 63);
+            this.label10.Location = new System.Drawing.Point(46, 63);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(121, 13);
             this.label10.TabIndex = 5;
@@ -895,7 +895,7 @@ namespace EXMO
             this.MaximizeBox = false;
             this.Name = "Form4";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Exmo";
+            this.Text = "EXMOFB";
             this.Load += new System.EventHandler(this.Form4_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

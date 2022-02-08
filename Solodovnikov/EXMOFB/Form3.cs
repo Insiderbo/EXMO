@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace EXMO
+namespace EXMOFB
 {
     public partial class Form3 : Form
     {
@@ -78,7 +78,7 @@ namespace EXMO
 
                 File.WriteAllText("exmo.dat", Convert.ToBase64String(bytesEncrypted));
 
-                MessageBox.Show("Successfully!");
+                MessageBox.Show("Успешно");
 
                 this.Hide();
                 Form2 login = new Form2();
@@ -87,7 +87,7 @@ namespace EXMO
             }
             else
             {
-                MessageBox.Show("Check you input!");
+                MessageBox.Show("Проверьте ввод");
             }
         }
 

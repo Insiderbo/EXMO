@@ -55,7 +55,7 @@ namespace EXMOPR
                     }
                     catch
                     {
-                        MessageBox.Show("Bad password!");
+                        MessageBox.Show("Неверный пароль");
                     }
                     decryptedBytes = ms.ToArray();
                 }

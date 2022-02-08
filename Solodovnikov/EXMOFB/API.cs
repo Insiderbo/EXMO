@@ -1,4 +1,4 @@
-﻿using EXMO;
+﻿using EXMOFB;
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
@@ -9,7 +9,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Web;
 
-namespace EXMO
+namespace EXMOFB
 {
     public class API
     {

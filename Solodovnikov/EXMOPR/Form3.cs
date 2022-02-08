@@ -78,7 +78,7 @@ namespace EXMOPR
 
                 File.WriteAllText("exmo.dat", Convert.ToBase64String(bytesEncrypted));
 
-                MessageBox.Show("Successfully!");
+                MessageBox.Show("Успешно");
 
                 this.Hide();
                 Form2 login = new Form2();
@@ -87,7 +87,7 @@ namespace EXMOPR
             }
             else
             {
-                MessageBox.Show("Check you input!");
+                MessageBox.Show("Проверьте ввод");
             }
         }
 

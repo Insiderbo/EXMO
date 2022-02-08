@@ -65,18 +65,25 @@ namespace EXMO
         }
         void GetPricePairSetting()//лимиты пары
         {
-            pair = comboBox1.Text;
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create($"https://api.exmo.com/v1/pair_settings/?pair={pair}");
-            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-            Stream stream = response.GetResponseStream();
-            StreamReader sr = new StreamReader(stream);
-            string data = sr.ReadToEnd();
-            response.Close();
-            dynamic d = JsonConvert.DeserializeObject(data);
+            try
+            {
+                pair = comboBox1.Text;
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create($"https://api.exmo.com/v1/pair_settings/?pair={pair}");
+                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+                Stream stream = response.GetResponseStream();
+                StreamReader sr = new StreamReader(stream);
+                string data = sr.ReadToEnd();
+                response.Close();
+                dynamic d = JsonConvert.DeserializeObject(data);
 
-            min_quantity = (d[pair].min_quantity);
-            min_amount = (d[pair].min_amount).ToString();
-            price_precision = d[pair].price_precision;
+                min_quantity = (d[pair].min_quantity);
+                min_amount = (d[pair].min_amount).ToString();
+                price_precision = d[pair].price_precision;
+            }
+            catch
+            {
+                MessageBox.Show("Проверьте Настройки");
+            }
         }
         void User_info()//получаем баланс по паре
         {
@@ -90,14 +97,12 @@ namespace EXMO
             else
             {
                 dynamic bc = JsonConvert.DeserializeObject(rez.ToString());
-
                 dataGridView5.Rows.Clear();
                 balMaster = (bc["balances"][master]).ToString();
                 balSlave = (bc["balances"][slave]).ToString();
                 dataGridView5.Rows.Add(master, balMaster);
                 dataGridView5.Rows.Add(slave, balSlave);
                 dataGridView5.Refresh();
-
                 User_trades();
             }
         }
@@ -139,8 +144,7 @@ namespace EXMO
                 }
                 dataGridView1.Refresh();
                 dataGridView2.Refresh();
-                avgprice = ((double.Parse(ask[0].ToString(), CultureInfo.InvariantCulture) + double.Parse(bid[0].ToString(), CultureInfo.InvariantCulture)) / 2);
-
+                avgprice = ((double.Parse(dataGridView1.Rows[0].Cells[0].Value.ToString(), CultureInfo.InvariantCulture) + double.Parse(dataGridView2.Rows[0].Cells[0].Value.ToString(), CultureInfo.InvariantCulture)) / 2);
                 User_open_orders();
             }
             catch
@@ -304,7 +308,7 @@ namespace EXMO
 
                     for (int i = 0; i < int.Parse(textBox6.Text.ToString(), CultureInfo.InvariantCulture); i++)
                     {
-                        priceBuy = Math.Round((priceBuy - (priceBuy / 100) * otstupBuy),8);
+                        priceBuy = priceBuy - (priceBuy / 100) * otstupBuy;
                         QuantityBuy(priceBuy);
                     }
                 }
@@ -335,15 +339,6 @@ namespace EXMO
                         if (typeLastord != null)
                         {
                             if (typeLastord == "buy")
-                            {
-                                priceLastbuy = dataGridView4.Rows[rowsControl].Cells[0].Value.ToString();
-                                var otstupBuy = double.Parse(textBox2.Text, CultureInfo.InvariantCulture);
-                                var priceLastbu = double.Parse(priceLastbuy, CultureInfo.InvariantCulture);
-                                var priceBuy = priceLastbu;
-                                priceBuy = priceBuy - (priceLastbu / 100) * otstupBuy;
-                                QuantityBuy(priceBuy);
-                            }
-                            if (typeLastord == "sell" && button6.Enabled == false)
                             {
                                 priceLastbuy = dataGridView4.Rows[rowsControl].Cells[0].Value.ToString();
                                 var otstupBuy = double.Parse(textBox2.Text, CultureInfo.InvariantCulture);
@@ -463,7 +458,7 @@ namespace EXMO
 
             if (rows1 != 0 && rows2 != 0)
             {
-                stacanspred = Math.Round(((double.Parse(stask.ToString(), CultureInfo.InvariantCulture) / double.Parse(stbid.ToString(), CultureInfo.InvariantCulture) - 1) * 100), 2);
+                stacanspred = Math.Round(((double.Parse(dataGridView1.Rows[0].Cells[0].Value.ToString(), CultureInfo.InvariantCulture) / double.Parse(dataGridView2.Rows[0].Cells[0].Value.ToString(), CultureInfo.InvariantCulture) - 1) * 100), 2);
                 label28.Text = stacanspred.ToString();
             }
 
@@ -474,46 +469,54 @@ namespace EXMO
             }
             if (rows4 != 0 && rows3 == 0)
             {
-                orderspred = Math.Round(((double.Parse(stask.ToString(), CultureInfo.InvariantCulture) / double.Parse(dataGridView4.Rows[b].Cells[0].Value.ToString(), CultureInfo.InvariantCulture) - 1) * 100), 2);
+                orderspred = Math.Round(((double.Parse(dataGridView1.Rows[0].Cells[0].Value.ToString(), CultureInfo.InvariantCulture) / double.Parse(dataGridView4.Rows[b].Cells[0].Value.ToString(), CultureInfo.InvariantCulture) - 1) * 100), 2);
                 label24.Text = orderspred.ToString();
             }
             if (rows4 == 0 && rows3 != 0)
             {
-                orderspred = Math.Round(((double.Parse(dataGridView3.Rows[s].Cells[0].Value.ToString(), CultureInfo.InvariantCulture) / double.Parse(stbid.ToString(), CultureInfo.InvariantCulture) - 1) * 100), 2); ;
+                orderspred = Math.Round(((double.Parse(dataGridView3.Rows[s].Cells[0].Value.ToString(), CultureInfo.InvariantCulture) / double.Parse(dataGridView2.Rows[0].Cells[0].Value.ToString(), CultureInfo.InvariantCulture) - 1) * 100), 2); ;
                 label24.Text = orderspred.ToString();
             }
 
             if (rows4 != 0 && rows3 != 0)
             {
                 orderspred = Math.Round(((double.Parse(dataGridView3.Rows[s].Cells[0].Value.ToString(), CultureInfo.InvariantCulture) / double.Parse(dataGridView4.Rows[b].Cells[0].Value.ToString(), CultureInfo.InvariantCulture) - 1) * 100), 2);
-                if (textBox7.Text.ToString() != "" && orderspred > int.Parse(textBox7.Text.ToString(), CultureInfo.InvariantCulture))
-                {
-                    timer3.Stop();
-                    //button1.PerformClick();
-                    for (int i = 0; i < rows4; i++)
-                    {
-                        if (rows4 > 0)
-                        {
-                            Reset_buy(dataGridView4.Rows[0].Cells[3].Value.ToString());
-                            dataGridView4.Rows.Clear();
-                            User_open_orders();
-                            dataGridView4.Refresh();
-                        }
-                    }
-                    for (int i = 0; i < rows3; i++)
-                    {
-                        if (rows3 > 0)
-                        {
-                            Reset_sell(dataGridView3.Rows[0].Cells[3].Value.ToString());
-                            dataGridView3.Rows.Clear();
-                            User_open_orders();
-                            dataGridView3.Refresh();
-                        }
-                    }
-                    //orderspred = 0;
-                    timer3.Start();
-                }
                 label24.Text = orderspred.ToString();
+
+                try
+                {
+                    if (textBox7.Text.ToString() != "" && orderspred > int.Parse(textBox7.Text.ToString(), CultureInfo.InvariantCulture))
+                    {
+                        timer3.Stop();
+                        for (int i = 0; i < rows4; i++)
+                        {
+                            if (rows4 > 0)
+                            {
+                                Reset_buy(dataGridView4.Rows[0].Cells[3].Value.ToString());
+                                dataGridView4.Rows.Clear();
+                                User_open_orders();
+                                dataGridView4.Refresh();
+                            }
+                        }
+                        for (int i = 0; i < rows3; i++)
+                        {
+                            if (rows3 > 0)
+                            {
+                                Reset_sell(dataGridView3.Rows[0].Cells[3].Value.ToString());
+                                dataGridView3.Rows.Clear();
+                                User_open_orders();
+                                dataGridView3.Refresh();
+                            }
+                            orderspred = stacanspred;
+                            label24.Text = orderspred.ToString();
+                        }
+                        timer3.Start();
+                    }
+                }
+                catch
+                {
+
+                }
 
             }
             return orderspred;
@@ -606,9 +609,9 @@ namespace EXMO
             if (rows3 > 0)
             {
                 Reset_sell(dataGridView3.Rows[0].Cells[3].Value.ToString());
-                    dataGridView3.Rows.Clear();
-                    User_open_orders();
-                    dataGridView3.Refresh();
+                dataGridView3.Rows.Clear();
+                User_open_orders();
+                dataGridView3.Refresh();
             }
             if (typeLastord != null)
             {
@@ -665,6 +668,7 @@ namespace EXMO
             AlgoritmSell();
             AutoAvgSell();
         }
+
     }
 }
 

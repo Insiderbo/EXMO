@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EXMOFB;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace EXMO
+namespace EXMOFB
 {
     public partial class Form2 : Form
     {
@@ -54,7 +55,7 @@ namespace EXMO
                     }
                     catch
                     {
-                        MessageBox.Show("Bad password!");
+                        MessageBox.Show("Неверный пароль");
                     }
                     decryptedBytes = ms.ToArray();
                 }

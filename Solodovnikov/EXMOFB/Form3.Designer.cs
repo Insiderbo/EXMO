@@ -1,4 +1,4 @@
-﻿namespace EXMO
+﻿namespace EXMOFB
 {
     partial class Form3
     {
@@ -144,7 +144,7 @@
             this.MinimizeBox = false;
             this.Name = "Form3";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Exmo";
+            this.Text = "EXMOFB";
             this.Load += new System.EventHandler(this.Form3_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
