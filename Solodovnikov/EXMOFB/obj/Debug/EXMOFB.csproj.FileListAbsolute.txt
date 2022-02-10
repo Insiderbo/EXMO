@@ -43,3 +43,4 @@ D:\GitHub\EXMO\Solodovnikov\EXMOFB\obj\Debug\EXMOFB.exe.manifest
 D:\GitHub\EXMO\Solodovnikov\EXMOFB\obj\Debug\EXMOFB.application
 D:\GitHub\EXMO\Solodovnikov\EXMOFB\obj\Debug\EXMOFB.exe
 D:\GitHub\EXMO\Solodovnikov\EXMOFB\obj\Debug\EXMOFB.pdb
+D:\GitHub\EXMO\Solodovnikov\EXMOFB\obj\Debug\EXMOFB.csproj.AssemblyReference.cache
