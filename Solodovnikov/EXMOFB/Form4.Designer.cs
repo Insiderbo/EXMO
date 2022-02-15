@@ -66,8 +66,6 @@ namespace EXMOFB
             this.label19 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label29 = new System.Windows.Forms.Label();
@@ -209,8 +207,6 @@ namespace EXMOFB
             this.panel3.Controls.Add(this.label19);
             this.panel3.Controls.Add(this.textBox3);
             this.panel3.Controls.Add(this.label12);
-            this.panel3.Controls.Add(this.checkBox2);
-            this.panel3.Controls.Add(this.label13);
             this.panel3.Controls.Add(this.label14);
             this.panel3.Location = new System.Drawing.Point(13, 238);
             this.panel3.Name = "panel3";
@@ -275,25 +271,6 @@ namespace EXMOFB
             this.label12.Size = new System.Drawing.Size(91, 13);
             this.label12.TabIndex = 17;
             this.label12.Text = "% Первый ордер";
-            // 
-            // checkBox2
-            // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(173, 104);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(67, 17);
-            this.checkBox2.TabIndex = 11;
-            this.checkBox2.Text = "ON/OFF";
-            this.checkBox2.UseVisualStyleBackColor = true;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(30, 105);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(131, 13);
-            this.label13.TabIndex = 10;
-            this.label13.Text = "Автоусреднение продаж";
             // 
             // label14
             // 
@@ -475,7 +452,7 @@ namespace EXMOFB
             this.panel6.Controls.Add(this.dataGridView3);
             this.panel6.Location = new System.Drawing.Point(11, 390);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(310, 190);
+            this.panel6.Size = new System.Drawing.Size(304, 188);
             this.panel6.TabIndex = 7;
             // 
             // dataGridView3
@@ -499,7 +476,7 @@ namespace EXMOFB
             this.dataGridView3.Location = new System.Drawing.Point(0, 0);
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.RowHeadersVisible = false;
-            this.dataGridView3.Size = new System.Drawing.Size(308, 188);
+            this.dataGridView3.Size = new System.Drawing.Size(302, 186);
             this.dataGridView3.TabIndex = 1;
             // 
             // Column7
@@ -983,8 +960,6 @@ namespace EXMOFB
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button button5;

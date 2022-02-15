@@ -428,7 +428,7 @@ namespace EXMOFB
             int h = rows3 - 1;
             try
             {
-                if (rows3 > int.Parse(textBox5.Text.ToString(), CultureInfo.InvariantCulture) && checkBox2.Checked == false)
+                if (rows3 > int.Parse(textBox5.Text.ToString(), CultureInfo.InvariantCulture))
                 {
                     Reset_sell(dataGridView3.Rows[h].Cells[3].Value.ToString());
                     User_info();
@@ -450,36 +450,36 @@ namespace EXMOFB
             }
             catch { }
         }
-        void AutoAvgSell()
-        {
-            if(checkBox2.Checked == true)
-            {
-                int rows3 = dataGridView3.Rows.Count;
-                int g = int.Parse(textBox5.Text.ToString(), CultureInfo.InvariantCulture);
+        //void AutoAvgSell()
+        //{
+        //    if(checkBox2.Checked == true)
+        //    {
+        //        int rows3 = dataGridView3.Rows.Count;
+        //        int g = int.Parse(textBox5.Text.ToString(), CultureInfo.InvariantCulture);
 
-               if (rows3 > g)
-               {
-                    double amountCoi = double.Parse(textBox4.Text.ToString())*2;
-                    string amountCoin = (Convert.ToString(Math.Round(amountCoi, 8), CultureInfo.InvariantCulture));
-                    string avgS = (Convert.ToString(Math.Round(avgSell, 8), CultureInfo.InvariantCulture));
+        //       if (rows3 > g)
+        //       {
+        //            double amountCoi = double.Parse(textBox4.Text.ToString())*2;
+        //            string amountCoin = (Convert.ToString(Math.Round(amountCoi, 8), CultureInfo.InvariantCulture));
+        //            string avgS = (Convert.ToString(Math.Round(avgSell, 8), CultureInfo.InvariantCulture));
 
-                    timer3.Stop();
-                    Thread.Sleep(1000);
-                   for(int i = 0; i < 2; i++)
-                   {
-                       Reset_sell(dataGridView3.Rows[i].Cells[3].Value.ToString());
-                   }
-                    Thread.Sleep(1000);
-                    string rez = new API().ApiQuery("order_create", new Dictionary<string, string> { { "pair", comboBox1.Text.ToString() }, { "quantity", amountCoin.ToString() },
-                   { "price", avgS.ToString() }, { "type", "sell" } });
+        //            timer3.Stop();
+        //            Thread.Sleep(1000);
+        //           for(int i = 0; i < 2; i++)
+        //           {
+        //               Reset_sell(dataGridView3.Rows[i].Cells[3].Value.ToString());
+        //           }
+        //            Thread.Sleep(1000);
+        //            string rez = new API().ApiQuery("order_create", new Dictionary<string, string> { { "pair", comboBox1.Text.ToString() }, { "quantity", amountCoin.ToString() },
+        //           { "price", avgS.ToString() }, { "type", "sell" } });
               
-                    User_info();
-                    Thread.Sleep(1000);
-                    timer3.Start();
-               }
-            }
+        //            User_info();
+        //            Thread.Sleep(1000);
+        //            timer3.Start();
+        //       }
+        //    }
 
-        }
+        //}
         void button1_Click(object sender, EventArgs e)//Стоп торговля
         {
             comboBox1.Enabled = true;
@@ -603,7 +603,7 @@ namespace EXMOFB
             ControlSpred();
             AlgoritmBuy();
             AlgoritmSell();
-            AutoAvgSell();
+            //AutoAvgSell();
         }
     }
 }
