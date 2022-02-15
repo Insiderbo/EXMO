@@ -59,6 +59,8 @@ namespace EXMOFB
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
@@ -68,6 +70,8 @@ namespace EXMOFB
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.label29 = new System.Windows.Forms.Label();
+            this.textBox9 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -148,7 +152,7 @@ namespace EXMOFB
             this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Location = new System.Drawing.Point(12, 28);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(310, 190);
+            this.panel1.Size = new System.Drawing.Size(308, 189);
             this.panel1.TabIndex = 0;
             // 
             // dataGridView1
@@ -171,7 +175,7 @@ namespace EXMOFB
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(308, 188);
+            this.dataGridView1.Size = new System.Drawing.Size(306, 187);
             this.dataGridView1.TabIndex = 0;
             // 
             // Column1
@@ -198,6 +202,8 @@ namespace EXMOFB
             // panel3
             // 
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.textBox8);
+            this.panel3.Controls.Add(this.label18);
             this.panel3.Controls.Add(this.textBox5);
             this.panel3.Controls.Add(this.textBox4);
             this.panel3.Controls.Add(this.label19);
@@ -208,12 +214,29 @@ namespace EXMOFB
             this.panel3.Controls.Add(this.label14);
             this.panel3.Location = new System.Drawing.Point(13, 238);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(247, 103);
+            this.panel3.Size = new System.Drawing.Size(247, 133);
             this.panel3.TabIndex = 1;
+            // 
+            // textBox8
+            // 
+            this.textBox8.Location = new System.Drawing.Point(173, 57);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(36, 20);
+            this.textBox8.TabIndex = 26;
+            this.textBox8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(51, 60);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(110, 13);
+            this.label18.TabIndex = 25;
+            this.label18.Text = "% Следующий ордер";
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(173, 8);
+            this.textBox5.Location = new System.Drawing.Point(173, 6);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(36, 20);
             this.textBox5.TabIndex = 24;
@@ -221,7 +244,7 @@ namespace EXMOFB
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(173, 54);
+            this.textBox4.Location = new System.Drawing.Point(173, 82);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(36, 20);
             this.textBox4.TabIndex = 23;
@@ -230,7 +253,7 @@ namespace EXMOFB
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(33, 57);
+            this.label19.Location = new System.Drawing.Point(33, 85);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(128, 13);
             this.label19.TabIndex = 22;
@@ -247,16 +270,16 @@ namespace EXMOFB
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(56, 34);
+            this.label12.Location = new System.Drawing.Point(70, 36);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(105, 13);
+            this.label12.Size = new System.Drawing.Size(91, 13);
             this.label12.TabIndex = 17;
-            this.label12.Text = "% Между ордерами";
+            this.label12.Text = "% Первый ордер";
             // 
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(173, 81);
+            this.checkBox2.Location = new System.Drawing.Point(173, 104);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(67, 17);
             this.checkBox2.TabIndex = 11;
@@ -266,7 +289,7 @@ namespace EXMOFB
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(30, 82);
+            this.label13.Location = new System.Drawing.Point(30, 105);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(131, 13);
             this.label13.TabIndex = 10;
@@ -275,7 +298,7 @@ namespace EXMOFB
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(7, 10);
+            this.label14.Location = new System.Drawing.Point(7, 8);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(154, 13);
             this.label14.TabIndex = 8;
@@ -284,6 +307,8 @@ namespace EXMOFB
             // panel4
             // 
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.label29);
+            this.panel4.Controls.Add(this.textBox9);
             this.panel4.Controls.Add(this.textBox6);
             this.panel4.Controls.Add(this.label20);
             this.panel4.Controls.Add(this.label11);
@@ -292,12 +317,29 @@ namespace EXMOFB
             this.panel4.Controls.Add(this.textBox1);
             this.panel4.Location = new System.Drawing.Point(401, 238);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(236, 103);
+            this.panel4.Size = new System.Drawing.Size(236, 133);
             this.panel4.TabIndex = 1;
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(57, 60);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(110, 13);
+            this.label29.TabIndex = 20;
+            this.label29.Text = "% Следующий ордер";
+            // 
+            // textBox9
+            // 
+            this.textBox9.Location = new System.Drawing.Point(182, 57);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.Size = new System.Drawing.Size(39, 20);
+            this.textBox9.TabIndex = 19;
+            this.textBox9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(182, 8);
+            this.textBox6.Location = new System.Drawing.Point(182, 6);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(39, 20);
             this.textBox6.TabIndex = 18;
@@ -306,7 +348,7 @@ namespace EXMOFB
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(16, 10);
+            this.label20.Location = new System.Drawing.Point(16, 8);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(151, 13);
             this.label20.TabIndex = 17;
@@ -315,15 +357,15 @@ namespace EXMOFB
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(64, 38);
+            this.label11.Location = new System.Drawing.Point(76, 34);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(105, 13);
+            this.label11.Size = new System.Drawing.Size(91, 13);
             this.label11.TabIndex = 7;
-            this.label11.Text = "% Между ордерами";
+            this.label11.Text = "% Первый ордер";
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(182, 34);
+            this.textBox2.Location = new System.Drawing.Point(182, 31);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(39, 20);
             this.textBox2.TabIndex = 6;
@@ -332,7 +374,7 @@ namespace EXMOFB
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(46, 63);
+            this.label10.Location = new System.Drawing.Point(46, 85);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(121, 13);
             this.label10.TabIndex = 5;
@@ -340,7 +382,7 @@ namespace EXMOFB
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(182, 60);
+            this.textBox1.Location = new System.Drawing.Point(182, 82);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(39, 20);
             this.textBox1.TabIndex = 2;
@@ -421,7 +463,7 @@ namespace EXMOFB
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(108, 344);
+            this.label5.Location = new System.Drawing.Point(117, 374);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(106, 13);
             this.label5.TabIndex = 6;
@@ -431,7 +473,7 @@ namespace EXMOFB
             // 
             this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel6.Controls.Add(this.dataGridView3);
-            this.panel6.Location = new System.Drawing.Point(12, 360);
+            this.panel6.Location = new System.Drawing.Point(11, 390);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(310, 190);
             this.panel6.TabIndex = 7;
@@ -491,7 +533,7 @@ namespace EXMOFB
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(435, 344);
+            this.label6.Location = new System.Drawing.Point(438, 374);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(103, 13);
             this.label6.TabIndex = 9;
@@ -501,7 +543,7 @@ namespace EXMOFB
             // 
             this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel7.Controls.Add(this.dataGridView4);
-            this.panel7.Location = new System.Drawing.Point(332, 360);
+            this.panel7.Location = new System.Drawing.Point(332, 390);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(306, 190);
             this.panel7.TabIndex = 8;
@@ -868,7 +910,7 @@ namespace EXMOFB
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(870, 570);
+            this.ClientSize = new System.Drawing.Size(870, 592);
             this.Controls.Add(this.panel10);
             this.Controls.Add(this.label26);
             this.Controls.Add(this.label21);
@@ -895,7 +937,7 @@ namespace EXMOFB
             this.MaximizeBox = false;
             this.Name = "Form4";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "EXMOFB";
+            this.Text = "Solodovnikov";
             this.Load += new System.EventHandler(this.Form4_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -995,6 +1037,10 @@ namespace EXMOFB
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label28;
+        private TextBox textBox8;
+        private Label label18;
+        private Label label29;
+        private TextBox textBox9;
     }
 }
 

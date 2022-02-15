@@ -364,67 +364,29 @@ namespace EXMOFB
         }
         void AlgoritmBuy()//покупки
         {
-            int rows3 = dataGridView3.Rows.Count;
             int rows4 = dataGridView4.Rows.Count;
             int b = rows4 - 1;
-            int rowsControl = 0;
 
-            if (rows4 >= 1)
-            {
-                rowsControl = rows4 - 1;
-            }
             if (button5.Enabled == false && double.Parse(balMaster, CultureInfo.InvariantCulture) > double.Parse(min_amount, CultureInfo.InvariantCulture))
             {
-                //первая покупка
                 if (rows4 == 0)
                 {
                     var otstupBuy = double.Parse(textBox2.Text, CultureInfo.InvariantCulture);
                     var priceBuy = avgprice;
+                    priceBuy = priceBuy - (priceBuy / 100) * otstupBuy;
+                    QuantityBuy(priceBuy);
+                }
+                if(rows4 == 1)
+                {
+                    int count = int.Parse(textBox6.Text.ToString(), CultureInfo.InvariantCulture)-1;
+                    var otstupBuy = double.Parse(textBox9.Text, CultureInfo.InvariantCulture);
+                    var priceBuy = double.Parse(dataGridView4.Rows[b].Cells[0].Value.ToString(), CultureInfo.InvariantCulture);
 
-                    for (int i = 0; i < int.Parse(textBox6.Text.ToString(), CultureInfo.InvariantCulture); i++)
+                    for (int i = 0; i < count; i++)
                     {
                         priceBuy = priceBuy - (priceBuy / 100) * otstupBuy;
                         QuantityBuy(priceBuy);
                     }
-                }
-                if (orderspred < int.Parse(textBox7.Text.ToString(), CultureInfo.InvariantCulture) && typeLastord != null)
-                {
-                    if (textBox5.Text != "")
-                    {
-                        //(4)если сработал sell он добавляется в buy, в позицию выше позиции 1, на процент который между ордерами при этом позиция 10 и 9 усредняюца вкл\вык если выкл то позиция 10 просто снимается.
-                        if (rows3 > 0 && rows3 < int.Parse(textBox5.Text.ToString(), CultureInfo.InvariantCulture) && button6.Enabled == false)
-                        {
-                            if (typeLastord != null)
-                            {
-                                if (typeLastord == "sell" && rows4 == int.Parse(textBox6.Text.ToString(), CultureInfo.InvariantCulture))
-                                {
-                                    priceLastbuy = dataGridView4.Rows[b].Cells[0].Value.ToString();
-                                    var otstupBuy = double.Parse(textBox2.Text, CultureInfo.InvariantCulture);
-                                    var priceLastbu = double.Parse(priceLastbuy, CultureInfo.InvariantCulture);
-                                    var priceBuy = priceLastbu;
-                                    priceBuy = priceBuy + (priceLastbu / 100) * otstupBuy;
-                                    QuantityBuy(priceBuy);
-                                }
-                            }
-                        }
-
-                    }
-                    if (rows4 != 0 && rows4 < int.Parse(textBox6.Text.ToString(), CultureInfo.InvariantCulture))
-                    {
-                        if (typeLastord != null)
-                        {
-                            if (typeLastord == "buy")
-                            {
-                                priceLastbuy = dataGridView4.Rows[rowsControl].Cells[0].Value.ToString();
-                                var otstupBuy = double.Parse(textBox2.Text, CultureInfo.InvariantCulture);
-                                var priceLastbu = double.Parse(priceLastbuy, CultureInfo.InvariantCulture);
-                                var priceBuy = priceLastbu;
-                                priceBuy = priceBuy - (priceLastbu / 100) * otstupBuy;
-                                QuantityBuy(priceBuy);
-                            }
-                        }
-                    }
-
                 }
                 orderControbuy();
             }
@@ -432,70 +394,30 @@ namespace EXMOFB
         void AlgoritmSell()//продажи
         {
             int rows3 = dataGridView3.Rows.Count;
-            int rows4 = dataGridView4.Rows.Count;
 
-            int rowsControl = 0;
-            if (rows3 > 1)
-            {
-                rowsControl = rows3 - 1;
-            }
             if (button6.Enabled == false && double.Parse(balSlave, CultureInfo.InvariantCulture) > double.Parse(min_quantity, CultureInfo.InvariantCulture))
             {
-                //первая продажа
                 if (rows3 == 0)
                 {
                     var otstupSell = double.Parse(textBox3.Text, CultureInfo.InvariantCulture);
                     var priceSell = avgprice;
+                    priceSell = priceSell + (priceSell / 100) * otstupSell;
+                    QuantitySell(priceSell);
+                }
+                if (rows3 == 1)
+                {
+                    int count = int.Parse(textBox5.Text.ToString(), CultureInfo.InvariantCulture) - 1;
+                    var otstupSell = double.Parse(textBox8.Text, CultureInfo.InvariantCulture);
+                    var priceSell = double.Parse(dataGridView3.Rows[0].Cells[0].Value.ToString(), CultureInfo.InvariantCulture); ;
 
                     if (int.Parse(textBox5.Text.ToString(), CultureInfo.InvariantCulture) != 0)
                     {
-                        for (int i = 0; i < int.Parse(textBox5.Text.ToString(), CultureInfo.InvariantCulture); i++)
+                        for (int i = 0; i < count; i++)
                         {
                             priceSell = priceSell + (priceSell / 100) * otstupSell;
                             QuantitySell(priceSell);
                         }
                     }
-                }
-
-                if (orderspred < int.Parse(textBox7.Text.ToString(), CultureInfo.InvariantCulture)
-                    && typeLastord != null)
-                {
-                    //если был продан sell, в данном примере останеца 8 ордеров то бот ставит новый ордер в верх в позицию 9.
-                    //при этом если в колонке есть усредненный ордер к примеру 8 он не чем не отлечается от других также ждет своей очереди
-                    //buy таким образом усредненые ордера будут двигаться к передавой
-                    if (rows3 != 0 && rows3 < int.Parse(textBox5.Text.ToString(), CultureInfo.InvariantCulture) && rows4 != 0 && button5.Enabled == false)
-                    {
-                        if (typeLastord != null)
-                        {
-                            if (typeLastord == "sell")
-                            {
-                                priceLastsell = dataGridView3.Rows[0].Cells[0].Value.ToString();
-                                var otstupSell = double.Parse(textBox3.Text, CultureInfo.InvariantCulture);
-                                var priceLastse = double.Parse(priceLastsell, CultureInfo.InvariantCulture);
-                                var priceSell = priceLastse;
-                                priceSell = priceSell + (priceLastse / 100) * otstupSell;
-                                QuantitySell(priceSell);
-                            }
-                        }
-                    }
-                    //(5)если сработал buy он добавляется в sell, в позицию ниже позиции 1, на процент который между ордерами.
-                    //при этом позиция 10 и 9 усредняюца вкл\вык если выкл то позиция 10 просто снимается.
-                    if (rows4 != 0)
-                    {
-                        if (typeLastord != null && rows3 == int.Parse(textBox5.Text.ToString(), CultureInfo.InvariantCulture))
-                        {
-                            if (typeLastord == "buy" && rows4 < int.Parse(textBox6.Text.ToString(), CultureInfo.InvariantCulture))
-                            {
-                                priceLastsell = dataGridView3.Rows[rowsControl].Cells[0].Value.ToString();
-                                var otstupSell = double.Parse(textBox3.Text, CultureInfo.InvariantCulture);
-                                var priceLastse = double.Parse(priceLastsell, CultureInfo.InvariantCulture);
-                                var priceSell = priceLastse;
-                                priceSell = priceSell - (priceLastse / 100) * otstupSell;
-                                QuantitySell(priceSell);
-                            }
-                        }
-                    }
-
                 }
                 orderControllsell();
             }
@@ -504,23 +426,29 @@ namespace EXMOFB
         {
             int rows3 = dataGridView3.Rows.Count;
             int h = rows3 - 1;
-
-            if (rows3 > int.Parse(textBox5.Text.ToString(), CultureInfo.InvariantCulture) && checkBox2.Checked == false)
+            try
             {
-                Reset_sell(dataGridView3.Rows[h].Cells[3].Value.ToString());
-                User_info();
+                if (rows3 > int.Parse(textBox5.Text.ToString(), CultureInfo.InvariantCulture) && checkBox2.Checked == false)
+                {
+                    Reset_sell(dataGridView3.Rows[h].Cells[3].Value.ToString());
+                    User_info();
+                }
             }
+            catch { }
         }
         void orderControbuy()
         {
             int rows4 = dataGridView4.Rows.Count;
             int h = rows4 - 1;
-
-            if (rows4 > int.Parse(textBox6.Text.ToString(), CultureInfo.InvariantCulture))
+            try
             {
-                Reset_buy(dataGridView4.Rows[h].Cells[3].Value.ToString());
-                User_info();
+                if (rows4 > int.Parse(textBox6.Text.ToString(), CultureInfo.InvariantCulture))
+                {
+                    Reset_buy(dataGridView4.Rows[h].Cells[3].Value.ToString());
+                    User_info();
+                }
             }
+            catch { }
         }
         void AutoAvgSell()
         {
@@ -566,6 +494,9 @@ namespace EXMOFB
             textBox2.Enabled = true;
             textBox6.Enabled = true;
             textBox7.Enabled = true;
+            textBox8.Enabled = true;
+            textBox9.Enabled = true;
+
             timer3.Stop();
             typeLastord = null;
         }
@@ -606,10 +537,11 @@ namespace EXMOFB
         void button4_Click(object sender, EventArgs e)//сброс продажи    
         {
             int rows3 = dataGridView3.Rows.Count;
+            int s = rows3 - 1;
 
             if (rows3 > 0)
             {
-                Reset_sell(dataGridView3.Rows[0].Cells[3].Value.ToString());
+                Reset_sell(dataGridView3.Rows[s].Cells[3].Value.ToString());
                 dataGridView3.Rows.Clear();
                 User_open_orders();
                 dataGridView3.Refresh();
@@ -634,7 +566,9 @@ namespace EXMOFB
                 textBox2.Enabled = false;
                 textBox6.Enabled = false;
                 textBox7.Enabled = false;
-                if(timer3.Enabled == false)
+                textBox9.Enabled = false;
+
+                if (timer3.Enabled == false)
                 {
                     timer3.Start();
                 }
@@ -655,6 +589,8 @@ namespace EXMOFB
                 textBox4.Enabled = false;
                 textBox3.Enabled = false;
                 textBox7.Enabled = false;
+                textBox8.Enabled = false;
+
                 if (timer3.Enabled == false)
                 {
                     timer3.Start();
