@@ -59,13 +59,13 @@ namespace EXMOFB
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.textBox8 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label29 = new System.Windows.Forms.Label();
@@ -124,11 +124,15 @@ namespace EXMOFB
             this.label26 = new System.Windows.Forms.Label();
             this.timer3 = new System.Windows.Forms.Timer(this.components);
             this.panel10 = new System.Windows.Forms.Panel();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.label30 = new System.Windows.Forms.Label();
+            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.label31 = new System.Windows.Forms.Label();
+            this.textBox11 = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel3.SuspendLayout();
@@ -201,18 +205,47 @@ namespace EXMOFB
             // panel3
             // 
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.textBox8);
+            this.panel3.Controls.Add(this.label31);
+            this.panel3.Controls.Add(this.textBox11);
+            this.panel3.Controls.Add(this.label19);
             this.panel3.Controls.Add(this.label18);
+            this.panel3.Controls.Add(this.label12);
+            this.panel3.Controls.Add(this.textBox8);
             this.panel3.Controls.Add(this.textBox5);
             this.panel3.Controls.Add(this.textBox4);
-            this.panel3.Controls.Add(this.label19);
             this.panel3.Controls.Add(this.textBox3);
-            this.panel3.Controls.Add(this.label12);
             this.panel3.Controls.Add(this.label14);
             this.panel3.Location = new System.Drawing.Point(13, 238);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(247, 133);
             this.panel3.TabIndex = 1;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(61, 85);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(100, 13);
+            this.label19.TabIndex = 29;
+            this.label19.Text = "Сколько % тратим";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(14, 60);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(147, 13);
+            this.label18.TabIndex = 28;
+            this.label18.Text = "Отступ % следующий ордер";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(34, 34);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(127, 13);
+            this.label12.TabIndex = 27;
+            this.label12.Text = "Отступ % первый ордер";
             // 
             // textBox8
             // 
@@ -221,15 +254,6 @@ namespace EXMOFB
             this.textBox8.Size = new System.Drawing.Size(36, 20);
             this.textBox8.TabIndex = 26;
             this.textBox8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(51, 60);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(110, 13);
-            this.label18.TabIndex = 25;
-            this.label18.Text = "% Следующий ордер";
             // 
             // textBox5
             // 
@@ -247,15 +271,6 @@ namespace EXMOFB
             this.textBox4.TabIndex = 23;
             this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(33, 85);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(128, 13);
-            this.label19.TabIndex = 22;
-            this.label19.Text = "Сколько монет продать";
-            // 
             // textBox3
             // 
             this.textBox3.Location = new System.Drawing.Point(173, 31);
@@ -263,15 +278,6 @@ namespace EXMOFB
             this.textBox3.Size = new System.Drawing.Size(36, 20);
             this.textBox3.TabIndex = 21;
             this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(70, 36);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(91, 13);
-            this.label12.TabIndex = 17;
-            this.label12.Text = "% Первый ордер";
             // 
             // label14
             // 
@@ -285,6 +291,8 @@ namespace EXMOFB
             // panel4
             // 
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.label30);
+            this.panel4.Controls.Add(this.textBox10);
             this.panel4.Controls.Add(this.label29);
             this.panel4.Controls.Add(this.textBox9);
             this.panel4.Controls.Add(this.textBox6);
@@ -301,11 +309,11 @@ namespace EXMOFB
             // label29
             // 
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(57, 60);
+            this.label29.Location = new System.Drawing.Point(20, 60);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(110, 13);
+            this.label29.Size = new System.Drawing.Size(147, 13);
             this.label29.TabIndex = 20;
-            this.label29.Text = "% Следующий ордер";
+            this.label29.Text = "Отступ % следующий ордер";
             // 
             // textBox9
             // 
@@ -335,11 +343,11 @@ namespace EXMOFB
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(76, 34);
+            this.label11.Location = new System.Drawing.Point(40, 34);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(91, 13);
+            this.label11.Size = new System.Drawing.Size(127, 13);
             this.label11.TabIndex = 7;
-            this.label11.Text = "% Первый ордер";
+            this.label11.Text = "Отступ % первый ордер";
             // 
             // textBox2
             // 
@@ -352,11 +360,11 @@ namespace EXMOFB
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(46, 85);
+            this.label10.Location = new System.Drawing.Point(67, 85);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(121, 13);
+            this.label10.Size = new System.Drawing.Size(100, 13);
             this.label10.TabIndex = 5;
-            this.label10.Text = "Сколько монет купить";
+            this.label10.Text = "Сколько % тратим";
             // 
             // textBox1
             // 
@@ -850,6 +858,32 @@ namespace EXMOFB
             this.panel10.Size = new System.Drawing.Size(129, 133);
             this.panel10.TabIndex = 28;
             // 
+            // textBox7
+            // 
+            this.textBox7.Location = new System.Drawing.Point(58, 61);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(22, 20);
+            this.textBox7.TabIndex = 32;
+            this.textBox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(86, 64);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(37, 13);
+            this.label23.TabIndex = 31;
+            this.label23.Text = "сброс";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(5, 64);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(47, 13);
+            this.label13.TabIndex = 30;
+            this.label13.Text = "Спред >";
+            // 
             // label28
             // 
             this.label28.AutoSize = true;
@@ -868,30 +902,39 @@ namespace EXMOFB
             this.label24.TabIndex = 28;
             this.label24.Text = "    ";
             // 
-            // label13
+            // label30
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(11, 64);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(94, 13);
-            this.label13.TabIndex = 30;
-            this.label13.Text = "Ордеров меньше";
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(42, 109);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(125, 13);
+            this.label30.TabIndex = 22;
+            this.label30.Text = "Выделяем для покупки";
             // 
-            // label23
+            // textBox10
             // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(68, 90);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(37, 13);
-            this.label23.TabIndex = 31;
-            this.label23.Text = "сброс";
+            this.textBox10.Location = new System.Drawing.Point(182, 106);
+            this.textBox10.Name = "textBox10";
+            this.textBox10.Size = new System.Drawing.Size(39, 20);
+            this.textBox10.TabIndex = 21;
+            this.textBox10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox7
+            // label31
             // 
-            this.textBox7.Location = new System.Drawing.Point(26, 87);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(36, 20);
-            this.textBox7.TabIndex = 32;
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(33, 109);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(128, 13);
+            this.label31.TabIndex = 31;
+            this.label31.Text = "Выделяем для продажи";
+            // 
+            // textBox11
+            // 
+            this.textBox11.Location = new System.Drawing.Point(173, 106);
+            this.textBox11.Name = "textBox11";
+            this.textBox11.Size = new System.Drawing.Size(36, 20);
+            this.textBox11.TabIndex = 30;
+            this.textBox11.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Form4
             // 
@@ -1000,13 +1043,11 @@ namespace EXMOFB
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column18;
         private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox textBox6;
@@ -1021,12 +1062,18 @@ namespace EXMOFB
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label28;
         private TextBox textBox8;
-        private Label label18;
         private Label label29;
         private TextBox textBox9;
         private TextBox textBox7;
         private Label label23;
         private Label label13;
+        private Label label19;
+        private Label label18;
+        private Label label12;
+        private Label label31;
+        private TextBox textBox11;
+        private Label label30;
+        private TextBox textBox10;
     }
 }
 

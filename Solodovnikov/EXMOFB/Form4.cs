@@ -24,12 +24,14 @@ namespace EXMOFB
         string stask;
         string stbid;
         string typeLastord;
-        double orderspred = 0;
+        double orderspred;
         double avgprice;
         double stacanspred;
         int price_precision;//кол-во знаков после запятой у цены
         string qBuy;
         string qSell;
+        double quantityBuy;
+        double quantitySell;
 
         public Form4()
         {
@@ -283,7 +285,7 @@ namespace EXMOFB
                 int countbuy = int.Parse(textBox6.Text);
                 int controlcountorder = int.Parse(textBox7.Text);
 
-                if (rows3 < controlcountorder && button6.Enabled == false && double.Parse(balSlave, CultureInfo.InvariantCulture) > double.Parse(min_quantity, CultureInfo.InvariantCulture))
+                if (orderspred > controlcountorder && button6.Enabled == false && double.Parse(balSlave, CultureInfo.InvariantCulture) > double.Parse(min_quantity, CultureInfo.InvariantCulture))
                 {
                     timer3.Stop();
 
@@ -299,7 +301,7 @@ namespace EXMOFB
                     }
 
                 }
-                if(rows4 < controlcountorder && button5.Enabled == false && double.Parse(balMaster, CultureInfo.InvariantCulture) > double.Parse(min_amount, CultureInfo.InvariantCulture))
+                if(orderspred > controlcountorder && button5.Enabled == false && double.Parse(balMaster, CultureInfo.InvariantCulture) > double.Parse(min_amount, CultureInfo.InvariantCulture))
                 {
                     timer3.Stop();
 
@@ -325,7 +327,10 @@ namespace EXMOFB
         }
         void QuantityBuy(double priceBuy)
         {
-            qBuy = textBox1.Text;
+            var amountmaster = double.Parse(textBox10.Text, CultureInfo.InvariantCulture) / 100;
+            double quantBuy = amountmaster * double.Parse(textBox1.Text, CultureInfo.InvariantCulture);
+            quantityBuy = Math.Round(quantBuy / double.Parse(min_amount, CultureInfo.InvariantCulture), price_precision);
+            qBuy = Convert.ToString(quantityBuy, CultureInfo.InvariantCulture);
             Buy_Order_create(Convert.ToString(Math.Round(priceBuy, price_precision), CultureInfo.InvariantCulture), qBuy);
         }
         void Buy_Order_create(string e, string qBuy )//установить ордер на покупку
@@ -336,7 +341,10 @@ namespace EXMOFB
         }
         void QuantitySell(double priceSell)
         {
-            qSell = textBox4.Text;
+            var quantsell = double.Parse(textBox11.Text, CultureInfo.InvariantCulture) / 100;
+            double quantSell = quantsell * double.Parse(textBox4.Text, CultureInfo.InvariantCulture);
+            quantitySell = Math.Round(quantSell / double.Parse(min_quantity, CultureInfo.InvariantCulture), price_precision);
+            qSell = Convert.ToString(quantitySell, CultureInfo.InvariantCulture);
             Sell_Order_create(Convert.ToString(Math.Round(priceSell, price_precision), CultureInfo.InvariantCulture), qSell);
         }
         void Sell_Order_create(string priceLastsel, string qSell)//установить ордер на продажу
@@ -588,6 +596,7 @@ namespace EXMOFB
             ControlSpred();
             AlgoritmBuy();
         }
+
     }
 }
 
