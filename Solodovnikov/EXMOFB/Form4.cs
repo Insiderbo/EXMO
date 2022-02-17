@@ -23,10 +23,7 @@ namespace EXMOFB
         string min_amount;//минимум тратим на 1 ордер
         string stask;
         string stbid;
-        double avgSell;
         string typeLastord;
-        string priceLastbuy;
-        string priceLastsell;
         double orderspred = 0;
         double avgprice;
         double stacanspred;
@@ -217,10 +214,6 @@ namespace EXMOFB
                             if (type_order[i].Contains("sell") == true)
                             {
                                 dataGridView3.Rows.Add(price_order[i], quantity_order[i], amount_order[i], order_id_order[i]);
-                                if (rows4 != 0 && rows3 > 2 && price_order[row] != null && price_order[ro] != null)
-                                {
-                                    avgSell = (double.Parse(price_order[row].ToString(), CultureInfo.InvariantCulture) + double.Parse(price_order[ro].ToString(), CultureInfo.InvariantCulture))/2;
-                                }
                             }
                             if (type_order[i].Contains("buy") == true)
                             {                                                
@@ -260,13 +253,13 @@ namespace EXMOFB
             }
             if (rows4 != 0 && rows3 == 0)
             {
-                orderspred = Math.Round(((double.Parse(dataGridView1.Rows[0].Cells[0].Value.ToString(), CultureInfo.InvariantCulture) / double.Parse(dataGridView4.Rows[b].Cells[0].Value.ToString(), CultureInfo.InvariantCulture) - 1) * 100), 2);
+                orderspred = Math.Round(((avgprice / double.Parse(dataGridView4.Rows[b].Cells[0].Value.ToString(), CultureInfo.InvariantCulture) - 1) * 100), 2);
                 label24.Text = orderspred.ToString();
                 ResetSpred();
             }
             if (rows4 == 0 && rows3 != 0)
             {
-                orderspred = Math.Round(((double.Parse(dataGridView3.Rows[s].Cells[0].Value.ToString(), CultureInfo.InvariantCulture) / double.Parse(dataGridView2.Rows[0].Cells[0].Value.ToString(), CultureInfo.InvariantCulture) - 1) * 100), 2); ;
+                orderspred = Math.Round(((double.Parse(dataGridView3.Rows[s].Cells[0].Value.ToString(), CultureInfo.InvariantCulture) / avgprice - 1) * 100), 2); ;
                 label24.Text = orderspred.ToString();
                 ResetSpred();
             }
@@ -282,38 +275,48 @@ namespace EXMOFB
         }
         void ResetSpred()
         {
-            int rows3 = dataGridView3.Rows.Count;
-            int rows4 = dataGridView4.Rows.Count;
-
             try
             {
-                if (textBox7.Text.ToString() != "" && orderspred > int.Parse(textBox7.Text.ToString(), CultureInfo.InvariantCulture))
+                int rows3 = dataGridView3.Rows.Count;
+                int rows4 = dataGridView4.Rows.Count;
+                int countsell = int.Parse(textBox5.Text);
+                int countbuy = int.Parse(textBox6.Text);
+                int controlcountorder = int.Parse(textBox7.Text);
+
+                if (rows3 < controlcountorder && button6.Enabled == false && double.Parse(balSlave, CultureInfo.InvariantCulture) > double.Parse(min_quantity, CultureInfo.InvariantCulture))
                 {
                     timer3.Stop();
-                    for (int i = 0; i < rows4; i++)
+
+                    if (rows4 == countbuy)
                     {
-                        if (rows4 > 0)
+                        for (int i = 0; i < rows4; i++)
                         {
-                            Reset_buy(dataGridView4.Rows[0].Cells[3].Value.ToString());
-                            dataGridView4.Rows.Clear();
-                            User_open_orders();
-                            dataGridView4.Refresh();
+                           Reset_buy(dataGridView4.Rows[0].Cells[3].Value.ToString());
+                           dataGridView4.Rows.Clear();
+                           User_open_orders();
+                           dataGridView4.Refresh();
                         }
                     }
-                    for (int i = 0; i < rows3; i++)
+
+                }
+                if(rows4 < controlcountorder && button5.Enabled == false && double.Parse(balMaster, CultureInfo.InvariantCulture) > double.Parse(min_amount, CultureInfo.InvariantCulture))
+                {
+                    timer3.Stop();
+
+                    if (rows3 == countsell)
                     {
-                        if (rows3 > 0)
+                        for (int i = 0; i < rows3; i++)
                         {
-                            Reset_sell(dataGridView3.Rows[0].Cells[3].Value.ToString());
-                            dataGridView3.Rows.Clear();
-                            User_open_orders();
-                            dataGridView3.Refresh();
+                           Reset_sell(dataGridView3.Rows[0].Cells[3].Value.ToString());
+                           dataGridView3.Rows.Clear();
+                           User_open_orders();
+                           dataGridView3.Refresh();
                         }
                         orderspred = stacanspred;
                         label24.Text = orderspred.ToString();
                     }
-                    timer3.Start();
                 }
+                timer3.Start();
             }
             catch
             {
@@ -365,6 +368,9 @@ namespace EXMOFB
         void AlgoritmBuy()//покупки
         {
             int rows4 = dataGridView4.Rows.Count;
+            int rows3 = dataGridView3.Rows.Count;
+
+            int counbuy = int.Parse(textBox6.Text.ToString(), CultureInfo.InvariantCulture);
             int b = rows4 - 1;
 
             if (button5.Enabled == false && double.Parse(balMaster, CultureInfo.InvariantCulture) > double.Parse(min_amount, CultureInfo.InvariantCulture))
@@ -376,9 +382,9 @@ namespace EXMOFB
                     priceBuy = priceBuy - (priceBuy / 100) * otstupBuy;
                     QuantityBuy(priceBuy);
                 }
-                if(rows4 == 1)
+                else if(rows4 != 0 && rows4 < counbuy)
                 {
-                    int count = int.Parse(textBox6.Text.ToString(), CultureInfo.InvariantCulture)-1;
+                    int count = int.Parse(textBox6.Text.ToString(), CultureInfo.InvariantCulture)- rows4;
                     var otstupBuy = double.Parse(textBox9.Text, CultureInfo.InvariantCulture);
                     var priceBuy = double.Parse(dataGridView4.Rows[b].Cells[0].Value.ToString(), CultureInfo.InvariantCulture);
 
@@ -388,12 +394,19 @@ namespace EXMOFB
                         QuantityBuy(priceBuy);
                     }
                 }
+                if (button6.Enabled == false)
+                {
+                    AlgoritmSell();
+                }
                 orderControbuy();
             }
         }
         void AlgoritmSell()//продажи
         {
             int rows3 = dataGridView3.Rows.Count;
+            int rows4 = dataGridView4.Rows.Count;
+
+            int countsell = int.Parse(textBox5.Text.ToString(), CultureInfo.InvariantCulture);
 
             if (button6.Enabled == false && double.Parse(balSlave, CultureInfo.InvariantCulture) > double.Parse(min_quantity, CultureInfo.InvariantCulture))
             {
@@ -404,11 +417,11 @@ namespace EXMOFB
                     priceSell = priceSell + (priceSell / 100) * otstupSell;
                     QuantitySell(priceSell);
                 }
-                if (rows3 == 1)
+                else if (rows3 != 0 && rows3 < countsell)
                 {
-                    int count = int.Parse(textBox5.Text.ToString(), CultureInfo.InvariantCulture) - 1;
+                    int count = int.Parse(textBox5.Text.ToString(), CultureInfo.InvariantCulture) - rows3;
                     var otstupSell = double.Parse(textBox8.Text, CultureInfo.InvariantCulture);
-                    var priceSell = double.Parse(dataGridView3.Rows[0].Cells[0].Value.ToString(), CultureInfo.InvariantCulture); ;
+                    var priceSell = double.Parse(dataGridView3.Rows[0].Cells[0].Value.ToString(), CultureInfo.InvariantCulture);
 
                     if (int.Parse(textBox5.Text.ToString(), CultureInfo.InvariantCulture) != 0)
                     {
@@ -450,36 +463,6 @@ namespace EXMOFB
             }
             catch { }
         }
-        //void AutoAvgSell()
-        //{
-        //    if(checkBox2.Checked == true)
-        //    {
-        //        int rows3 = dataGridView3.Rows.Count;
-        //        int g = int.Parse(textBox5.Text.ToString(), CultureInfo.InvariantCulture);
-
-        //       if (rows3 > g)
-        //       {
-        //            double amountCoi = double.Parse(textBox4.Text.ToString())*2;
-        //            string amountCoin = (Convert.ToString(Math.Round(amountCoi, 8), CultureInfo.InvariantCulture));
-        //            string avgS = (Convert.ToString(Math.Round(avgSell, 8), CultureInfo.InvariantCulture));
-
-        //            timer3.Stop();
-        //            Thread.Sleep(1000);
-        //           for(int i = 0; i < 2; i++)
-        //           {
-        //               Reset_sell(dataGridView3.Rows[i].Cells[3].Value.ToString());
-        //           }
-        //            Thread.Sleep(1000);
-        //            string rez = new API().ApiQuery("order_create", new Dictionary<string, string> { { "pair", comboBox1.Text.ToString() }, { "quantity", amountCoin.ToString() },
-        //           { "price", avgS.ToString() }, { "type", "sell" } });
-              
-        //            User_info();
-        //            Thread.Sleep(1000);
-        //            timer3.Start();
-        //       }
-        //    }
-
-        //}
         void button1_Click(object sender, EventArgs e)//Стоп торговля
         {
             comboBox1.Enabled = true;
@@ -528,6 +511,7 @@ namespace EXMOFB
                 dataGridView4.Rows.Clear();
                 User_open_orders();
                 dataGridView4.Refresh();
+                ControlSpred();
             }
             if (typeLastord != null)
             {
@@ -545,6 +529,7 @@ namespace EXMOFB
                 dataGridView3.Rows.Clear();
                 User_open_orders();
                 dataGridView3.Refresh();
+                ControlSpred();
             }
             if (typeLastord != null)
             {
@@ -553,7 +538,7 @@ namespace EXMOFB
         }
         void button5_Click(object sender, EventArgs e)//Старт покупок
         {
-            if (button2.Enabled == true || textBox1.Text == "" || textBox2.Text == "" || textBox6.Text == "" || textBox7.Text == "")
+            if (button2.Enabled == true || textBox1.Text == "" || textBox2.Text == "" || textBox6.Text == "")
             {
                 MessageBox.Show("Заполните настройки торгов. Нажмите проверить");
             }
@@ -576,7 +561,7 @@ namespace EXMOFB
         }
         void button6_Click(object sender, EventArgs e)//Старт продаж
         {
-            if (button2.Enabled == true || textBox5.Text == "" || textBox3.Text == ""  ||  textBox4.Text == "" || textBox7.Text == "")
+            if (button2.Enabled == true || textBox5.Text == "" || textBox3.Text == ""  ||  textBox4.Text == "")
             {
                 MessageBox.Show("Заполните настройки торгов. Нажмите проверить");
             }
@@ -602,8 +587,6 @@ namespace EXMOFB
             GetPriceOrderbook();
             ControlSpred();
             AlgoritmBuy();
-            AlgoritmSell();
-            //AutoAvgSell();
         }
     }
 }

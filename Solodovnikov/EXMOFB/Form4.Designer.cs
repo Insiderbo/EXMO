@@ -119,7 +119,6 @@ namespace EXMOFB
             this.label2 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.textBox7 = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
@@ -127,7 +126,9 @@ namespace EXMOFB
             this.panel10 = new System.Windows.Forms.Panel();
             this.label28 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
+            this.textBox7 = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel3.SuspendLayout();
@@ -802,14 +803,6 @@ namespace EXMOFB
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // textBox7
-            // 
-            this.textBox7.Location = new System.Drawing.Point(86, 60);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(31, 20);
-            this.textBox7.TabIndex = 21;
-            this.textBox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // label21
             // 
             this.label21.AutoSize = true;
@@ -845,15 +838,16 @@ namespace EXMOFB
             // panel10
             // 
             this.panel10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel10.Controls.Add(this.textBox7);
+            this.panel10.Controls.Add(this.label23);
+            this.panel10.Controls.Add(this.label13);
             this.panel10.Controls.Add(this.label28);
             this.panel10.Controls.Add(this.label24);
-            this.panel10.Controls.Add(this.label23);
-            this.panel10.Controls.Add(this.textBox7);
             this.panel10.Controls.Add(this.label25);
             this.panel10.Controls.Add(this.label22);
             this.panel10.Location = new System.Drawing.Point(266, 238);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(129, 103);
+            this.panel10.Size = new System.Drawing.Size(129, 133);
             this.panel10.TabIndex = 28;
             // 
             // label28
@@ -874,14 +868,30 @@ namespace EXMOFB
             this.label24.TabIndex = 28;
             this.label24.Text = "    ";
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(11, 64);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(94, 13);
+            this.label13.TabIndex = 30;
+            this.label13.Text = "Ордеров меньше";
+            // 
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(6, 63);
+            this.label23.Location = new System.Drawing.Point(68, 90);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(74, 13);
-            this.label23.TabIndex = 27;
-            this.label23.Text = "Сброс если >";
+            this.label23.Size = new System.Drawing.Size(37, 13);
+            this.label23.TabIndex = 31;
+            this.label23.Text = "сброс";
+            // 
+            // textBox7
+            // 
+            this.textBox7.Location = new System.Drawing.Point(26, 87);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(36, 20);
+            this.textBox7.TabIndex = 32;
             // 
             // Form4
             // 
@@ -1000,7 +1010,6 @@ namespace EXMOFB
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label25;
@@ -1009,13 +1018,15 @@ namespace EXMOFB
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Timer timer3;
         private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label28;
         private TextBox textBox8;
         private Label label18;
         private Label label29;
         private TextBox textBox9;
+        private TextBox textBox7;
+        private Label label23;
+        private Label label13;
     }
 }
 
