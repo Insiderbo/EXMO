@@ -329,7 +329,7 @@ namespace EXMOFB
         {
             var amountmaster = double.Parse(textBox10.Text, CultureInfo.InvariantCulture) / 100;
             double quantBuy = amountmaster * double.Parse(textBox1.Text, CultureInfo.InvariantCulture);
-            quantityBuy = Math.Round(quantBuy / double.Parse(min_amount, CultureInfo.InvariantCulture), price_precision);
+            quantityBuy = Math.Round(quantBuy /priceBuy, price_precision);
             qBuy = Convert.ToString(quantityBuy, CultureInfo.InvariantCulture);
             Buy_Order_create(Convert.ToString(Math.Round(priceBuy, price_precision), CultureInfo.InvariantCulture), qBuy);
         }
@@ -343,7 +343,7 @@ namespace EXMOFB
         {
             var quantsell = double.Parse(textBox11.Text, CultureInfo.InvariantCulture) / 100;
             double quantSell = quantsell * double.Parse(textBox4.Text, CultureInfo.InvariantCulture);
-            quantitySell = Math.Round(quantSell / double.Parse(min_quantity, CultureInfo.InvariantCulture), price_precision);
+            quantitySell = Math.Round(quantSell / priceSell, price_precision);
             qSell = Convert.ToString(quantitySell, CultureInfo.InvariantCulture);
             Sell_Order_create(Convert.ToString(Math.Round(priceSell, price_precision), CultureInfo.InvariantCulture), qSell);
         }
