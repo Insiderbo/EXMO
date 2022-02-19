@@ -7,6 +7,7 @@ using System.Net;
 using System.Threading;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 
 namespace EXMOFB
 {
@@ -27,12 +28,13 @@ namespace EXMOFB
         double orderspred;
         double avgprice;
         double stacanspred;
+        double spredsell;
+        double spredbuy;
         int price_precision;//кол-во знаков после запятой у цены
         string qBuy;
         string qSell;
         double quantityBuy;
         double quantitySell;
-
         public Form4()
         {
             InitializeComponent();
@@ -84,24 +86,28 @@ namespace EXMOFB
         }
         void User_info()//получаем баланс по паре
         {
-            master = comboBox1.Text.Substring(comboBox1.Text.IndexOf('_') + 1);//обрезка до символа
-            slave = comboBox1.Text.Substring(0, comboBox1.Text.IndexOf('_'));//обрезка после символа;
-            string rez = new API().ApiQuery("user_info", new Dictionary<string, string> { });
-            if (rez.Contains("false"))
+            try
             {
-                return;
+                master = comboBox1.Text.Substring(comboBox1.Text.IndexOf('_') + 1);//обрезка до символа
+                slave = comboBox1.Text.Substring(0, comboBox1.Text.IndexOf('_'));//обрезка после символа;
+                string rez = new API().ApiQuery("user_info", new Dictionary<string, string> { });
+                if (rez.Contains("false"))
+                {
+                    return;
+                }
+                else
+                {
+                    dynamic bc = JsonConvert.DeserializeObject(rez.ToString());
+                    dataGridView5.Rows.Clear();
+                    balMaster = (bc["balances"][master]).ToString();
+                    balSlave = (bc["balances"][slave]).ToString();
+                    dataGridView5.Rows.Add(master, balMaster);
+                    dataGridView5.Rows.Add(slave, balSlave);
+                    dataGridView5.Refresh();
+                }
+
             }
-            else
-            {
-                dynamic bc = JsonConvert.DeserializeObject(rez.ToString());
-                dataGridView5.Rows.Clear();
-                balMaster = (bc["balances"][master]).ToString();
-                balSlave = (bc["balances"][slave]).ToString();
-                dataGridView5.Rows.Add(master, balMaster);
-                dataGridView5.Rows.Add(slave, balSlave);
-                dataGridView5.Refresh();
-                User_trades();
-            }
+            catch { MessageBox.Show("Проверьте настройки"); }
         }
         void GetPriceOrderbook()//получаем ордербук
         {
@@ -143,36 +149,10 @@ namespace EXMOFB
                 dataGridView2.Refresh();
                 avgprice = ((double.Parse(dataGridView1.Rows[0].Cells[0].Value.ToString(), CultureInfo.InvariantCulture) + double.Parse(dataGridView2.Rows[0].Cells[0].Value.ToString(), CultureInfo.InvariantCulture)) / 2);
                 User_open_orders();
-                ControlSpred();
             }
             catch
             {
 
-            }
-        }
-        void User_trades()//получаем историю торгов
-        {
-            pair = comboBox1.Text;
-            string rez = new API().ApiQuery("user_trades", new Dictionary<string, string> { { "pair", pair.ToString() }, { "limit", limit.ToString() }, { "offset", "0" }, });
-
-            if (rez.Contains("false"))
-            {
-                return;
-            }
-            else
-            {
-                string[] typeOrder = new string[limit];
-                dynamic bc = JsonConvert.DeserializeObject(rez.ToString());
-                int x = bc[pair].Count;
-
-                if (bc != null)
-                {
-                    for (int i = 0; i < x; i++)
-                    {
-                        typeOrder[i] = (bc[pair][i]["type"]).ToString();
-                        typeLastord = typeOrder[0].ToString();
-                    }
-                }
             }
         }
         void User_open_orders()//открытые ордера
@@ -231,9 +211,10 @@ namespace EXMOFB
                 }
                 dataGridView3.Refresh();
                 dataGridView4.Refresh();
+                ControlSpred();
             }
         }
-        double ControlSpred()
+        void ControlSpred()
         {
             int rows1 = dataGridView1.Rows.Count;
             int rows2 = dataGridView2.Rows.Count;
@@ -242,83 +223,67 @@ namespace EXMOFB
             int s = rows3 - 1;
             int b = rows4 - 1;
 
-            if (rows1 != 0 && rows2 != 0)
+            if (rows1 != 0 && rows2 != 0)//спред стакана
             {
                 stacanspred = Math.Round(((double.Parse(dataGridView1.Rows[0].Cells[0].Value.ToString(), CultureInfo.InvariantCulture) / double.Parse(dataGridView2.Rows[0].Cells[0].Value.ToString(), CultureInfo.InvariantCulture) - 1) * 100), 2);
                 label28.Text = stacanspred.ToString();
             }
 
-            if (rows4 == 0 && rows3 == 0)
+            if (rows4 != 0)
             {
-                orderspred = stacanspred;
-                label24.Text = orderspred.ToString();
+                spredbuy = Math.Round(((avgprice / double.Parse(dataGridView4.Rows[b].Cells[0].Value.ToString(), CultureInfo.InvariantCulture) - 1) * 100), 2);
+                label24.Text = spredbuy.ToString();
+                ResetSpredSell();
             }
-            if (rows4 != 0 && rows3 == 0)
+            else
             {
-                orderspred = Math.Round(((avgprice / double.Parse(dataGridView4.Rows[b].Cells[0].Value.ToString(), CultureInfo.InvariantCulture) - 1) * 100), 2);
-                label24.Text = orderspred.ToString();
-                ResetSpred();
+                spredbuy = 0;
             }
-            if (rows4 == 0 && rows3 != 0)
+            if (rows3 != 0)
             {
-                orderspred = Math.Round(((double.Parse(dataGridView3.Rows[s].Cells[0].Value.ToString(), CultureInfo.InvariantCulture) / avgprice - 1) * 100), 2); ;
-                label24.Text = orderspred.ToString();
-                ResetSpred();
+                spredsell = Math.Round(((double.Parse(dataGridView3.Rows[s].Cells[0].Value.ToString(), CultureInfo.InvariantCulture) / avgprice - 1) * 100), 2); ;
+                label32.Text = spredsell.ToString();
+                ResetSpredBuy();
             }
-
-            if (rows4 != 0 && rows3 != 0)
+            else
             {
-                orderspred = Math.Round(((double.Parse(dataGridView3.Rows[s].Cells[0].Value.ToString(), CultureInfo.InvariantCulture) / double.Parse(dataGridView4.Rows[b].Cells[0].Value.ToString(), CultureInfo.InvariantCulture) - 1) * 100), 2);
-                label24.Text = orderspred.ToString();
-                ResetSpred();
+                spredsell = 0;
             }
-
-            return orderspred;
         }
-        void ResetSpred()
+        void ResetSpredBuy()
+        {
+            try
+            {
+                int rows4 = dataGridView4.Rows.Count;
+                int controlspred = int.Parse(textBox7.Text);
+
+                if (spredbuy > controlspred)
+                {
+                    if (rows4 != 0)
+                    {
+                      Reset_buy();
+                    }
+                }
+            }
+            catch
+            {
+
+            }
+        }
+        void ResetSpredSell()
         {
             try
             {
                 int rows3 = dataGridView3.Rows.Count;
-                int rows4 = dataGridView4.Rows.Count;
-                int countsell = int.Parse(textBox5.Text);
-                int countbuy = int.Parse(textBox6.Text);
-                int controlcountorder = int.Parse(textBox7.Text);
+                int controlspred = int.Parse(textBox7.Text);
 
-                if (orderspred > controlcountorder && button6.Enabled == false && double.Parse(balSlave, CultureInfo.InvariantCulture) > double.Parse(min_quantity, CultureInfo.InvariantCulture))
+                if (spredsell > controlspred)
                 {
-                    timer3.Stop();
-
-                    if (rows4 == countbuy)
+                    if (rows3 != 0)
                     {
-                        for (int i = 0; i < rows4; i++)
-                        {
-                           Reset_buy(dataGridView4.Rows[0].Cells[3].Value.ToString());
-                           dataGridView4.Rows.Clear();
-                           User_open_orders();
-                           dataGridView4.Refresh();
-                        }
-                    }
-
-                }
-                if(orderspred > controlcountorder && button5.Enabled == false && double.Parse(balMaster, CultureInfo.InvariantCulture) > double.Parse(min_amount, CultureInfo.InvariantCulture))
-                {
-                    timer3.Stop();
-
-                    if (rows3 == countsell)
-                    {
-                        for (int i = 0; i < rows3; i++)
-                        {
-                           Reset_sell(dataGridView3.Rows[0].Cells[3].Value.ToString());
-                           dataGridView3.Rows.Clear();
-                           User_open_orders();
-                           dataGridView3.Refresh();
-                        }
-                        orderspred = stacanspred;
-                        label24.Text = orderspred.ToString();
+                      Reset_sell();
                     }
                 }
-                timer3.Start();
             }
             catch
             {
@@ -329,7 +294,7 @@ namespace EXMOFB
         {
             var amountmaster = double.Parse(textBox10.Text, CultureInfo.InvariantCulture) / 100;
             double quantBuy = amountmaster * double.Parse(textBox1.Text, CultureInfo.InvariantCulture);
-            quantityBuy = Math.Round(quantBuy /priceBuy, price_precision);
+            quantityBuy = Math.Round(quantBuy /priceBuy, 8);
             qBuy = Convert.ToString(quantityBuy, CultureInfo.InvariantCulture);
             Buy_Order_create(Convert.ToString(Math.Round(priceBuy, price_precision), CultureInfo.InvariantCulture), qBuy);
         }
@@ -338,12 +303,13 @@ namespace EXMOFB
             string rez = new API().ApiQuery("order_create", new Dictionary<string, string> { { "pair", comboBox1.Text.ToString() },
                 { "quantity", qBuy }, { "price", e.ToString() }, { "type", "buy" } });
             User_info();
+            User_open_orders();
         }
         void QuantitySell(double priceSell)
         {
             var quantsell = double.Parse(textBox11.Text, CultureInfo.InvariantCulture) / 100;
             double quantSell = quantsell * double.Parse(textBox4.Text, CultureInfo.InvariantCulture);
-            quantitySell = Math.Round(quantSell / priceSell, price_precision);
+            quantitySell = Math.Round(quantSell / priceSell, 8);
             qSell = Convert.ToString(quantitySell, CultureInfo.InvariantCulture);
             Sell_Order_create(Convert.ToString(Math.Round(priceSell, price_precision), CultureInfo.InvariantCulture), qSell);
         }
@@ -352,96 +318,126 @@ namespace EXMOFB
             string rez = new API().ApiQuery("order_create", new Dictionary<string, string> { { "pair", comboBox1.Text.ToString() },
                 { "quantity", qSell }, { "price", priceLastsel }, { "type", "sell" } });
             User_info();
+            User_open_orders();
         }
-        void Reset_buy(string e )//сброс покупки
+        void Reset_buy()//сброс покупки
         {
             int rows4 = dataGridView4.Rows.Count;
-
-            if (rows4 != 0)
+            int a = rows4 - 1;
+            try
             {
-                string rez = new API().ApiQuery("order_cancel", new Dictionary<string, string> { { "order_id", e } });
-                User_info();
+                if (rows4 != 0)
+                {
+                    for (int i = 0; i < rows4; i++)
+                    {
+                        string rez = new API().ApiQuery("order_cancel", new Dictionary<string, string> { { "order_id", dataGridView4.Rows[a].Cells[3].Value.ToString() } });
+                        dataGridView4.Rows[a].Cells.Clear();
+                        dataGridView4.Refresh();
+                        User_info();
+                        label24.Text = spredbuy.ToString();
+                    }
+                }
+
             }
+            catch { }
         }
-        void Reset_sell(string e)//сброс продажи
+        void Reset_sell()//сброс продажи
         {
             int rows3 = dataGridView3.Rows.Count;
-
-            if(rows3 != 0)
+            int b = rows3 - 1;
+            try
             {
-                string rez = new API().ApiQuery("order_cancel", new Dictionary<string, string> { { "order_id", e } });
-                User_info();
+                if (rows3 != 0)
+                {
+                    for (int i = 0; i < rows3; i++)
+                    {
+                        string rez = new API().ApiQuery("order_cancel", new Dictionary<string, string> { { "order_id", dataGridView3.Rows[b].Cells[3].Value.ToString() } });
+                        dataGridView3.Rows[b].Cells.Clear();
+                        dataGridView3.Refresh();
+                        User_info();
+                        label32.Text = spredsell.ToString();
+                    }
+                }
+
             }
+            catch { }
         }
         void AlgoritmBuy()//покупки
         {
-            int rows4 = dataGridView4.Rows.Count;
-            int rows3 = dataGridView3.Rows.Count;
-
-            int counbuy = int.Parse(textBox6.Text.ToString(), CultureInfo.InvariantCulture);
-            int b = rows4 - 1;
-
-            if (button5.Enabled == false && double.Parse(balMaster, CultureInfo.InvariantCulture) > double.Parse(min_amount, CultureInfo.InvariantCulture))
+            try
             {
-                if (rows4 == 0)
-                {
-                    var otstupBuy = double.Parse(textBox2.Text, CultureInfo.InvariantCulture);
-                    var priceBuy = avgprice;
-                    priceBuy = priceBuy - (priceBuy / 100) * otstupBuy;
-                    QuantityBuy(priceBuy);
-                }
-                else if(rows4 != 0 && rows4 < counbuy)
-                {
-                    int count = int.Parse(textBox6.Text.ToString(), CultureInfo.InvariantCulture)- rows4;
-                    var otstupBuy = double.Parse(textBox9.Text, CultureInfo.InvariantCulture);
-                    var priceBuy = double.Parse(dataGridView4.Rows[b].Cells[0].Value.ToString(), CultureInfo.InvariantCulture);
+                int controlspred = int.Parse(textBox7.Text);
 
-                    for (int i = 0; i < count; i++)
+                int rows4 = dataGridView4.Rows.Count;
+                int counbuy = int.Parse(textBox6.Text.ToString(), CultureInfo.InvariantCulture);
+                int b = rows4 - 1;
+
+                if (spredbuy < controlspred && button5.Enabled == false && double.Parse(balMaster, CultureInfo.InvariantCulture) > double.Parse(min_amount, CultureInfo.InvariantCulture))
+                {
+                    if (rows4 == 0)
                     {
+                        var otstupBuy = double.Parse(textBox2.Text, CultureInfo.InvariantCulture);
+                        var priceBuy = double.Parse(dataGridView2.Rows[0].Cells[0].Value.ToString(), CultureInfo.InvariantCulture);
                         priceBuy = priceBuy - (priceBuy / 100) * otstupBuy;
                         QuantityBuy(priceBuy);
                     }
+
+                    if (rows4 != 0 && rows4 < counbuy && controlspred > spredbuy)
+                    {
+                        int count = int.Parse(textBox6.Text.ToString(), CultureInfo.InvariantCulture) - rows4;
+                        var otstupBuy = double.Parse(textBox9.Text, CultureInfo.InvariantCulture);
+                        var priceBuy = double.Parse(dataGridView4.Rows[b].Cells[0].Value.ToString(), CultureInfo.InvariantCulture);
+
+                        for (int i = 0; i < count; i++)
+                        {
+                            priceBuy = priceBuy - (priceBuy / 100) * otstupBuy;
+                            QuantityBuy(priceBuy);
+                        }
+                    }
+                    orderControbuy();
                 }
-                if (button6.Enabled == false)
-                {
-                    AlgoritmSell();
-                }
-                orderControbuy();
             }
+            catch { }
         }
         void AlgoritmSell()//продажи
         {
-            int rows3 = dataGridView3.Rows.Count;
-            int rows4 = dataGridView4.Rows.Count;
-
-            int countsell = int.Parse(textBox5.Text.ToString(), CultureInfo.InvariantCulture);
-
-            if (button6.Enabled == false && double.Parse(balSlave, CultureInfo.InvariantCulture) > double.Parse(min_quantity, CultureInfo.InvariantCulture))
+            try
             {
-                if (rows3 == 0)
-                {
-                    var otstupSell = double.Parse(textBox3.Text, CultureInfo.InvariantCulture);
-                    var priceSell = avgprice;
-                    priceSell = priceSell + (priceSell / 100) * otstupSell;
-                    QuantitySell(priceSell);
-                }
-                else if (rows3 != 0 && rows3 < countsell)
-                {
-                    int count = int.Parse(textBox5.Text.ToString(), CultureInfo.InvariantCulture) - rows3;
-                    var otstupSell = double.Parse(textBox8.Text, CultureInfo.InvariantCulture);
-                    var priceSell = double.Parse(dataGridView3.Rows[0].Cells[0].Value.ToString(), CultureInfo.InvariantCulture);
+                int controlspred = int.Parse(textBox7.Text);
 
-                    if (int.Parse(textBox5.Text.ToString(), CultureInfo.InvariantCulture) != 0)
+                int rows3 = dataGridView3.Rows.Count;
+                int countsell = int.Parse(textBox5.Text.ToString(), CultureInfo.InvariantCulture);
+
+                if (spredsell < controlspred && button6.Enabled == false && double.Parse(balSlave, CultureInfo.InvariantCulture) > double.Parse(min_quantity, CultureInfo.InvariantCulture))
+                {
+                    if (rows3 == 0)
                     {
-                        for (int i = 0; i < count; i++)
+                        var otstupSell = double.Parse(textBox3.Text, CultureInfo.InvariantCulture);
+                        var priceSell = double.Parse(dataGridView1.Rows[0].Cells[0].Value.ToString(), CultureInfo.InvariantCulture);
+                        priceSell = priceSell + (priceSell / 100) * otstupSell;
+                        QuantitySell(priceSell);
+                    }
+
+                    if (rows3 < countsell && rows3 != 0 && controlspred > spredsell)
+                    {
+                        int count = int.Parse(textBox5.Text.ToString(), CultureInfo.InvariantCulture) - rows3;
+                        var otstupSell = double.Parse(textBox8.Text, CultureInfo.InvariantCulture);
+                        var priceSell = double.Parse(dataGridView3.Rows[0].Cells[0].Value.ToString(), CultureInfo.InvariantCulture);
+
+                        if (int.Parse(textBox5.Text.ToString(), CultureInfo.InvariantCulture) != 0)
                         {
-                            priceSell = priceSell + (priceSell / 100) * otstupSell;
-                            QuantitySell(priceSell);
+                            for (int i = 0; i < count; i++)
+                            {
+                                priceSell = priceSell + (priceSell / 100) * otstupSell;
+                                QuantitySell(priceSell);
+                            }
+
                         }
                     }
+                    orderControllsell();
                 }
-                orderControllsell();
             }
+            catch { }
         }
         void orderControllsell()
         {
@@ -451,7 +447,7 @@ namespace EXMOFB
             {
                 if (rows3 > int.Parse(textBox5.Text.ToString(), CultureInfo.InvariantCulture))
                 {
-                    Reset_sell(dataGridView3.Rows[h].Cells[3].Value.ToString());
+                    Reset_sell();
                     User_info();
                 }
             }
@@ -465,7 +461,7 @@ namespace EXMOFB
             {
                 if (rows4 > int.Parse(textBox6.Text.ToString(), CultureInfo.InvariantCulture))
                 {
-                    Reset_buy(dataGridView4.Rows[h].Cells[3].Value.ToString());
+                    Reset_buy();
                     User_info();
                 }
             }
@@ -484,7 +480,6 @@ namespace EXMOFB
             textBox1.Enabled = true;
             textBox2.Enabled = true;
             textBox6.Enabled = true;
-            textBox7.Enabled = true;
             textBox8.Enabled = true;
             textBox9.Enabled = true;
 
@@ -503,27 +498,20 @@ namespace EXMOFB
                 GetPriceOrderbook();
                 User_info();
                 User_open_orders();
-                ControlSpred();
                 button2.Enabled = false;
                 typeLastord = null;
             }
         }
-        void button3_Click(object sender, EventArgs e)//сброс покупки
+        private void button3_Click_1(object sender, EventArgs e)
         {
             int rows4 = dataGridView4.Rows.Count;
             int b = rows4 - 1;
 
             if (rows4 > 0)
             {
-                Reset_buy(dataGridView4.Rows[b].Cells[3].Value.ToString());
-                dataGridView4.Rows.Clear();
+                Reset_buy();
                 User_open_orders();
-                dataGridView4.Refresh();
-                ControlSpred();
-            }
-            if (typeLastord != null)
-            {
-                typeLastord = null;
+                label24.Text = spredbuy.ToString();
             }
         }
         void button4_Click(object sender, EventArgs e)//сброс продажи    
@@ -533,15 +521,9 @@ namespace EXMOFB
 
             if (rows3 > 0)
             {
-                Reset_sell(dataGridView3.Rows[s].Cells[3].Value.ToString());
-                dataGridView3.Rows.Clear();
+                Reset_sell();
                 User_open_orders();
-                dataGridView3.Refresh();
-                ControlSpred();
-            }
-            if (typeLastord != null)
-            {
-                typeLastord = null;
+                label32.Text = spredsell.ToString();
             }
         }
         void button5_Click(object sender, EventArgs e)//Старт покупок
@@ -558,13 +540,8 @@ namespace EXMOFB
                 textBox1.Enabled = false;
                 textBox2.Enabled = false;
                 textBox6.Enabled = false;
-                textBox7.Enabled = false;
                 textBox9.Enabled = false;
-
-                if (timer3.Enabled == false)
-                {
-                    timer3.Start();
-                }
+                timer3.Start();
             }
         }
         void button6_Click(object sender, EventArgs e)//Старт продаж
@@ -581,22 +558,16 @@ namespace EXMOFB
                 textBox5.Enabled = false;
                 textBox4.Enabled = false;
                 textBox3.Enabled = false;
-                textBox7.Enabled = false;
                 textBox8.Enabled = false;
-
-                if (timer3.Enabled == false)
-                {
-                    timer3.Start();
-                }
+                timer3.Start();
             }
         }
         void timer3_Tick(object sender, EventArgs e)
         {
             GetPriceOrderbook();
-            ControlSpred();
             AlgoritmBuy();
+            AlgoritmSell();
         }
-
     }
 }
 

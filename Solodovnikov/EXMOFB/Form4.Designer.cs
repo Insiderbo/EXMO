@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 
 namespace EXMOFB
 {
@@ -59,6 +60,8 @@ namespace EXMOFB
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.label31 = new System.Windows.Forms.Label();
+            this.textBox11 = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -68,6 +71,8 @@ namespace EXMOFB
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.label30 = new System.Windows.Forms.Label();
+            this.textBox10 = new System.Windows.Forms.TextBox();
             this.label29 = new System.Windows.Forms.Label();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
@@ -129,10 +134,8 @@ namespace EXMOFB
             this.label13 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
-            this.label30 = new System.Windows.Forms.Label();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.label31 = new System.Windows.Forms.Label();
-            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel3.SuspendLayout();
@@ -220,6 +223,23 @@ namespace EXMOFB
             this.panel3.Size = new System.Drawing.Size(247, 133);
             this.panel3.TabIndex = 1;
             // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(33, 109);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(128, 13);
+            this.label31.TabIndex = 31;
+            this.label31.Text = "Выделяем для продажи";
+            // 
+            // textBox11
+            // 
+            this.textBox11.Location = new System.Drawing.Point(173, 106);
+            this.textBox11.Name = "textBox11";
+            this.textBox11.Size = new System.Drawing.Size(36, 20);
+            this.textBox11.TabIndex = 30;
+            this.textBox11.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // label19
             // 
             this.label19.AutoSize = true;
@@ -306,6 +326,23 @@ namespace EXMOFB
             this.panel4.Size = new System.Drawing.Size(236, 133);
             this.panel4.TabIndex = 1;
             // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(42, 109);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(125, 13);
+            this.label30.TabIndex = 22;
+            this.label30.Text = "Выделяем для покупки";
+            // 
+            // textBox10
+            // 
+            this.textBox10.Location = new System.Drawing.Point(182, 106);
+            this.textBox10.Name = "textBox10";
+            this.textBox10.Size = new System.Drawing.Size(39, 20);
+            this.textBox10.TabIndex = 21;
+            this.textBox10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // label29
             // 
             this.label29.AutoSize = true;
@@ -377,11 +414,11 @@ namespace EXMOFB
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(23, 37);
+            this.label25.Location = new System.Drawing.Point(23, 36);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(45, 13);
+            this.label25.Size = new System.Drawing.Size(50, 13);
             this.label25.TabIndex = 26;
-            this.label25.Text = "Ордера";
+            this.label25.Text = "Покупка";
             // 
             // panel5
             // 
@@ -798,7 +835,7 @@ namespace EXMOFB
             this.button3.TabIndex = 19;
             this.button3.Text = "Покупка";
             this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.button3.Click += new System.EventHandler(this.button3_Click_1);
             // 
             // button4
             // 
@@ -823,7 +860,7 @@ namespace EXMOFB
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(23, 10);
+            this.label22.Location = new System.Drawing.Point(30, 13);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(43, 13);
             this.label22.TabIndex = 23;
@@ -840,12 +877,14 @@ namespace EXMOFB
             // 
             // timer3
             // 
-            this.timer3.Interval = 2000;
+            this.timer3.Interval = 1000;
             this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
             // 
             // panel10
             // 
             this.panel10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel10.Controls.Add(this.label32);
+            this.panel10.Controls.Add(this.label33);
             this.panel10.Controls.Add(this.textBox7);
             this.panel10.Controls.Add(this.label23);
             this.panel10.Controls.Add(this.label13);
@@ -860,7 +899,7 @@ namespace EXMOFB
             // 
             // textBox7
             // 
-            this.textBox7.Location = new System.Drawing.Point(58, 61);
+            this.textBox7.Location = new System.Drawing.Point(58, 85);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(22, 20);
             this.textBox7.TabIndex = 32;
@@ -869,7 +908,7 @@ namespace EXMOFB
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(86, 64);
+            this.label23.Location = new System.Drawing.Point(86, 88);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(37, 13);
             this.label23.TabIndex = 31;
@@ -878,7 +917,7 @@ namespace EXMOFB
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(5, 64);
+            this.label13.Location = new System.Drawing.Point(5, 88);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(47, 13);
             this.label13.TabIndex = 30;
@@ -902,39 +941,23 @@ namespace EXMOFB
             this.label24.TabIndex = 28;
             this.label24.Text = "    ";
             // 
-            // label30
+            // label32
             // 
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(42, 109);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(125, 13);
-            this.label30.TabIndex = 22;
-            this.label30.Text = "Выделяем для покупки";
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(83, 60);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(19, 13);
+            this.label32.TabIndex = 34;
+            this.label32.Text = "    ";
             // 
-            // textBox10
+            // label33
             // 
-            this.textBox10.Location = new System.Drawing.Point(182, 106);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(39, 20);
-            this.textBox10.TabIndex = 21;
-            this.textBox10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(33, 109);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(128, 13);
-            this.label31.TabIndex = 31;
-            this.label31.Text = "Выделяем для продажи";
-            // 
-            // textBox11
-            // 
-            this.textBox11.Location = new System.Drawing.Point(173, 106);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(36, 20);
-            this.textBox11.TabIndex = 30;
-            this.textBox11.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(20, 60);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(53, 13);
+            this.label33.TabIndex = 33;
+            this.label33.Text = "Продажа";
             // 
             // Form4
             // 
@@ -967,7 +990,7 @@ namespace EXMOFB
             this.MaximizeBox = false;
             this.Name = "Form4";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Solodovnikov";
+            this.Text = "Setkabot";
             this.Load += new System.EventHandler(this.Form4_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -1074,6 +1097,8 @@ namespace EXMOFB
         private TextBox textBox11;
         private Label label30;
         private TextBox textBox10;
+        private Label label32;
+        private Label label33;
     }
 }
 
