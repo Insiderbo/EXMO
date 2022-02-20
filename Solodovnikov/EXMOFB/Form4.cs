@@ -229,7 +229,7 @@ namespace EXMOFB
 
             if (rows4 != 0)
             {
-                spredbuy = Math.Round(((avgprice / double.Parse(dataGridView4.Rows[b].Cells[0].Value.ToString(), CultureInfo.InvariantCulture) - 1) * 100), 2);
+                spredbuy = Math.Round(((double.Parse(dataGridView2.Rows[0].Cells[0].Value.ToString(), CultureInfo.InvariantCulture) / double.Parse(dataGridView4.Rows[b].Cells[0].Value.ToString(), CultureInfo.InvariantCulture) - 1) * 100), 2);
                 label24.Text = spredbuy.ToString();
                 ResetSpredBuy();
 
@@ -237,16 +237,18 @@ namespace EXMOFB
             else
             {
                 spredbuy = 0;
+                label24.Text = spredbuy.ToString();
             }
             if (rows3 != 0)
             {
-                spredsell = Math.Round(((double.Parse(dataGridView3.Rows[s].Cells[0].Value.ToString(), CultureInfo.InvariantCulture) / avgprice - 1) * 100), 2); ;
+                spredsell = Math.Round(((double.Parse(dataGridView3.Rows[s].Cells[0].Value.ToString(), CultureInfo.InvariantCulture) / double.Parse(dataGridView1.Rows[0].Cells[0].Value.ToString(), CultureInfo.InvariantCulture) - 1) * 100), 2); ;
                 label32.Text = spredsell.ToString();
                 ResetSpredSell();
             }
             else
             {
                 spredsell = 0;
+                label32.Text = spredsell.ToString();
             }
         }
         void ResetSpredBuy()
