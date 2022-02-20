@@ -129,13 +129,13 @@ namespace EXMOFB
             this.label26 = new System.Windows.Forms.Label();
             this.timer3 = new System.Windows.Forms.Timer(this.components);
             this.panel10 = new System.Windows.Forms.Panel();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
-            this.label32 = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel3.SuspendLayout();
@@ -897,18 +897,36 @@ namespace EXMOFB
             this.panel10.Size = new System.Drawing.Size(129, 133);
             this.panel10.TabIndex = 28;
             // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(83, 60);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(19, 13);
+            this.label32.TabIndex = 34;
+            this.label32.Text = "    ";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(20, 60);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(53, 13);
+            this.label33.TabIndex = 33;
+            this.label33.Text = "Продажа";
+            // 
             // textBox7
             // 
-            this.textBox7.Location = new System.Drawing.Point(58, 85);
+            this.textBox7.Location = new System.Drawing.Point(45, 85);
             this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(22, 20);
+            this.textBox7.Size = new System.Drawing.Size(43, 20);
             this.textBox7.TabIndex = 32;
             this.textBox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(86, 88);
+            this.label23.Location = new System.Drawing.Point(87, 89);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(37, 13);
             this.label23.TabIndex = 31;
@@ -917,7 +935,7 @@ namespace EXMOFB
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(5, 88);
+            this.label13.Location = new System.Drawing.Point(1, 88);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(47, 13);
             this.label13.TabIndex = 30;
@@ -940,24 +958,6 @@ namespace EXMOFB
             this.label24.Size = new System.Drawing.Size(19, 13);
             this.label24.TabIndex = 28;
             this.label24.Text = "    ";
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(83, 60);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(19, 13);
-            this.label32.TabIndex = 34;
-            this.label32.Text = "    ";
-            // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(20, 60);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(53, 13);
-            this.label33.TabIndex = 33;
-            this.label33.Text = "Продажа";
             // 
             // Form4
             // 

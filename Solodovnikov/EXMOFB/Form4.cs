@@ -19,13 +19,10 @@ namespace EXMOFB
         string master;
         string slave;
         readonly int order_book = 8;
-        readonly int limit = 2;
         string min_quantity;//минимум купить-продать монет
         string min_amount;//минимум тратим на 1 ордер
         string stask;
         string stbid;
-        string typeLastord;
-        double orderspred;
         double avgprice;
         double stacanspred;
         double spredsell;
@@ -35,6 +32,7 @@ namespace EXMOFB
         string qSell;
         double quantityBuy;
         double quantitySell;
+        double controlspred;
         public Form4()
         {
             InitializeComponent();
@@ -233,7 +231,8 @@ namespace EXMOFB
             {
                 spredbuy = Math.Round(((avgprice / double.Parse(dataGridView4.Rows[b].Cells[0].Value.ToString(), CultureInfo.InvariantCulture) - 1) * 100), 2);
                 label24.Text = spredbuy.ToString();
-                ResetSpredSell();
+                ResetSpredBuy();
+
             }
             else
             {
@@ -243,7 +242,7 @@ namespace EXMOFB
             {
                 spredsell = Math.Round(((double.Parse(dataGridView3.Rows[s].Cells[0].Value.ToString(), CultureInfo.InvariantCulture) / avgprice - 1) * 100), 2); ;
                 label32.Text = spredsell.ToString();
-                ResetSpredBuy();
+                ResetSpredSell();
             }
             else
             {
@@ -255,7 +254,7 @@ namespace EXMOFB
             try
             {
                 int rows4 = dataGridView4.Rows.Count;
-                int controlspred = int.Parse(textBox7.Text);
+                controlspred = Math.Round(double.Parse(textBox7.Text.ToString(), CultureInfo.InvariantCulture), 2);
 
                 if (spredbuy > controlspred)
                 {
@@ -275,7 +274,7 @@ namespace EXMOFB
             try
             {
                 int rows3 = dataGridView3.Rows.Count;
-                int controlspred = int.Parse(textBox7.Text);
+                controlspred = Math.Round(double.Parse(textBox7.Text.ToString(), CultureInfo.InvariantCulture), 2);
 
                 if (spredsell > controlspred)
                 {
@@ -366,8 +365,7 @@ namespace EXMOFB
         {
             try
             {
-                int controlspred = int.Parse(textBox7.Text);
-
+                controlspred = Math.Round(double.Parse(textBox7.Text.ToString(), CultureInfo.InvariantCulture), 2);
                 int rows4 = dataGridView4.Rows.Count;
                 int counbuy = int.Parse(textBox6.Text.ToString(), CultureInfo.InvariantCulture);
                 int b = rows4 - 1;
@@ -403,8 +401,7 @@ namespace EXMOFB
         {
             try
             {
-                int controlspred = int.Parse(textBox7.Text);
-
+                controlspred = Math.Round(double.Parse(textBox7.Text.ToString(), CultureInfo.InvariantCulture), 2);
                 int rows3 = dataGridView3.Rows.Count;
                 int countsell = int.Parse(textBox5.Text.ToString(), CultureInfo.InvariantCulture);
 
@@ -484,7 +481,6 @@ namespace EXMOFB
             textBox9.Enabled = true;
 
             timer3.Stop();
-            typeLastord = null;
         }
         void button2_Click(object sender, EventArgs e)//Проверка подключения
         {
@@ -499,7 +495,6 @@ namespace EXMOFB
                 User_info();
                 User_open_orders();
                 button2.Enabled = false;
-                typeLastord = null;
             }
         }
         private void button3_Click_1(object sender, EventArgs e)
