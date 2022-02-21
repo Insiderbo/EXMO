@@ -380,6 +380,7 @@ namespace EXMOFB
                         var priceBuy = double.Parse(dataGridView2.Rows[0].Cells[0].Value.ToString(), CultureInfo.InvariantCulture);
                         priceBuy = priceBuy - (priceBuy / 100) * otstupBuy;
                         QuantityBuy(priceBuy);
+                        User_info();
                     }
 
                     if (rows4 != 0 && rows4 < counbuy && controlspred > spredbuy)
@@ -392,6 +393,7 @@ namespace EXMOFB
                         {
                             priceBuy = priceBuy - (priceBuy / 100) * otstupBuy;
                             QuantityBuy(priceBuy);
+                            User_info();
                         }
                     }
                     orderControbuy();
@@ -415,6 +417,7 @@ namespace EXMOFB
                         var priceSell = double.Parse(dataGridView1.Rows[0].Cells[0].Value.ToString(), CultureInfo.InvariantCulture);
                         priceSell = priceSell + (priceSell / 100) * otstupSell;
                         QuantitySell(priceSell);
+                        User_info();
                     }
 
                     if (rows3 < countsell && rows3 != 0 && controlspred > spredsell)
@@ -429,6 +432,7 @@ namespace EXMOFB
                             {
                                 priceSell = priceSell + (priceSell / 100) * otstupSell;
                                 QuantitySell(priceSell);
+                                User_info();
                             }
 
                         }
@@ -508,6 +512,7 @@ namespace EXMOFB
             {
                 Reset_buy();
                 User_open_orders();
+                User_info();
                 label24.Text = spredbuy.ToString();
             }
         }
@@ -520,6 +525,7 @@ namespace EXMOFB
             {
                 Reset_sell();
                 User_open_orders();
+                User_info();
                 label32.Text = spredsell.ToString();
             }
         }
