@@ -229,7 +229,7 @@ namespace EXMOFB
 
             if (rows4 != 0)
             {
-                spredbuy = Math.Round(((double.Parse(dataGridView2.Rows[0].Cells[0].Value.ToString(), CultureInfo.InvariantCulture) / double.Parse(dataGridView4.Rows[b].Cells[0].Value.ToString(), CultureInfo.InvariantCulture) - 1) * 100), 2);
+                spredbuy = Math.Round(((avgprice / double.Parse(dataGridView4.Rows[b].Cells[0].Value.ToString(), CultureInfo.InvariantCulture) - 1) * 100), 2);
                 label24.Text = spredbuy.ToString();
                 ResetSpredBuy();
 
@@ -241,7 +241,7 @@ namespace EXMOFB
             }
             if (rows3 != 0)
             {
-                spredsell = Math.Round(((double.Parse(dataGridView3.Rows[s].Cells[0].Value.ToString(), CultureInfo.InvariantCulture) / double.Parse(dataGridView1.Rows[0].Cells[0].Value.ToString(), CultureInfo.InvariantCulture) - 1) * 100), 2); ;
+                spredsell = Math.Round(((double.Parse(dataGridView3.Rows[s].Cells[0].Value.ToString(), CultureInfo.InvariantCulture) / avgprice - 1) * 100), 2); ;
                 label32.Text = spredsell.ToString();
                 ResetSpredSell();
             }
@@ -377,7 +377,7 @@ namespace EXMOFB
                     if (rows4 == 0)
                     {
                         var otstupBuy = double.Parse(textBox2.Text, CultureInfo.InvariantCulture);
-                        var priceBuy = double.Parse(dataGridView2.Rows[0].Cells[0].Value.ToString(), CultureInfo.InvariantCulture);
+                        var priceBuy = avgprice;
                         priceBuy = priceBuy - (priceBuy / 100) * otstupBuy;
                         QuantityBuy(priceBuy);
                         User_info();
@@ -414,7 +414,7 @@ namespace EXMOFB
                     if (rows3 == 0)
                     {
                         var otstupSell = double.Parse(textBox3.Text, CultureInfo.InvariantCulture);
-                        var priceSell = double.Parse(dataGridView1.Rows[0].Cells[0].Value.ToString(), CultureInfo.InvariantCulture);
+                        var priceSell = avgprice;
                         priceSell = priceSell + (priceSell / 100) * otstupSell;
                         QuantitySell(priceSell);
                         User_info();
