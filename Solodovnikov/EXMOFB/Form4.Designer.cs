@@ -917,16 +917,16 @@ namespace EXMOFB
             // 
             // textBox7
             // 
-            this.textBox7.Location = new System.Drawing.Point(45, 85);
+            this.textBox7.Location = new System.Drawing.Point(65, 85);
             this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(43, 20);
+            this.textBox7.Size = new System.Drawing.Size(24, 20);
             this.textBox7.TabIndex = 32;
             this.textBox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(87, 89);
+            this.label23.Location = new System.Drawing.Point(91, 88);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(37, 13);
             this.label23.TabIndex = 31;
@@ -937,9 +937,9 @@ namespace EXMOFB
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(1, 88);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(47, 13);
+            this.label13.Size = new System.Drawing.Size(63, 13);
             this.label13.TabIndex = 30;
-            this.label13.Text = "Спред >";
+            this.label13.Text = "Ордеров  <";
             // 
             // label28
             // 

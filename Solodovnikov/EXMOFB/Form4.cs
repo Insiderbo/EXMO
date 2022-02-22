@@ -32,7 +32,7 @@ namespace EXMOFB
         string qSell;
         double quantityBuy;
         double quantitySell;
-        double controlspred;
+        int controlspred;
         public Form4()
         {
             InitializeComponent();
@@ -255,10 +255,11 @@ namespace EXMOFB
         {
             try
             {
+                int rows3 = dataGridView3.Rows.Count;
                 int rows4 = dataGridView4.Rows.Count;
-                controlspred = Math.Round(double.Parse(textBox7.Text.ToString(), CultureInfo.InvariantCulture), 2);
+                controlspred = int.Parse(textBox7.Text.ToString());
 
-                if (spredbuy > controlspred)
+                if (rows3 < controlspred)
                 {
                     if (rows4 != 0)
                     {
@@ -275,10 +276,11 @@ namespace EXMOFB
         {
             try
             {
+                int rows4 = dataGridView4.Rows.Count;
                 int rows3 = dataGridView3.Rows.Count;
-                controlspred = Math.Round(double.Parse(textBox7.Text.ToString(), CultureInfo.InvariantCulture), 2);
+                controlspred = int.Parse(textBox7.Text.ToString());
 
-                if (spredsell > controlspred)
+                if (rows4 < controlspred)
                 {
                     if (rows3 != 0)
                     {
@@ -367,7 +369,7 @@ namespace EXMOFB
         {
             try
             {
-                controlspred = Math.Round(double.Parse(textBox7.Text.ToString(), CultureInfo.InvariantCulture), 2);
+                controlspred =int.Parse(textBox7.Text.ToString());
                 int rows4 = dataGridView4.Rows.Count;
                 int counbuy = int.Parse(textBox6.Text.ToString(), CultureInfo.InvariantCulture);
                 int b = rows4 - 1;
@@ -383,7 +385,7 @@ namespace EXMOFB
                         User_info();
                     }
 
-                    if (rows4 != 0 && rows4 < counbuy && controlspred > spredbuy)
+                    if (rows4 != 0 && rows4 < counbuy && controlspred > rows4)
                     {
                         int count = int.Parse(textBox6.Text.ToString(), CultureInfo.InvariantCulture) - rows4;
                         var otstupBuy = double.Parse(textBox9.Text, CultureInfo.InvariantCulture);
@@ -405,7 +407,7 @@ namespace EXMOFB
         {
             try
             {
-                controlspred = Math.Round(double.Parse(textBox7.Text.ToString(), CultureInfo.InvariantCulture), 2);
+                controlspred = int.Parse(textBox7.Text.ToString());
                 int rows3 = dataGridView3.Rows.Count;
                 int countsell = int.Parse(textBox5.Text.ToString(), CultureInfo.InvariantCulture);
 
@@ -420,7 +422,7 @@ namespace EXMOFB
                         User_info();
                     }
 
-                    if (rows3 < countsell && rows3 != 0 && controlspred > spredsell)
+                    if (rows3 < countsell && rows3 != 0 && controlspred > rows3)
                     {
                         int count = int.Parse(textBox5.Text.ToString(), CultureInfo.InvariantCulture) - rows3;
                         var otstupSell = double.Parse(textBox8.Text, CultureInfo.InvariantCulture);
