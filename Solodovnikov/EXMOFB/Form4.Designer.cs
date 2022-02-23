@@ -129,8 +129,6 @@ namespace EXMOFB
             this.label26 = new System.Windows.Forms.Label();
             this.timer3 = new System.Windows.Forms.Timer(this.components);
             this.panel10 = new System.Windows.Forms.Panel();
-            this.label32 = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -414,11 +412,11 @@ namespace EXMOFB
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(23, 36);
+            this.label25.Location = new System.Drawing.Point(9, 36);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(50, 13);
+            this.label25.Size = new System.Drawing.Size(45, 13);
             this.label25.TabIndex = 26;
-            this.label25.Text = "Покупка";
+            this.label25.Text = "Ордера";
             // 
             // panel5
             // 
@@ -860,7 +858,7 @@ namespace EXMOFB
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(30, 13);
+            this.label22.Location = new System.Drawing.Point(9, 13);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(43, 13);
             this.label22.TabIndex = 23;
@@ -883,8 +881,6 @@ namespace EXMOFB
             // panel10
             // 
             this.panel10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel10.Controls.Add(this.label32);
-            this.panel10.Controls.Add(this.label33);
             this.panel10.Controls.Add(this.textBox7);
             this.panel10.Controls.Add(this.label23);
             this.panel10.Controls.Add(this.label13);
@@ -897,27 +893,9 @@ namespace EXMOFB
             this.panel10.Size = new System.Drawing.Size(129, 133);
             this.panel10.TabIndex = 28;
             // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(83, 60);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(19, 13);
-            this.label32.TabIndex = 34;
-            this.label32.Text = "    ";
-            // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(20, 60);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(53, 13);
-            this.label33.TabIndex = 33;
-            this.label33.Text = "Продажа";
-            // 
             // textBox7
             // 
-            this.textBox7.Location = new System.Drawing.Point(65, 85);
+            this.textBox7.Location = new System.Drawing.Point(56, 61);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(24, 20);
             this.textBox7.TabIndex = 32;
@@ -926,7 +904,7 @@ namespace EXMOFB
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(91, 88);
+            this.label23.Location = new System.Drawing.Point(83, 64);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(37, 13);
             this.label23.TabIndex = 31;
@@ -935,16 +913,16 @@ namespace EXMOFB
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(1, 88);
+            this.label13.Location = new System.Drawing.Point(3, 64);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(63, 13);
+            this.label13.Size = new System.Drawing.Size(47, 13);
             this.label13.TabIndex = 30;
-            this.label13.Text = "Ордеров  <";
+            this.label13.Text = "Спред >";
             // 
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(83, 11);
+            this.label28.Location = new System.Drawing.Point(83, 13);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(22, 13);
             this.label28.TabIndex = 29;
@@ -953,7 +931,7 @@ namespace EXMOFB
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(83, 38);
+            this.label24.Location = new System.Drawing.Point(83, 34);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(19, 13);
             this.label24.TabIndex = 28;
@@ -1097,8 +1075,6 @@ namespace EXMOFB
         private TextBox textBox11;
         private Label label30;
         private TextBox textBox10;
-        private Label label32;
-        private Label label33;
     }
 }
 
