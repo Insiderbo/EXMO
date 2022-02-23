@@ -33,7 +33,7 @@ namespace EXMOFB
         string qSell;
         double quantityBuy;
         double quantitySell;
-        int controlspred;
+        double controlspred;
         public Form4()
         {
             InitializeComponent();
@@ -225,7 +225,7 @@ namespace EXMOFB
 
             if (rows1 != 0 && rows2 != 0)//спред стакана
             {
-                stacanspred = Math.Round(((double.Parse(dataGridView1.Rows[0].Cells[0].Value.ToString(), CultureInfo.InvariantCulture) / double.Parse(dataGridView2.Rows[0].Cells[0].Value.ToString(), CultureInfo.InvariantCulture) - 1) * 100), 2);
+                stacanspred = Math.Round(((double.Parse(dataGridView1.Rows[0].Cells[0].Value.ToString(), CultureInfo.InvariantCulture) / double.Parse(dataGridView2.Rows[0].Cells[0].Value.ToString(), CultureInfo.InvariantCulture) - 1) * 100), 1);
                 label28.Text = stacanspred.ToString();
             }
 
@@ -236,20 +236,20 @@ namespace EXMOFB
             }
             if (rows4 != 0 && rows3 == 0)
             {
-                orderspred = Math.Round(((double.Parse(dataGridView1.Rows[0].Cells[0].Value.ToString(), CultureInfo.InvariantCulture) / double.Parse(dataGridView4.Rows[b].Cells[0].Value.ToString(), CultureInfo.InvariantCulture) - 1) * 100), 2);
+                orderspred = Math.Round(((double.Parse(dataGridView1.Rows[0].Cells[0].Value.ToString(), CultureInfo.InvariantCulture) / double.Parse(dataGridView4.Rows[b].Cells[0].Value.ToString(), CultureInfo.InvariantCulture) - 1) * 100), 1);
                 label24.Text = orderspred.ToString();
                 ResetSpred();
 
             }
             if (rows4 == 0 && rows3 != 0)
             {
-                orderspred = Math.Round(((double.Parse(dataGridView3.Rows[s].Cells[0].Value.ToString(), CultureInfo.InvariantCulture) / double.Parse(dataGridView2.Rows[0].Cells[0].Value.ToString(), CultureInfo.InvariantCulture) - 1) * 100), 2);
+                orderspred = Math.Round(((double.Parse(dataGridView3.Rows[s].Cells[0].Value.ToString(), CultureInfo.InvariantCulture) / double.Parse(dataGridView2.Rows[0].Cells[0].Value.ToString(), CultureInfo.InvariantCulture) - 1) * 100), 1);
                 label24.Text = orderspred.ToString();
                 ResetSpred();
             }
             if (rows4 != 0 && rows3 != 0)
             {
-                orderspred = Math.Round(((double.Parse(dataGridView3.Rows[s].Cells[0].Value.ToString(), CultureInfo.InvariantCulture) / double.Parse(dataGridView4.Rows[b].Cells[0].Value.ToString(), CultureInfo.InvariantCulture) - 1) * 100), 2);
+                orderspred = Math.Round(((double.Parse(dataGridView3.Rows[s].Cells[0].Value.ToString(), CultureInfo.InvariantCulture) / double.Parse(dataGridView4.Rows[b].Cells[0].Value.ToString(), CultureInfo.InvariantCulture) - 1) * 100), 1);
                 label24.Text = orderspred.ToString();
                 ResetSpred();
             }
@@ -262,7 +262,7 @@ namespace EXMOFB
 
             try
             {
-                if (textBox7.Text.ToString() != "" && orderspred > int.Parse(textBox7.Text.ToString(), CultureInfo.InvariantCulture))
+                if (textBox7.Text.ToString() != "" && orderspred > double.Parse(textBox7.Text.ToString(), CultureInfo.InvariantCulture))
                 {
                     timer3.Stop();
                     for (int i = 0; i < rows4; i++)
@@ -359,7 +359,7 @@ namespace EXMOFB
         {
             try
             {
-                controlspred =int.Parse(textBox7.Text.ToString());
+                controlspred = double.Parse(textBox7.Text.ToString(), CultureInfo.InvariantCulture);
                 int rows4 = dataGridView4.Rows.Count;
                 int counbuy = int.Parse(textBox6.Text.ToString(), CultureInfo.InvariantCulture);
                 int b = rows4 - 1;
@@ -397,7 +397,7 @@ namespace EXMOFB
         {
             try
             {
-                controlspred = int.Parse(textBox7.Text.ToString());
+                controlspred = double.Parse(textBox7.Text.ToString(), CultureInfo.InvariantCulture);
                 int rows3 = dataGridView3.Rows.Count;
                 int countsell = int.Parse(textBox5.Text.ToString(), CultureInfo.InvariantCulture);
 
