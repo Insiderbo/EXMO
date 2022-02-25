@@ -309,6 +309,7 @@ namespace EXMOFB
                 { "quantity", qBuy }, { "price", e.ToString() }, { "type", "buy" } });
             User_info();
             User_open_orders();
+            ControlSpred();
         }
         void QuantitySell(double priceSell)
         {
@@ -324,6 +325,7 @@ namespace EXMOFB
                 { "quantity", qSell }, { "price", priceLastsel }, { "type", "sell" } });
             User_info();
             User_open_orders();
+            ControlSpred();
         }
         void Reset_buy(string e)//сброс покупки
         {
@@ -389,6 +391,7 @@ namespace EXMOFB
                         }
                     }
                     orderControbuy();
+                    ControlSpred();
                 }
             }
             catch { }
@@ -430,6 +433,7 @@ namespace EXMOFB
                         }
                     }
                     orderControllsell();
+                    ControlSpred();
                 }
             }
             catch { }
@@ -495,7 +499,7 @@ namespace EXMOFB
                 button2.Enabled = false;
             }
         }
-        private void button3_Click_1(object sender, EventArgs e)
+        private void button3_Click_1(object sender, EventArgs e)//сброс покупок
         {
             int rows4 = dataGridView4.Rows.Count;
             int b = rows4 - 1;
@@ -506,6 +510,7 @@ namespace EXMOFB
                 dataGridView4.Rows.Clear();
                 User_open_orders();
                 dataGridView4.Refresh();
+                ControlSpred();
             }
         }
         void button4_Click(object sender, EventArgs e)//сброс продажи    
@@ -519,6 +524,7 @@ namespace EXMOFB
                 dataGridView3.Rows.Clear();
                 User_open_orders();
                 dataGridView3.Refresh();
+                ControlSpred();
             }
         }
         void button5_Click(object sender, EventArgs e)//Старт покупок
